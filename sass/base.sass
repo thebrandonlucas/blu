@@ -1,27 +1,46 @@
-//$font-path: "../static/fonts";
+$font-path: "../static/fonts/static"
 $bg-color: hsl(57, 100%, 91%)
-$text-color: blue
+$text-color: hsl(360, 56%, 27%)
+$hover-color: hsl(360, 10%, 70%)
 
 // Use @font-face to define the Garamond font
-// @font-face {
-//    font-family: 'Garamond';
-//    src: url("#{$font-path}/eb_garamond.ttf") format("truetype");
-//   font-weight: normal;
-//    font-style: normal;
-// }
+@font-face
+    font-family: 'Garamond'
+    src: url("#{$font-path}/EBGaramond-Medium.ttf") format("truetype")
+    font-weight: normal
+    font-style: normal
 
-// @font-face {
-//    font-family: 'Garamond';
-//    src: url("#{$font-path}/eb_garamond_italic.ttf") format("truetype"),
-//   font-weight: italic;
-//    font-style: normal;
-// }
+
+@font-face
+    font-family: 'Garamond'
+    src: url("#{$font-path}/EBGaramond-Italic.ttf") format("truetype")
+    font-style: italic 
+    font-weight: normal
 
 html 
   background-color: $bg-color
   color: $text-color
 
+a
+  text-decoration: none
+  color: $text-color
+  transition: color 0.3s ease
+
+a:hover
+  color: $hover-color
 
 body 
   font-family: 'Garamond', 'serif'
+
+nav
+  background-color: $text-color
+  color: $bg-color
+
+ul
+  display: flex
+  list-style-type: none
+  justify-content: space-between
+  color: $bg-color
+
+
 
