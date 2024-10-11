@@ -17,30 +17,49 @@ $hover-color: hsl(360, 10%, 70%)
     font-style: italic 
     font-weight: normal
 
+@font-face
+    font-family: 'Garamond'
+    src: url("#{$font-path}/EBGaramond-Bold.ttf") format("truetype")
+    font-style: normal
+    font-weight: bold 
+
+@font-face
+    font-family: 'Garamond'
+    src: url("#{$font-path}/EBGaramond-BoldItalic.ttf") format("truetype")
+    font-style: italic
+    font-weight: bold 
+
+
 html 
   background-color: $bg-color
   color: $text-color
 
+body 
+  font-family: 'Garamond', 'serif'
+
 a
-  text-decoration: none
   color: $text-color
   transition: color 0.3s ease
 
 a:hover
   color: $hover-color
 
-body 
-  font-family: 'Garamond', 'serif'
+hr 
+  border-color: $text-color 
+
+h1
+  font-size: 2rem
 
 nav
-  background-color: $text-color
-  color: $bg-color
+  ul 
+    background-color: $text-color
+    display: flex
+    list-style-type: none
+    justify-content: space-around
+    margin: 0
+    padding: 5px 0 5px 0
 
-ul
-  display: flex
-  list-style-type: none
-  justify-content: space-between
-  color: $bg-color
-
-
+    a
+      color: $bg-color
+      text-decoration: none
 
