@@ -1,5 +1,6 @@
 $font-path: "../static/fonts/static"
-$bg-color: hsl(57, 100%, 91%)
+//$bg-color: hsl(57, 100%, 91%)
+$bg-color: hsl(35.1, 71.9%, 88.8%)
 $text-color: hsl(360, 56%, 27%)
 $hover-color: hsl(360, 10%, 70%)
 
@@ -9,7 +10,6 @@ $hover-color: hsl(360, 10%, 70%)
     src: url("#{$font-path}/EBGaramond-Medium.ttf") format("truetype")
     font-weight: normal
     font-style: normal
-
 
 @font-face
     font-family: 'Garamond'
@@ -28,7 +28,6 @@ $hover-color: hsl(360, 10%, 70%)
     src: url("#{$font-path}/EBGaramond-BoldItalic.ttf") format("truetype")
     font-style: italic
     font-weight: bold 
-
 
 html 
   background-color: $bg-color
@@ -49,6 +48,14 @@ hr
 
 h1
   font-size: 2rem
+  margin: 0
+
+h1.header-title
+  margin: 0 auto 2rem auto
+  text-align: center
+
+h1.title 
+  margin-top: 2rem
 
 nav
   ul 
@@ -62,4 +69,18 @@ nav
     a
       color: $bg-color
       text-decoration: none
+
+.container
+  display: flex
+  flex-direction: column
+  justify-content: center
+  margin: 0 8rem 0 8rem
+
+.container img
+  max-width: 100%
+
+
+@media (min-width: 768px)
+    .container
+      margin: 0 2rem 0 2rem 
 

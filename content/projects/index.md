@@ -108,4 +108,4 @@ It's no longer active due to relatively low use, but we were really proud of the
 
 ![Image of Walter White as a QR Code](./qr-walt.png)
 
-_I wish I'd saved the prompt that generated this.
+_I wish I'd saved the prompt that generated this._
