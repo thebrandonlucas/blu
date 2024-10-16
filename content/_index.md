@@ -1,4 +1,3 @@
-
 +++
-redirect_to="articles"
+redirect_to="/articles"
 +++

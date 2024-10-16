@@ -1,12 +1,8 @@
 # The URL the site will be built for
-base_url = "https://blu.cx/articles"
+base_url = "https://blu.cx"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
-
-taxonomies = [
-    {name = "tags"},
-]
 
 [markdown]
 # Whether to do syntax highlighting
@@ -15,5 +11,3 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
-
-
