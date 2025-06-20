@@ -1,4 +1,8 @@
-# Fear to Attempt
+---
+title: Fear to Attempt
+description: Our doubts are traitors and make us lose the good we oft might win by fearing to attempt
+date: 2025-06-20
+---
 
 > Our doubts are traitors and make us lose the good we oft might win by fearing to attempt
 >
