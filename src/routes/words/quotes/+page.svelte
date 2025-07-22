@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Quotes from '$lib/md/quotes.md';
+	import Quotes from '$lib/components/Quotes.svelte';
 </script>
 
 <Quotes />

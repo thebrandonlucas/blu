@@ -14,11 +14,16 @@
 		quote,
 		index,
 		showDate = false
-	}: { quote?: Quote; index?: number; showDate: boolean } = $props();
+	}: { quote?: Quote; index?: number; showDate?: boolean } = $props();
+
+	let textArray = $state<string[]>([]);
 
 	$effect(() => {
 		if (!quote) {
 			quote = index ? quotes[index] : getRandomQuote();
+		}
+		if (quote?.text.includes('\n')) {
+			textArray = quote?.text.split('\n');
 		}
 	});
 
@@ -32,7 +37,13 @@
 	<span>{quote?.date}</span>
 {/if}
 <blockquote>
-	<span>{quote?.text}</span>
+	{#if textArray?.length}
+		{#each textArray as t}
+			<div class="min-h-8">{t}</div>
+		{/each}
+	{:else}
+		<span>{quote?.text}</span>
+	{/if}
 </blockquote>
 <ul>
 	{#if quote?.link}
