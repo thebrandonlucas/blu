@@ -2,12 +2,19 @@
 	import quotes from '$lib/data/quotes.json';
 
 	type Quote = {
+		// This is the date _I_ discovered it, not the date it was written.
+		// Therefore, it is not always desirable to show it.
 		date: string;
 		text: string;
 		source: string;
+		link?: string;
 	};
 
-	let { quote, index }: { quote?: Quote; index?: number } = $props();
+	let {
+		quote,
+		index,
+		showDate = false
+	}: { quote?: Quote; index?: number; showDate: boolean } = $props();
 
 	$effect(() => {
 		if (!quote) {
@@ -21,10 +28,18 @@
 	}
 </script>
 
-<span>{quote?.date}</span>
+{#if showDate}
+	<span>{quote?.date}</span>
+{/if}
 <blockquote>
 	<span>{quote?.text}</span>
 </blockquote>
-<ul class="ml-12">
-	<li>{quote?.source}</li>
+<ul>
+	{#if quote?.link}
+		<a href={quote?.link}>
+			<li>{quote?.source}</li>
+		</a>
+	{:else}
+		<li>{quote?.source}</li>
+	{/if}
 </ul>
