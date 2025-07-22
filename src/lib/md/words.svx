@@ -6,10 +6,9 @@
   let { articles , blog }: { articles: MarkdownFileMetadata[], blog: MarkdownFileMetadata[] } = $props();
 </script>
 
-Different-quality/effort level posts. Articles are generally the longest/most thought out, blogs are more freeform,
-journals will be fairly unedited. I keep a list of quotes I like, and books I find interesting.
+<Quote />
 
---- 
+---
 
 <Posts smallTitle posts={articles} sectionTitle="Latest Articles" pathPrefix="/words/articles"></Posts>
 

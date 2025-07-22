@@ -7,7 +7,7 @@ date: 2024-23-11
   import Quote from '$lib/components/Quote.svelte';
   import Posts from '$lib/components/Posts.svelte';
   import type { MarkdownFileMetadata } from '$lib/types';
-  import SectionHeader from '$lib/components/SectionHeader.svelte'
+  import SectionHeader from '$lib/components/SectionHeader.svelte';
 
   let { articles , blog }: { articles: MarkdownFileMetadata[], blog: MarkdownFileMetadata[] } = $props();
 </script>
@@ -24,7 +24,12 @@ date: 2024-23-11
   </div>
 </div>
 
-<!-- TODO: add "latest quote" here -->
+---
+
+<h2 class="my-8">Random Quote</h2>
+
+<Quote />
+
 --- 
 
 <Posts smallTitle posts={articles} sectionTitle="Latest Articles" pathPrefix="/words/articles" numShown={3}></Posts>
