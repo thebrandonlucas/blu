@@ -18,9 +18,7 @@ date: 2024-23-11
   </div>
 
   <div style="text-align: center;">
-    Welcome! I'm <b>B</b>randon <b>Lu</b>cas. Checkout <a href="/words">words</a> for articles, blog posts, quotes, etc., 
-    <a href="/work">work</a> for non-writing projects, 
-    or <a href="about">about</a> to learn more about me.
+    Welcome! I'm <b>B</b>randon <b>Lu</b>cas. See <a href="about">about</a> to learn more about me.
   </div>
 </div>
 
