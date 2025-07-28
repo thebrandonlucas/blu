@@ -24,9 +24,9 @@ date: 2024-23-11
 
 ---
 
-<h2 class="my-8">Random Quote</h2>
-
 <Quote />
+
+[See more quotes](./quotes.md)
 
 --- 
 
@@ -35,3 +35,10 @@ date: 2024-23-11
 ---
 
 <Posts smallTitle posts={blog} sectionTitle="Latest Blog Posts" pathPrefix="/words/blog" numShown={3}></Posts>
+
+---
+
+- [Journal Entries](words/journal)
+- [Projects](work/projects)
+- [Talks/Other](work/other)
+- [Contact](about/contact)
