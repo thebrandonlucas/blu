@@ -26,7 +26,7 @@ date: 2024-23-11
 
 <Quote />
 
-[See more quotes](./quotes.md)
+[See more quotes](./words/quotes)
 
 --- 
 
