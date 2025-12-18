@@ -140,13 +140,15 @@ htmlTemplate title contentNodes =
             []
             [ node "title" [] [ text title ]
             , node "meta" [ attribute "charset" "utf-8" ] []
-            , script "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/highlight.min.js"
-            , script "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/languages/elm.min.js"
-            , inlineScript "hljs.initHighlightingOnLoad();"
-            , stylesheet "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/styles/default.min.css"
-            , stylesheet "//fonts.googleapis.com/css?family=Open+Sans|Proza+Libre|Inconsolata"
+
+            -- , script "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/highlight.min.js"
+            -- , script "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/languages/elm.min.js"
+            -- , stylesheet "./output.css"
+            -- , inlineScript "hljs.initHighlightingOnLoad();"
+            -- , stylesheet "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/styles/default.min.css"
+            -- , stylesheet "//fonts.googleapis.com/css?family=Open+Sans|Proza+Libre|Inconsolata"
             ]
-        , node "body" [] contentNodes
+        , node "body" [ class "bg-black" ] contentNodes
         ]
 
 
@@ -159,20 +161,20 @@ layout decoder view =
                 case Json.decodeValue decoder contentJson of
                     Err error ->
                         { title = "error"
-                        , body = [ Html.div [ attribute "error" <| Json.errorToString error ] [] ]
+                        , body = [ div [ attribute "error" <| Json.errorToString error ] [] ]
                         }
 
                     Ok content ->
                         case view content of
                             Err viewError ->
                                 { title = "error"
-                                , body = [ Html.div [ attribute "error" viewError ] [] ]
+                                , body = [ div [ attribute "error" viewError ] [] ]
                                 }
 
                             Ok viewHtml ->
                                 { title = ""
                                 , body = [ htmlTemplate content.siteTitle <| viewHtml ]
                                 }
-        , update = \msg contentJson -> ( contentJson, Cmd.none )
+        , update = \_ contentJson -> ( contentJson, Cmd.none )
         , subscriptions = \_ -> Sub.none
         }

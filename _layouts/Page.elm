@@ -4,7 +4,10 @@ import Elmstatic exposing (..)
 import Html exposing (..)
 import Html.Attributes as Attr exposing (alt, attribute, class, href, src)
 import Markdown
-import Styles
+
+
+
+-- import Styles
 
 
 githubIcon : Html Never
@@ -106,7 +109,7 @@ footer =
 layout : String -> List (Html Never) -> List (Html Never)
 layout title contentItems =
     header
-        ++ [ div [ class "sidebar" ]
+        ++ [ div [ class "bg-black" ]
                 []
            , div [ class "sidebar2" ]
                 []
@@ -114,7 +117,8 @@ layout title contentItems =
                 ([ h1 [] [ text title ] ] ++ contentItems)
            , footer
            , Elmstatic.stylesheet "/styles.css"
-           , Styles.styles
+
+           -- , Styles.styles
            ]
 
 

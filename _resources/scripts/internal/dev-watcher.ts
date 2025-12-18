@@ -8,18 +8,22 @@ const debounceMs = 500;
 
 // Watch these source directories recursively
 const pathsToWatch = [
-  "./",
+  "./_layouts",
+  "./_pages",
+  "./_posts",
+  "./_resources",
+  "./_layouts",
   // Add more source dirs as needed
 ];
-
-// Explicitly exclude these paths (and everything inside them)
-// Useful for output dirs like _site, dist, build, etc.
-const pathsToExclude = [
-  "./_site",        // Main culprit for Tailwind/ElmStatic output
-  "./node_modules"
-  // "./dist",
-  // "./build",
-];
+//
+// // Explicitly exclude these paths (and everything inside them)
+// // Useful for output dirs like _site, dist, build, etc.
+// const pathsToExclude = [
+//   "./_site",        // Main culprit for Tailwind/ElmStatic output
+//   "./node_modules"
+//   // "./dist",
+//   // "./build",
+// ];
 
 async function runBuild() {
   if (isBuilding) {
@@ -31,7 +35,7 @@ async function runBuild() {
   console.log("🔄 Changes detected – starting build sequence...\n");
 
 
-  // 2. ElmStatic
+  // 1. ElmStatic
   const elmstaticProc = Bun.spawn([
     "bunx", "elmstatic", "build"
   ], { stdout: "inherit", stderr: "inherit" });
@@ -40,22 +44,22 @@ async function runBuild() {
   if (elmstaticCode !== 0) {
     console.log(`\n❌ ElmStatic failed (code ${elmstaticCode})`);
     isBuilding = false;
-    return;
+    return 0;
   }
   console.log("\n✅ ElmStatic complete");
   //
-  // 1. Tailwind CSS
+  // 2. Tailwind CSS -- overwrite elmstatic's default styles.css
   const tailwindProc = Bun.spawn([
-    "bun", "run", "tailwindcss",
+    "bunx", "@tailwindcss/cli",
     "-i", "./_resources/styles.css",
-    "-o", "./_site/output.css",
+    "-o", "./_site/styles.css",
   ], { stdout: "inherit", stderr: "inherit" });
 
   const tailwindCode = await tailwindProc.exited;
   if (tailwindCode !== 0) {
     console.log(`\n❌ Tailwind failed (code ${tailwindCode})`);
     isBuilding = false;
-    return;
+    return 0;
   }
   console.log("\n✅ Tailwind complete");
 
@@ -68,7 +72,7 @@ async function runBuild() {
   if (thirdCode !== 0) {
     console.log(`\n❌ Third step failed (code ${thirdCode})`);
     isBuilding = false;
-    return;
+    return 0;
   }
   console.log("\n✅ Third step complete");
 
@@ -77,13 +81,13 @@ async function runBuild() {
 }
 
 // Helper: check if a file path should be ignored
-function shouldIgnore(filePath: string): boolean {
-  const absPath = resolve(filePath);
-  return pathsToExclude.some(exclude => {
-    const absExclude = resolve(exclude);
-    return absPath.startsWith(absExclude + "/") || absPath === absExclude;
-  });
-}
+// function shouldIgnore(filePath: string): boolean {
+//   const absPath = resolve(filePath);
+//   return pathsToExclude.some(exclude => {
+//     const absExclude = resolve(exclude);
+//     return absPath.startsWith(absExclude + "/") || absPath === absExclude;
+//   });
+// }
 
 pathsToWatch.forEach((dir) => {
   watch(dir, { recursive: true }, (event, filename) => {
@@ -92,10 +96,10 @@ pathsToWatch.forEach((dir) => {
     const fullPath = resolve(dir, filename);
     const relPath = relative(process.cwd(), fullPath);
 
-    if (shouldIgnore(relPath)) {
-      console.log(`Ignored change (excluded path): ${relPath}`);
-      return;
-    }
+    // if (shouldIgnore(relPath)) {
+    //   console.log(`Ignored change (excluded path): ${relPath}`);
+    //   return;
+    // }
 
     console.log(`Change: ${relPath}`);
     if (debounceTimer) clearTimeout(debounceTimer);
@@ -105,7 +109,7 @@ pathsToWatch.forEach((dir) => {
 
 console.log("👀 Watching for changes...");
 console.log("Included paths:", pathsToWatch.join(", "));
-console.log("Excluded paths:", pathsToExclude.join(", "));
+// console.log("Excluded paths:", pathsToExclude.join(", "));
 console.log("\n");
 
 // Initial build on start

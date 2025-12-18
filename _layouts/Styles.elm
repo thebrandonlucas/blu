@@ -21,7 +21,7 @@ styles =
         [ body
             [ padding <| px 0
             , margin <| px 0
-            , backgroundColor <| hex "ffffff"
+            , backgroundColor <| hex "bg-black"
             , Css.color <| hex "363636"
             , fontFamilies [ "Open Sans", "Arial", .value sansSerif ]
             , fontSize <| px 18
