@@ -6,6 +6,16 @@ import Html.Attributes exposing (alt, attribute, class, href, src)
 import Markdown
 
 
+type alias Link =
+    { href : String
+    , name : String
+    }
+
+
+type alias Nav =
+    List Link
+
+
 markdown : String -> Html Never
 markdown s =
     let
@@ -22,27 +32,122 @@ markdown s =
 
 header : List (Html Never)
 header =
-    [ div [ class "header-logo" ]
-        [ img [ alt "Author's blog", src "/img/logo.png", attribute "width" "100" ]
+    [ viewNav viewNavLinks
+    , viewIconLink "Narsil Logo" "/"
+    ]
+
+
+
+-- [ div [ class "header-logo" ]
+--     [ img [ alt "Author's blog", src "/img/logo.png", attribute "width" "100" ]
+--         []
+--     ]
+-- , div [ class "navigation" ]
+--     [ ul []
+--         [ li []
+--             [ a [ href "/posts" ]
+--                 [ text "Posts" ]
+--             ]
+--         , li []
+--             [ a [ href "/about" ]
+--                 [ text "About" ]
+--             ]
+--         , li []
+--             [ a [ href "/contact" ]
+--                 [ text "Contact" ]
+--             ]
+--         ]
+--     ]
+-- ]
+--
+
+
+viewNavLinks : Nav
+viewNavLinks =
+    [ { name = "Articles", href = "/articles" }
+    , { name = "Blog", href = "/blog" }
+    , { name = "Journal", href = "/journal" }
+    , { name = "Quotes", href = "/quotes" }
+
+    -- , { name = "Talks", href = "/talks" }
+    -- , { name = "Books", href = "/books" }
+    -- , { name = "Travel", href = "/travel" }
+    -- , { name = "Software", href = "/software" }
+    -- , { name = "Creations", href = "/creations" }
+    -- , { name = "Contributions", href = "/contributions" }
+    -- , { name = "Websites I Like", href = "/websitesilike" }
+    -- , { name = "Languages", href = "/languages" }
+    -- , { name = "Contact", href = "/contact" }
+    -- , { name = "About Me", href = "/aboutme" }
+    -- , { name = "Around the Web", href = "/aroundtheweb" }
+    -- , { name = "About this site", href = "/aboutthissite" }
+    -- , { name = "Gardening", href = "/gardening" }
+    -- , { name = "3D Printing", href = "/3dprinting" }
+    ]
+
+
+viewNav : Nav -> Html msg
+viewNav links =
+    nav [ class "flex justify-center w-full max-lg:hidden" ]
+        [ ul [ class "grid grid-cols-4 justify-around w-full items-center text-center" ]
+            (List.map
+                (\link ->
+                    li [] [ viewLink link.href link.name Nothing ]
+                )
+                links
+            )
+        ]
+
+
+viewIconLink : String -> String -> Html msg
+viewIconLink name link =
+    a [ href link ]
+        [ img
+            [ src "assets/favicon.png"
+            , alt name
+            , class "h-20"
+            ]
             []
         ]
-    , div [ class "navigation" ]
-        [ ul []
-            [ li []
-                [ a [ href "/posts" ]
-                    [ text "Posts" ]
-                ]
-            , li []
-                [ a [ href "/about" ]
-                    [ text "About" ]
-                ]
-            , li []
-                [ a [ href "/contact" ]
-                    [ text "Contact" ]
-                ]
-            ]
+
+
+viewLink : String -> String -> Maybe String -> Html msg
+viewLink link name additionalClass =
+    a
+        [ href link
+        , class
+            ("hover:text-[#f7dd5f] transition-all underline "
+                ++ (case additionalClass of
+                        Nothing ->
+                            ""
+
+                        Just c ->
+                            c
+                   )
+            )
         ]
-    ]
+        [ text name ]
+
+
+viewSubtitle : String -> Html msg
+viewSubtitle str =
+    h2 [ class "text-xl text-center" ] [ text str ]
+
+
+viewInfoSection : Html msg -> Maybe (Html msg) -> Html msg
+viewInfoSection description details =
+    div [ class """flex flex-col gap-4 border border-gray-500
+                        p-8 rounded-sm max-h-150 overflow-y-auto text-wrap break-words
+                      """ ]
+        [ h2 [] [ description ]
+        , case details of
+            Nothing ->
+                div [] []
+
+            Just deets ->
+                div []
+                    [ deets ]
+        ]
 
 
 layout : String -> List (Html Never) -> List (Html Never)
@@ -50,8 +155,48 @@ layout title contentItems =
     header
         ++ [ div [ class "content" ]
                 (h1 [ class "unifrakturmaguntia-regular text-6xl" ] [ text title ] :: contentItems)
+           , div [ class "font-bold text-4xl italic" ] [ text "Βράνδον Λύκας" ]
+           , viewSubtitle "Bitcoin Lightning Payments @ voltage.cloud | Bitcoin Privacy & Scalability @ payjoin.org. Love sovereign software & history. Learning Nix, Elm, Rust, Ancient Greek and Latin."
+           , div [ class "flex flex-col gap-4 w-full" ]
+                []
+
+           -- [            -- , div [ class "grid lg:grid-cols-2 w-full gap-4" ]
+           --     [
+           --       text ""
+           --     --   viewMarkdownFile files.writingDescription Section
+           --     -- , viewQuotes files.quotesDescription files.quotes
+           --     -- , viewMarkdownFile files.creationsDescription Section
+           --     -- , viewMarkdownFile files.contributionsDescription Section
+           --     -- , viewMarkdownFile files.talksDescription Section
+           --     -- , viewMarkdownFile files.technologyDescription Section
+           --     -- , viewMarkdownFile files.booksDescription Section
+           --     -- , viewMarkdownFile files.workDescription Section
+           --     --
+           --     ]
            , Elmstatic.stylesheet "/styles.css"
            ]
+
+
+
+-- [ div [ class "content" ]
+--         (h1 [ class "unifrakturmaguntia-regular text-6xl" ] [ text title ] :: contentItems)
+--    , div [ class "font-bold text-4xl italic" ] [ text "Βράνδον Λύκας" ]
+--    ,
+--
+--    -- , viewSubtitle "Bitcoin Lightning Payments @ voltage.cloud | Bitcoin Privacy & Scalability @ payjoin.org. Love sovereign software & history. Learning Nix, Elm, Rust, Ancient Greek and Latin."
+--    -- , div [ class "flex flex-col gap-4 w-full" ]
+--    --     [ viewAboutMe
+--    --     , div [ class "grid lg:grid-cols-2 w-full gap-4" ]
+--    --         [ viewMarkdownFile files.writingDescription Section
+--    --         , viewQuotes files.quotesDescription files.quotes
+--    --         , viewMarkdownFile files.creationsDescription Section
+--    --         , viewMarkdownFile files.contributionsDescription Section
+--    --         , viewMarkdownFile files.talksDescription Section
+--    --         , viewMarkdownFile files.technologyDescription Section
+--    --         , viewMarkdownFile files.booksDescription Section
+--    --         , viewMarkdownFile files.workDescription Section
+--    , Elmstatic.stylesheet "/styles.css"
+--    ]
 
 
 main : Elmstatic.Layout

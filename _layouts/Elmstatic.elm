@@ -153,7 +153,7 @@ htmlTemplate title contentNodes =
             , stylesheet "https://fonts.gstatic.com"
             , stylesheet "https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap"
             ]
-        , node "body" [ class "bg-black text-white" ] contentNodes
+        , node "body" [ class "bg-black text-white flex flex-col gap-8 w-[80%] items-center mx-auto my-20" ] contentNodes
         ]
 
 
