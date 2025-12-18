@@ -3,3 +3,25 @@
 */
 @import "tailwindcss";
 
+@font-face {
+  font-family: "EBGaramond-Regular";  /* Name you assign to the font */
+  src: url("./_resources/fonts/EBGaramond-Regular.ttf") format("ttf"),  /* Primary format */
+  /* font-weight: normal;  /* Optional: e.g., normal, bold, 400 */ */
+  /* font-style: normal;   /* Optional: e.g., normal, italic */ */
+}
+
+
+.unifrakturmaguntia-regular {
+  font-family: "UnifrakturMaguntia", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: EBGaramond-Regular;
+}
+
+/* TODO: Add dedicated CSS theming file? */
+.hoverColor {
+  color: #f7dd5f;
+}

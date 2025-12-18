@@ -149,6 +149,9 @@ htmlTemplate title contentNodes =
             -- , stylesheet "//fonts.googleapis.com/css?family=Open+Sans|Proza+Libre|Inconsolata"
             -- TODO: remove
             , script "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"
+            , stylesheet "https://fonts.googleapis.com"
+            , stylesheet "https://fonts.gstatic.com"
+            , stylesheet "https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap"
             ]
         , node "body" [ class "bg-black text-white" ] contentNodes
         ]
