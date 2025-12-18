@@ -49,10 +49,8 @@ layout : String -> List (Html Never) -> List (Html Never)
 layout title contentItems =
     header
         ++ [ div [ class "content" ]
-                ([ h1 [ class "unifrakturmaguntia-regular text-6xl" ] [ text title ] ] ++ contentItems)
+                (h1 [ class "unifrakturmaguntia-regular text-6xl" ] [ text title ] :: contentItems)
            , Elmstatic.stylesheet "/styles.css"
-
-           -- , Styles.styles
            ]
 
 
