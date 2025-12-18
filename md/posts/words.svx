@@ -1,0 +1,17 @@
+<script lang="ts">
+  import Quote from '$lib/components/Quote.svelte';
+  import Posts from '$lib/components/Posts.svelte';
+  import type { MarkdownFileMetadata } from '$lib/types';
+
+  let { articles , blog }: { articles: MarkdownFileMetadata[], blog: MarkdownFileMetadata[] } = $props();
+</script>
+
+<Quote />
+
+---
+
+<Posts smallTitle posts={articles} sectionTitle="Latest Articles" pathPrefix="/words/articles"></Posts>
+
+---
+
+<Posts smallTitle posts={blog} sectionTitle="Latest Blog Posts" pathPrefix="/words/blog"></Posts>

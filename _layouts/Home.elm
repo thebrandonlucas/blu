@@ -1,4 +1,4 @@
-module Page exposing (footer, header, layout, main, markdown)
+module Home exposing (footer, header, layout, main, markdown)
 
 import Elmstatic exposing (..)
 import Html exposing (..)

@@ -147,8 +147,10 @@ htmlTemplate title contentNodes =
             -- , inlineScript "hljs.initHighlightingOnLoad();"
             -- , stylesheet "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/styles/default.min.css"
             -- , stylesheet "//fonts.googleapis.com/css?family=Open+Sans|Proza+Libre|Inconsolata"
+            -- TODO: remove
+            , script "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"
             ]
-        , node "body" [ class "bg-black" ] contentNodes
+        , node "body" [ class "bg-black text-white" ] contentNodes
         ]
 
 

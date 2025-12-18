@@ -15,6 +15,9 @@
     "watch": "^1.0.2"
   },
   "scripts": {
-    "dev": "bun run ./_resources/scripts/internal/dev-watcher.ts"
+    "build": "bunx elmstatic build && bunx @tailwindcss/cli -i ./_resources/styles.css -o ./_site/styles.css",
+    "browsersync": "cd _site && bunx browser-sync start --server --no-ui --reload-delay 500 --reload-debounce 500 --files '_layouts/**/*, _pages/**/*, _posts/**/*, _resources/**/*'",
+    "dev:internal": "bun run ./_resources/scripts/internal/dev-watcher.ts",
+    "dev": "concurrently \"bunx elmstatic watch\" \"bun run browsersync\""
   }
 }
