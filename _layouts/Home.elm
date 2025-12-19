@@ -166,7 +166,7 @@ layout title contentItems =
 
 viewInfoSectionGrid : List (Html Never) -> Html Never
 viewInfoSectionGrid contentArr =
-    contentArr |> List.map viewInfoSection |> div []
+    contentArr |> List.map viewInfoSection |> div [ class "grid grid-cols-2 gap-4" ]
 
 
 
