@@ -4,6 +4,8 @@ import Elmstatic exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (alt, attribute, class, href, src)
 import Markdown
+import Page
+import Post
 
 
 type alias Link =
@@ -153,8 +155,10 @@ viewInfoSection description details =
 layout : String -> List (Html Never) -> List (Html Never)
 layout title contentItems =
     header
-        ++ [ div [ class "content" ]
-                (h1 [ class "unifrakturmaguntia-regular text-6xl" ] [ text title ] :: contentItems)
+        ++ [ div []
+                contentItems
+
+           -- (h1 [ class "unifrakturmaguntia-regular text-6xl" ] [ text title ] :: contentItems)
            , div [ class "font-bold text-4xl italic" ] [ text "Βράνδον Λύκας" ]
            , viewSubtitle "Bitcoin Lightning Payments @ voltage.cloud | Bitcoin Privacy & Scalability @ payjoin.org. Love sovereign software & history. Learning Nix, Elm, Rust, Ancient Greek and Latin."
            , div [ class "flex flex-col gap-4 w-full" ]
@@ -197,10 +201,53 @@ layout title contentItems =
 --    --         , viewMarkdownFile files.workDescription Section
 --    , Elmstatic.stylesheet "/styles.css"
 --    ]
+-- let
+--         postItem post =
+--             div []
+--                 [ a [ href ("/" ++ post.link) ] [ h2 [] [ text post.title ] ]
+--                 , Post.metadataHtml post
+--                 ]
+--
+--         postListContent posts =
+--             if List.isEmpty posts then
+--                 [ text "No posts yet!" ]
+--
+--             else
+--                 List.map postItem posts
+--
+--         sortPosts posts =
+--             List.sortBy .date posts
+--                 |> List.reverse
+--     in
+--     Elmstatic.layout Elmstatic.decodePostList <|
+--         \content ->
+--             Ok <| Page.layout content.title <| postListContent <| sortPosts content.posts
 
 
 main : Elmstatic.Layout
 main =
-    Elmstatic.layout Elmstatic.decodePage <|
+    let
+        postItem post =
+            div []
+                [ a [ href ("/" ++ post.link) ] [ h2 [] [ text post.title ] ]
+                , Post.metadataHtml post
+                ]
+
+        postListContent posts =
+            if List.isEmpty posts then
+                [ text "No posts yet!" ]
+
+            else
+                List.map postItem posts
+
+        sortPosts posts =
+            List.sortBy .date posts
+                |> List.reverse
+    in
+    Elmstatic.layout Elmstatic.decodePostList <|
         \content ->
-            Ok <| layout content.title [ markdown content.content ]
+            Ok <| layout content.title <| postListContent <| sortPosts content.posts
+
+
+
+-- Ok <| layout content.title [ markdown content.content ]
