@@ -88,7 +88,7 @@ viewNavLinks =
     ]
 
 
-viewNav : Nav -> Html msg
+viewNav : Nav -> Html Never
 viewNav links =
     nav [ class "flex justify-center w-full max-lg:hidden" ]
         [ ul [ class "grid grid-cols-4 justify-around w-full items-center text-center" ]
@@ -101,7 +101,7 @@ viewNav links =
         ]
 
 
-viewIconLink : String -> String -> Html msg
+viewIconLink : String -> String -> Html Never
 viewIconLink name link =
     a [ href link ]
         [ img
@@ -113,7 +113,7 @@ viewIconLink name link =
         ]
 
 
-viewLink : String -> String -> Maybe String -> Html msg
+viewLink : String -> String -> Maybe String -> Html Never
 viewLink link name additionalClass =
     a
         [ href link
@@ -131,39 +131,22 @@ viewLink link name additionalClass =
         [ text name ]
 
 
-viewSubtitle : String -> Html msg
+viewSubtitle : String -> Html Never
 viewSubtitle str =
     h2 [ class "text-xl text-center" ] [ text str ]
-
-
-viewInfoSection : Html msg -> Maybe (Html msg) -> Html msg
-viewInfoSection description details =
-    div [ class """flex flex-col gap-4 border border-gray-500
-                        p-8 rounded-sm max-h-150 overflow-y-auto text-wrap break-words
-                      """ ]
-        [ h2 [] [ description ]
-        , case details of
-            Nothing ->
-                div [] []
-
-            Just deets ->
-                div []
-                    [ deets ]
-        ]
 
 
 layout : String -> List (Html Never) -> List (Html Never)
 layout title contentItems =
     header
-        ++ [ div []
-                contentItems
-
-           -- (h1 [ class "unifrakturmaguntia-regular text-6xl" ] [ text title ] :: contentItems)
+        ++ [ h1 [ class "unifrakturmaguntia-regular text-6xl" ] [ text title ]
            , div [ class "font-bold text-4xl italic" ] [ text "Βράνδον Λύκας" ]
            , viewSubtitle "Bitcoin Lightning Payments @ voltage.cloud | Bitcoin Privacy & Scalability @ payjoin.org. Love sovereign software & history. Learning Nix, Elm, Rust, Ancient Greek and Latin."
-           , div [ class "flex flex-col gap-4 w-full" ]
-                []
+           , node "div"
+                [ class "flex flex-col gap-4 w-full" ]
+                [ viewInfoSectionGrid contentItems ]
 
+           -- contentItems
            -- [            -- , div [ class "grid lg:grid-cols-2 w-full gap-4" ]
            --     [
            --       text ""
@@ -179,6 +162,29 @@ layout title contentItems =
            --     ]
            , Elmstatic.stylesheet "/styles.css"
            ]
+
+
+viewInfoSectionGrid : List (Html Never) -> Html Never
+viewInfoSectionGrid contentArr =
+    contentArr |> List.map viewInfoSection |> div []
+
+
+
+-- viewInfoSections contentArr =
+--   div [ class "grid grid-cols-2 gap-4"]
+--     (List.map viewInfoSection contentArr)
+-- TODO: show the content of each post in a grid of 2
+-- Must loop over each of the list
+
+
+viewInfoSection : Html Never -> Html Never
+viewInfoSection content =
+    div
+        [ class """flex flex-col gap-4 border border-gray-500
+                        p-8 rounded-sm max-h-150 overflow-y-auto text-wrap break-words
+                      """
+        ]
+        [ content ]
 
 
 
@@ -233,6 +239,9 @@ main =
                 , Post.metadataHtml post
                 ]
 
+        -- , div [ Attr.class "flex flex-col gap-4 w-full" ]
+        -- [ viewAboutMe
+        -- , div [ Attr.class "grid lg:grid-cols-2 w-full gap-4" ]
         postListContent posts =
             if List.isEmpty posts then
                 [ text "No posts yet!" ]
