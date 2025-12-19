@@ -4,6 +4,7 @@ import Elmstatic exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (alt, attribute, class, href, src)
 import Markdown
+import Page
 import Post
 
 
@@ -36,31 +37,6 @@ header =
     [ viewNav viewNavLinks
     , viewIconLink "Narsil Logo" "/"
     ]
-
-
-
--- [ div [ class "header-logo" ]
---     [ img [ alt "Author's blog", src "/img/logo.png", attribute "width" "100" ]
---         []
---     ]
--- , div [ class "navigation" ]
---     [ ul []
---         [ li []
---             [ a [ href "/posts" ]
---                 [ text "Posts" ]
---             ]
---         , li []
---             [ a [ href "/about" ]
---                 [ text "About" ]
---             ]
---         , li []
---             [ a [ href "/contact" ]
---                 [ text "Contact" ]
---             ]
---         ]
---     ]
--- ]
---
 
 
 viewNavLinks : Nav
@@ -178,13 +154,20 @@ viewInfoSection content =
         [ content ]
 
 
+
+-- TODO: if a "post" is under the "snippets" (or if it contains
+-- a frontmatter flag indicating it's a snippet): make it render the markdown
+-- in the viewInfoSection, not just the frontmatter
+
+
 main : Elmstatic.Layout
 main =
     let
+        postItem : Post -> Html Never
         postItem post =
             div []
                 [ a [ href ("/" ++ post.link) ] [ h2 [] [ text post.title ] ]
-                , Post.metadataHtml post
+                , Page.markdown post.content
                 ]
 
         postListContent posts =
@@ -201,3 +184,7 @@ main =
     Elmstatic.layout Elmstatic.decodePostList <|
         \content ->
             Ok <| layout content.title <| postListContent <| sortPosts content.posts
+
+
+
+-- Ok <| layout content.title <| postListContent <| sortPosts content.posts
