@@ -1,6 +1,6 @@
 ---
 title: "I'm using Elmstatic for my blog"
-tags: software other
+tags: software
 ---
 
 ## Elmstatic is a static blog generator

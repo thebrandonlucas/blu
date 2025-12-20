@@ -1,6 +1,6 @@
 ---
 title: "Another post"
-tags: other
+tags: software
 ---
 
 This is another example of a blog post.
@@ -17,4 +17,5 @@ This is another example of a blog post.
 
 ###### Heading 6
 
-**Bold** *italic* _underline_ `inline code`.
+**Bold** _italic_ _underline_ `inline code`.
+

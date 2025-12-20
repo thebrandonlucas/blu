@@ -182,14 +182,14 @@ main =
         filterSnippets posts =
             List.filter (\post -> String.contains "snippets" post.section) posts
 
-        -- TODO: find a way to filter them as you like
-        -- sortPosts posts =
-        --     List.sortBy .date posts
-        --         |> List.reverse
+        -- NOTE: We're sorting the home page markdown list
+        -- in chronological order instead of reverse because
+        sortPosts posts =
+            List.sortBy .date posts
     in
     Elmstatic.layout Elmstatic.decodePostList <|
         \content ->
-            Ok <| layout content.title <| postListContent <| filterSnippets content.posts
+            Ok <| layout content.title <| postListContent <| sortPosts <| filterSnippets content.posts
 
 
 
