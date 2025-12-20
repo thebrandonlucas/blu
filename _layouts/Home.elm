@@ -114,7 +114,7 @@ viewSubtitle str =
 layout : String -> List (Html Never) -> List (Html Never)
 layout title contentItems =
     header
-        ++ [ h1 [ class "unifrakturmaguntia-regular text-6xl" ] [ text title ]
+        ++ [ h1 [ class "unifrakturmaguntia-regular !text-6xl" ] [ text title ]
            , div [ class "font-bold text-4xl italic" ] [ text "Βράνδον Λύκας" ]
            , viewSubtitle "Bitcoin Lightning Payments @ voltage.cloud | Bitcoin Privacy & Scalability @ payjoin.org. Love sovereign software & history. Learning Nix, Elm, Rust, Ancient Greek and Latin."
            , node "div"
