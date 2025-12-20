@@ -21,10 +21,8 @@ body {
   font-family: EBGaramond-Regular;
 }
 
-
-a:hover {
-  color: #f7dd5f;
-  @apply transition-all;
+a {
+  @apply hover:text-[#f7dd5f] underline transition-all;
 }
 
 h1 {
