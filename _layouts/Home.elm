@@ -5,7 +5,6 @@ import Html exposing (..)
 import Html.Attributes exposing (alt, attribute, class, href, src)
 import Markdown
 import Page
-import Post
 
 
 type alias Link =
@@ -141,21 +140,6 @@ layout title contentItems =
                 [ viewAboutMe
                 , viewInfoSectionGrid contentItems
                 ]
-
-           -- contentItems
-           -- [            -- , div [ class "grid lg:grid-cols-2 w-full gap-4" ]
-           --     [
-           --       text ""
-           --     --   viewMarkdownFile files.writingDescription Section
-           --     -- , viewQuotes files.quotesDescription files.quotes
-           --     -- , viewMarkdownFile files.creationsDescription Section
-           --     -- , viewMarkdownFile files.contributionsDescription Section
-           --     -- , viewMarkdownFile files.talksDescription Section
-           --     -- , viewMarkdownFile files.technologyDescription Section
-           --     -- , viewMarkdownFile files.booksDescription Section
-           --     -- , viewMarkdownFile files.workDescription Section
-           --     --
-           --     ]
            , Elmstatic.stylesheet "/styles.css"
            ]
 
@@ -175,21 +159,13 @@ viewInfoSection content =
         [ content ]
 
 
-
--- TODO: if a "post" is under the "snippets" (or if it contains
--- a frontmatter flag indicating it's a snippet): make it render the markdown
--- in the viewInfoSection, not just the frontmatter
-
-
 main : Elmstatic.Layout
 main =
     let
         postItem : Post -> Html Never
         postItem post =
             div []
-                [ --   a [ href ("/" ++ post.link) ] [ h2 [] [ text post.title ] ]
-                  -- , Page.markdown post.date
-                  Page.markdown post.content
+                [ Page.markdown post.content
                 ]
 
         postListContent posts =
@@ -205,13 +181,10 @@ main =
 
         -- NOTE: We're sorting the home page markdown list
         -- in chronological order instead of reverse because
+        -- we're using fake dates for the post snippets to order them
         sortPosts posts =
             List.sortBy .date posts
     in
     Elmstatic.layout Elmstatic.decodePostList <|
         \content ->
             Ok <| layout content.title <| postListContent <| sortPosts <| filterSnippets content.posts
-
-
-
--- Ok <| layout content.title <| postListContent <| sortPosts content.posts
