@@ -39,3 +39,7 @@ h2 {
 h3 {
   @apply text-xl;
 }
+
+blockquote {
+  mx-b-[40px] py-[10px] px-[20px] border-l-[#eee] border-l-5 overflow-auto;
+}
