@@ -20,7 +20,7 @@ A work-in-progress website dedicated to helping people solve problems with [Nix]
 
 ## [Bitcoin QR Web Component: `bitcoin-qr`](https://bitcoin-qr-demo.netlify.app)
 
-![Image of `bitcoin-qr` samples](/md/posts/contributions/bitcoin-qr.png)
+![Image of `bitcoin-qr` samples](/images/contributions/bitcoin-qr.png)
 
 _Add your company's image and style the QR to match!_
 
