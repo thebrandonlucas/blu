@@ -1,3 +1,0 @@
-I work at [Voltage](https://voltage.cloud), to whom I am very grateful for cultivating a culture of giving back to the community through open source development via [FOSS Fridays](https://voltage.cloud/blog/foss-friday/foss-fridays-at-voltage). It has enabled me to connect more broadly with the Bitcoin community and expand my skills as a software engineer. It's a great team on a great [mission](https://voltage.cloud/about); the spirit of [definite optimism](https://boxkitemachine.net/posts/zero-to-one-peter-thiel-definite-vs-indefinite-thinking) is alive and well here.
-
-
