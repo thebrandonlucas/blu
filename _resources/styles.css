@@ -39,5 +39,17 @@ h3 {
 }
 
 blockquote {
-  @apply mx-[40px] py-[10px] px-[20px] border-l-[#eee] border-l-5 overflow-auto;
+  @apply py-[10px] px-[20px] border-l-[#eee] border-l-5 overflow-auto;
+}
+
+.markdown {
+  @apply flex flex-col gap-4;
+}
+
+ul {
+  @apply list-outside ml-4;
+}
+
+li {
+  @apply list-disc;
 }
