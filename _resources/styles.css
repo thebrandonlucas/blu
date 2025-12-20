@@ -21,7 +21,21 @@ body {
   font-family: EBGaramond-Regular;
 }
 
-/* TODO: Add dedicated CSS theming file? */
-.hoverColor {
+
+a:hover {
   color: #f7dd5f;
+  @apply transition-all;
+}
+
+h1 {
+  @apply text-4xl;
+}
+
+
+h2 {
+  @apply text-2xl;
+}
+
+h3 {
+  @apply text-xl;
 }
