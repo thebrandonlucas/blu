@@ -167,6 +167,7 @@ main =
         postItem post =
             div []
                 [ a [ href ("/" ++ post.link) ] [ h2 [] [ text post.title ] ]
+                , Page.markdown post.date
                 , Page.markdown post.content
                 ]
 
@@ -177,13 +178,18 @@ main =
             else
                 List.map postItem posts
 
-        sortPosts posts =
-            List.sortBy .date posts
-                |> List.reverse
+        filterSnippets : List Post -> List Post
+        filterSnippets posts =
+            List.filter (\post -> String.contains "snippets" post.section) posts
+
+        -- TODO: find a way to filter them as you like
+        -- sortPosts posts =
+        --     List.sortBy .date posts
+        --         |> List.reverse
     in
     Elmstatic.layout Elmstatic.decodePostList <|
         \content ->
-            Ok <| layout content.title <| postListContent <| sortPosts content.posts
+            Ok <| layout content.title <| postListContent <| filterSnippets content.posts
 
 
 
