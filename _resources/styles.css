@@ -6,8 +6,6 @@
 @font-face {
   font-family: "EBGaramond-Regular";  /* Name you assign to the font */
   src: url("./_resources/fonts/EBGaramond-Regular.ttf") format("ttf"),  /* Primary format */
-  /* font-weight: normal;  /* Optional: e.g., normal, bold, 400 */ */
-  /* font-style: normal;   /* Optional: e.g., normal, italic */ */
 }
 
 
@@ -25,31 +23,33 @@ a {
   @apply hover:text-[#f7dd5f] underline transition-all;
 }
 
-h1 {
-  @apply text-4xl;
-}
-
-
-h2 {
-  @apply text-2xl;
-}
-
-h3 {
-  @apply text-xl;
-}
-
-blockquote {
-  @apply py-[10px] px-[20px] border-l-[#eee] border-l-5 overflow-auto;
-}
 
 .markdown {
   @apply flex flex-col gap-4;
 }
 
-ul {
+.markdown h1 {
+  @apply text-4xl;
+}
+
+
+.markdown h2 {
+  @apply text-2xl;
+}
+
+.markdown h3 {
+  @apply text-xl;
+}
+
+.markdown blockquote {
+  @apply py-[10px] px-[20px] border-l-[#eee] border-l-5 overflow-auto;
+}
+
+
+.markdown ul {
   @apply list-outside ml-4;
 }
 
-li {
+.markdown li {
   @apply list-disc;
 }
