@@ -10,11 +10,11 @@ tags: software
 
 _More very fun things are on the way, stay tuned..._
 
----
-
-## [nix.fun](https://nix.fun)
-
-A work-in-progress website dedicated to helping people solve problems with [Nix](https://github.com/NixOS/nix).
+<!-- --- -->
+<!---->
+<!-- ## [nix.fun](https://nix.fun) -->
+<!---->
+<!-- A work-in-progress website dedicated to helping people solve problems with [Nix](https://github.com/NixOS/nix). -->
 
 ---
 
@@ -29,11 +29,6 @@ I created a [web component](https://developer.mozilla.org/en-US/docs/Web/API/Web
 I decided it would be valuable (to myself, if nobody else) to build a universal web component that came with all this functionality out of the box with maximum configuration but opinionated defaults, that could be used in any [framework](https://qr-code-styling.com) or in pure HTML. And for extra fun, it's built on a framework that allows a lot of styling customization!
 
 Feedback on this would be very much appreciated, please feel free to [open an issue](https://github.com/thebrandonlucas/bitcoin-qr) if you find a problem or have any suggestions for improvement!
-
-<!-- - [lazynix](): A tool for getting things done the lazy way with Nix. Like [lazygit](https://github.com/jesseduffield/lazygit), but for Nix! -->
-<!-- ## [NixOS dotfiles](#placeholder) -->
-<!---->
-<!-- My [NixOS](https://github.com/NixOS/nix) setup containing my [Hyprland](https://hypr.land/) , [`neovim`](https://neovim.io/), and [Home Manager](https://github.com/nix-community/home-manager) configs, as well as the programs I have installed. You can use this to get essentially the same exact desktop setup as me. -->
 
 ---
 

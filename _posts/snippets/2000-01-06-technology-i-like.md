@@ -7,18 +7,6 @@ tags: software
 
 ---
 
-The Ancient Greek word for technology: τεχνολογία, is a combination of two words: τέχνη (craft, art) and λόγος (word, knowledge, idea, etc).
-
-Thinking of technology in terms of "knowledge of the craft" is useful, and I like thinking about _what my technology is supposed to be_ rather than _what it is_ or simply not think about it at all before I use it. Technology, like everything physical, always falls short of some ideal that it was meant to be, but today making technology annoying at best and physically or psychologically costly and painful at worst is a norm. It has been really damaging to our collective psyche to not set more stringent parameters around what technology we are and aren't willing to use and make. But in an age in which life's petty comforts reign supreme and dominate all our greatest decisions, this isn't really good.
-
-To my amazement, most people are actually very willing to acknowledge the sorry state we're in: many have been sold on the idea that social media is generally worse for you than having none at all, or that Facebook and Google are extremely immoral companies to be mining our data and selling it to the highest bidder or our naked pictures to government perverts without our permission, or that Alexa shouldn't be listening to all our conversations and phoning home at Amazon every ten seconds, or that Apple shouldn't plan their obsolescence with the intention of grifting the customer out of more money. But then, after you talk about this with them, there's a sort of listless, defeated shrug, as they once again whore themselves out to their phone.
-
-Imagine a family which sits at the dinner table discussing how terrible meth is for you, then
-
-The beautiful thing, though, is that open source is getting better and better
-
-Here's a list of technology that I like. I'm not sponsored in any way by any of the below, just a big fan. All of the software on this list is Open Source:
-
 ## Software
 
 ### Terminal or TUI (Terminal UI) tools

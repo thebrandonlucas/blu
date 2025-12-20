@@ -7,7 +7,7 @@ tags: software
 
 ---
 
-I have contributed to many projects, mostly open source. Here are some projects that I'm particularly proud of.
+I have contributed to many projects, mostly open source. Here are some that I'm particularly proud of.
 
 ---
 
