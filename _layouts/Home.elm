@@ -166,9 +166,9 @@ main =
         postItem : Post -> Html Never
         postItem post =
             div []
-                [ a [ href ("/" ++ post.link) ] [ h2 [] [ text post.title ] ]
-                , Page.markdown post.date
-                , Page.markdown post.content
+                [ --   a [ href ("/" ++ post.link) ] [ h2 [] [ text post.title ] ]
+                  -- , Page.markdown post.date
+                  Page.markdown post.content
                 ]
 
         postListContent posts =
