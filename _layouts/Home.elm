@@ -111,6 +111,25 @@ viewSubtitle str =
     h2 [ class "text-xl text-center" ] [ text str ]
 
 
+viewAboutMe : Html Never
+viewAboutMe =
+    viewInfoSection
+        (span [ class "flex flex-col gap-4 text-lg " ]
+            [ span [ class "text-center" ] [ text "Welcome!" ]
+            , span [ class "text-center" ] [ text "I'm a software builder by trade who's interested in too many things for my own good." ]
+            , span [ class "text-center" ] [ text "Here's a sample:" ]
+            , ul [ class "list-outside ml-8 " ]
+                [ li [ class "list-disc" ] [ text "Free and Open Source Software (FOSS): Bitcoin, Lightning Network, Payjoin, Linux, GrapheneOS, VPNs, etc." ]
+                , li [ class "list-disc" ] [ text "History: Ancient Greek, Roman, American Revolution, and more.)" ]
+                , li [ class "list-disc" ] [ text "Biographies: Adams, Hamilton, Washington, Franklin, Oppenheimer, Ramanujan and more" ]
+                , li [ class "list-disc" ] [ text "Philosophy, psychology, Christianity: Influenced by Cicero, Nietzsche, Karl Popper, Dostoevsky, Will Durant, Oliver Sacks, Jung, Seneca, and more. Attempting to read Kierkegaard, but finding it impenetrably difficult yet joyful.)" ]
+                , li [ class "list-disc" ] [ text "Languages: I'm currently learning Ancient Greek and Latin." ]
+                , li [ class "list-disc" ] [ text "Fun: Bass guitar" ]
+                ]
+            ]
+        )
+
+
 layout : String -> List (Html Never) -> List (Html Never)
 layout title contentItems =
     header
@@ -119,7 +138,9 @@ layout title contentItems =
            , viewSubtitle "Bitcoin Lightning Payments @ voltage.cloud | Bitcoin Privacy & Scalability @ payjoin.org. Love sovereign software & history. Learning Nix, Elm, Rust, Ancient Greek and Latin."
            , node "div"
                 [ class "flex flex-col gap-4 w-full" ]
-                [ viewInfoSectionGrid contentItems ]
+                [ viewAboutMe
+                , viewInfoSectionGrid contentItems
+                ]
 
            -- contentItems
            -- [            -- , div [ class "grid lg:grid-cols-2 w-full gap-4" ]
