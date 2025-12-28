@@ -53,3 +53,7 @@ a {
 .markdown li {
   @apply list-disc;
 }
+
+.markdown p {
+
+}

@@ -108,10 +108,8 @@ footer =
 
 layout : String -> List (Html Never) -> List (Html Never)
 layout title contentItems =
-    -- header
-    --     ++
-    [ div [ class "" ]
-        ([ h1 [] [ text title ] ] ++ contentItems)
+    [ div [ class "page w-[80%] flex flex-col gap-8 text-lg" ]
+        ([ h1 [ class "text-4xl text-center font-bold" ] [ text title ] ] ++ contentItems)
     , footer
     , Elmstatic.stylesheet "/styles.css"
     ]
