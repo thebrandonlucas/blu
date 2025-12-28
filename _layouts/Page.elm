@@ -6,8 +6,9 @@ import Html.Attributes as Attr exposing (alt, attribute, class, href, src)
 import Markdown
 
 
-
--- import Styles
+favIcon : Html Never
+favIcon =
+    a [ href "/" ] [ img [ alt "Narsil Favicon", src "/images/favicon.png", class "w-8" ] [] ]
 
 
 githubIcon : Html Never
@@ -79,30 +80,32 @@ header =
     ]
 
 
+link : String -> Html Never -> Maybe String -> Html Never
+link location icon description =
+    div [ class "link" ]
+        [ icon
+        , a [ href location ]
+            [ case description of
+                Just str ->
+                    text str
+
+                Nothing ->
+                    text ""
+            ]
+        ]
+
+
 footer : Html Never
 footer =
-    div [ class "footer" ]
-        [ img
-            [ alt "Author's blog"
-            , src "/img/logo.png"
-            , attribute "style" "float: left; padding-top: 7px"
-            , attribute "width" "75"
+    div [ class "footer flex flex-col gap-2 items-center" ]
+        [ div [ class "" ]
+            [ link "/" favIcon Nothing
             ]
-            []
-        , div [ class "link" ]
-            [ githubIcon
-            , a [ href "https://github.com" ]
-                [ text "Author's GitHub" ]
+        , div [ class "flex gap-2" ]
+            [ link "https://github.com/thebrandonlucas" githubIcon Nothing
+            , link "https://x.com/brandonstlucas" twitterIcon Nothing
             ]
-        , div [ class "link" ]
-            [ twitterIcon
-            , a [ href "https://twitter.com" ]
-                [ text "Author's Twitter" ]
-            ]
-        , div [ class "link" ]
-            [ a [ href "https://www.npmjs.com/package/elmstatic" ]
-                [ text "Created with Elmstatic" ]
-            ]
+        , div [ class "" ] [ text "Copyright (c) 2025 Brandon Lucas. All Rights Reserved." ]
         ]
 
 
