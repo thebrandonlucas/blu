@@ -7,7 +7,7 @@ tags: software
 
 ---
 
-## [**Articles**](/articles)
+## **Articles**
 
 - #### [Fear to Attempt](/posts/articles/2025-06-20-fear-to-attempt)
 
@@ -17,7 +17,7 @@ tags: software
 
 ---
 
-## [**Blog**](/blog)
+## **Blog**
 
 - #### [Nix for Fun and Profit: Programs as Lego's](/posts/blog/2025-11-21-nix-programs-as-legos)
 
@@ -37,7 +37,7 @@ tags: software
 
 ---
 
-## [**Journal**](/journal)
+## **Journal**
 
 - #### [February 2025](/posts/journal/2025-02-01-feb25)
 
