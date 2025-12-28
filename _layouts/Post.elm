@@ -89,9 +89,9 @@ tagsToHtml tags =
 
 metadataHtml : Elmstatic.Post -> Html Never
 metadataHtml post =
-    div [ class "post-metadata items-center flex flex-col gap-2" ]
+    div [ class "post-metadata border-b mb-8 pb-8 items-center flex flex-col " ]
         ([ span [] [ text (parseIsoDate post.date) ]
-         , span [] [ text "---" ]
+         , span [] [ text "-" ]
          ]
             ++ tagsToHtml post.tags
         )
@@ -104,4 +104,6 @@ main =
             Ok <|
                 Page.layout
                     content.title
-                    [ metadataHtml content, Page.markdown content.content ]
+                    [ div [ class "post-content flex flex-col gap-4" ]
+                        [ metadataHtml content, Page.markdown content.content ]
+                    ]
