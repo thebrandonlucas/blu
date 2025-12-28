@@ -104,6 +104,6 @@ main =
             Ok <|
                 Page.layout
                     content.title
-                    [ div [ class "post-content flex flex-col gap-4" ]
+                    [ div [ class "post-content flex flex-col gap-4 pb-12 border-b" ]
                         [ metadataHtml content, Page.markdown content.content ]
                     ]
