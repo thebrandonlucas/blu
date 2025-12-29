@@ -1,9 +1,10 @@
-module Page exposing (footer, header, layout, main, markdown)
+module Page exposing (footer, layout, main, markdown)
 
 import Elmstatic exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (alt, attribute, class, href, src)
 import Markdown
+import UI
 
 
 favIcon : Html Never
@@ -55,31 +56,6 @@ markdown s =
     Markdown.toHtmlWith mdOptions [ attribute "class" "markdown" ] s
 
 
-header : List (Html Never)
-header =
-    [ div [ class "header-logo" ]
-        [ img [ alt "Author's blog", src "/img/logo.png", attribute "width" "100" ]
-            []
-        ]
-    , div [ class "navigation" ]
-        [ ul []
-            [ li []
-                [ a [ href "/posts" ]
-                    [ text "Posts" ]
-                ]
-            , li []
-                [ a [ href "/about" ]
-                    [ text "About" ]
-                ]
-            , li []
-                [ a [ href "/contact" ]
-                    [ text "Contact" ]
-                ]
-            ]
-        ]
-    ]
-
-
 link : String -> Html Never -> Maybe String -> Html Never
 link location icon description =
     a
@@ -112,7 +88,8 @@ footer =
 
 layout : String -> List (Html Never) -> List (Html Never)
 layout title contentItems =
-    [ div [ class "page w-[80%] flex flex-col gap-8 text-lg" ]
+    [ UI.header
+    , div [ class "page w-[80%] flex flex-col gap-8" ]
         ([ h1 [ class "text-4xl text-center font-bold" ] [ text title ] ] ++ contentItems)
     , footer
     , Elmstatic.stylesheet "/styles.css"

@@ -1,10 +1,11 @@
-module Home exposing (header, layout, main, markdown)
+module Home exposing (layout, main, markdown)
 
 import Elmstatic exposing (..)
 import Html exposing (..)
-import Html.Attributes exposing (alt, attribute, class, href, src)
+import Html.Attributes exposing (attribute, class)
 import Markdown
 import Page
+import UI exposing (header)
 
 
 
@@ -28,13 +29,6 @@ markdown s =
             }
     in
     Markdown.toHtmlWith mdOptions [ attribute "class" "markdown" ] s
-
-
-header : List (Html Never)
-header =
-    [ -- viewNav viewNavLinks
-      viewIconLink "Narsil Logo" "/"
-    ]
 
 
 
@@ -73,21 +67,6 @@ header =
 --         ]
 --
 --
-
-
-viewIconLink : String -> String -> Html Never
-viewIconLink name link =
-    a [ href link ]
-        [ img
-            [ src "/images/favicon.png"
-            , alt name
-            , class "h-20"
-            ]
-            []
-        ]
-
-
-
 -- viewLink : String -> String -> Maybe String -> Html Never
 -- viewLink link name additionalClass =
 --     a
@@ -137,17 +116,17 @@ viewAboutMe =
 
 layout : String -> List (Html Never) -> List (Html Never)
 layout title contentItems =
-    header
-        ++ [ h1 [ class "unifrakturmaguntia-regular text-6xl" ] [ text title ]
-           , div [ class "font-bold text-4xl italic" ] [ text "Βράνδων Λουκᾶς" ]
-           , viewSubtitle
-           , node "div"
-                [ class "flex flex-col gap-4 w-full" ]
-                [ viewAboutMe
-                , viewInfoSectionGrid contentItems
-                ]
-           , Elmstatic.stylesheet "/styles.css"
-           ]
+    [ UI.header
+    , h1 [ class "unifrakturmaguntia-regular text-6xl" ] [ text title ]
+    , div [ class "font-bold text-4xl italic" ] [ text "Βράνδων Λουκᾶς" ]
+    , viewSubtitle
+    , node "div"
+        [ class "flex flex-col gap-4 w-full" ]
+        [ viewAboutMe
+        , viewInfoSectionGrid contentItems
+        ]
+    , Elmstatic.stylesheet "/styles.css"
+    ]
 
 
 viewInfoSectionGrid : List (Html Never) -> Html Never
