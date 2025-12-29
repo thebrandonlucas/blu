@@ -2,7 +2,7 @@ module Page exposing (footer, header, layout, main, markdown)
 
 import Elmstatic exposing (..)
 import Html exposing (..)
-import Html.Attributes as Attr exposing (alt, attribute, class, href, src)
+import Html.Attributes exposing (alt, attribute, class, href, src)
 import Markdown
 
 
