@@ -15,7 +15,9 @@ I have contributed to many projects, mostly open source. Here are some that I'm 
 
 ![Voltage Dashboard](/images/contributions/voltage-dash-5.webp)
 
-I'm on the frontend engineering team at Voltage. We've built an easy to use Bitcoin Lightning Payments API. If you've interacted with our product at all from the browser, chances are I worked on it!
+I'm on the frontend engineering team at [Voltage](https://voltage.cloud/). We've built an easy to use Bitcoin Lightning Payments API. If you've interacted with our product at all from the browser, chances are I worked on it!
+
+I am grateful to this company for cultivating a culture of giving back to the community through open source development via [FOSS Fridays](https://voltage.cloud/blog/foss-friday/foss-fridays-at-voltage). It has enabled me to connect more broadly with the Bitcoin community and expand my skills as a software engineer. It’s a great team on a great [mission](https://voltage.cloud/about); the spirit of [definite optimism](https://boxkitemachine.net/posts/zero-to-one-peter-thiel-definite-vs-indefinite-thinking) is alive and well here.
 
 ---
 
