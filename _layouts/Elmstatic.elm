@@ -140,18 +140,10 @@ htmlTemplate title contentNodes =
             []
             [ node "title" [] [ text title ]
             , node "meta" [ attribute "charset" "utf-8" ] []
-
-            -- , script "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/highlight.min.js"
-            -- , script "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/languages/elm.min.js"
-            -- , stylesheet "./output.css"
-            -- , inlineScript "hljs.initHighlightingOnLoad();"
-            -- , stylesheet "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/styles/default.min.css"
-            -- , stylesheet "//fonts.googleapis.com/css?family=Open+Sans|Proza+Libre|Inconsolata"
-            -- TODO: remove
-            , script "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"
-            , stylesheet "https://fonts.googleapis.com"
-            , stylesheet "https://fonts.gstatic.com"
-            , stylesheet "https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap"
+            , script "/highlight/highlight.min.js"
+            , inlineScript "hljs.highlightAll();"
+            , stylesheet "/highlight/tokyo-night-dark.min.css"
+            , stylesheet "/tailwindcss/tokyo-night-dark.min.css"
             ]
         , node "body" [ class "bg-black text-white flex flex-col gap-8 w-[80%] items-center mx-auto my-20" ] contentNodes
         ]
