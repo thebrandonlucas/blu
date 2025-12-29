@@ -10,7 +10,7 @@
     "description": "Brandon's Lucas' Website",
     "id": "https://blu.cx",
     "link": "https://blu.cx/posts",
-    "image": "https://blu.cx/img/logo.png",
+    "image": "https://blu.cx/images/favicon.png",
     "copyright": "Copyright: Brandon Lucas",
     "language": "en",
     "generator": "Elmstatic",
