@@ -82,16 +82,17 @@ header =
 
 link : String -> Html Never -> Maybe String -> Html Never
 link location icon description =
-    div [ class "link" ]
+    a
+        [ href location
+        , class "flex gap-2"
+        ]
         [ icon
-        , a [ href location ]
-            [ case description of
-                Just str ->
-                    text str
+        , case description of
+            Just str ->
+                text str
 
-                Nothing ->
-                    text ""
-            ]
+            Nothing ->
+                text ""
         ]
 
 
