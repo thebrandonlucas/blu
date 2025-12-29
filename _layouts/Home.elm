@@ -87,22 +87,23 @@ viewIconLink name link =
         ]
 
 
-viewLink : String -> String -> Maybe String -> Html Never
-viewLink link name additionalClass =
-    a
-        [ href link
-        , class
-            ("hover:text-[#f7dd5f] transition-all underline "
-                ++ (case additionalClass of
-                        Nothing ->
-                            ""
 
-                        Just c ->
-                            c
-                   )
-            )
-        ]
-        [ text name ]
+-- viewLink : String -> String -> Maybe String -> Html Never
+-- viewLink link name additionalClass =
+--     a
+--         [ href link
+--         , class
+--             ("hover:text-[#f7dd5f] transition-all underline "
+--                 ++ (case additionalClass of
+--                         Nothing ->
+--                             ""
+--
+--                         Just c ->
+--                             c
+--                    )
+--             )
+--         ]
+--         [ text name ]
 
 
 viewSubtitle : Html Never

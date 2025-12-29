@@ -2,7 +2,7 @@ module Posts exposing (main)
 
 import Elmstatic exposing (..)
 import Html exposing (..)
-import Html.Attributes as Attr exposing (alt, attribute, class, href, src)
+import Html.Attributes exposing (href)
 import Page
 import Post
 
