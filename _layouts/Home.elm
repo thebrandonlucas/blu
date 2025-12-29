@@ -7,14 +7,13 @@ import Markdown
 import Page
 
 
-type alias Link =
-    { href : String
-    , name : String
-    }
 
-
-type alias Nav =
-    List Link
+-- type alias Link =
+--     { href : String
+--     , name : String
+--     }
+-- type alias Nav =
+--     List Link
 
 
 markdown : String -> Html Never
@@ -33,46 +32,47 @@ markdown s =
 
 header : List (Html Never)
 header =
-    [ viewNav viewNavLinks
-    , viewIconLink "Narsil Logo" "/"
+    [ -- viewNav viewNavLinks
+      viewIconLink "Narsil Logo" "/"
     ]
 
 
-viewNavLinks : Nav
-viewNavLinks =
-    [ { name = "Articles", href = "/articles" }
-    , { name = "Blog", href = "/blog" }
-    , { name = "Journal", href = "/journal" }
-    , { name = "Quotes", href = "/quotes" }
 
-    -- , { name = "Talks", href = "/talks" }
-    -- , { name = "Books", href = "/books" }
-    -- , { name = "Travel", href = "/travel" }
-    -- , { name = "Software", href = "/software" }
-    -- , { name = "Creations", href = "/creations" }
-    -- , { name = "Contributions", href = "/contributions" }
-    -- , { name = "Websites I Like", href = "/websitesilike" }
-    -- , { name = "Languages", href = "/languages" }
-    -- , { name = "Contact", href = "/contact" }
-    -- , { name = "About Me", href = "/aboutme" }
-    -- , { name = "Around the Web", href = "/aroundtheweb" }
-    -- , { name = "About this site", href = "/aboutthissite" }
-    -- , { name = "Gardening", href = "/gardening" }
-    -- , { name = "3D Printing", href = "/3dprinting" }
-    ]
-
-
-viewNav : Nav -> Html Never
-viewNav links =
-    nav [ class "flex justify-center w-full max-lg:hidden" ]
-        [ ul [ class "grid grid-cols-4 justify-around w-full items-center text-center" ]
-            (List.map
-                (\link ->
-                    li [] [ viewLink link.href link.name Nothing ]
-                )
-                links
-            )
-        ]
+-- viewNavLinks : Nav
+-- viewNavLinks =
+--     [ { name = "Articles", href = "/articles" }
+--     , { name = "Blog", href = "/blog" }
+--     , { name = "Journal", href = "/journal" }
+--     , { name = "Quotes", href = "/quotes" }
+-- , { name = "Talks", href = "/talks" }
+-- , { name = "Books", href = "/books" }
+-- , { name = "Travel", href = "/travel" }
+-- , { name = "Software", href = "/software" }
+-- , { name = "Creations", href = "/creations" }
+-- , { name = "Contributions", href = "/contributions" }
+-- , { name = "Websites I Like", href = "/websitesilike" }
+-- , { name = "Languages", href = "/languages" }
+-- , { name = "Contact", href = "/contact" }
+-- , { name = "About Me", href = "/aboutme" }
+-- , { name = "Around the Web", href = "/aroundtheweb" }
+-- , { name = "About this site", href = "/aboutthissite" }
+-- , { name = "Gardening", href = "/gardening" }
+-- , { name = "3D Printing", href = "/3dprinting" }
+-- ]
+--
+-- viewNav : Nav -> Html Never
+-- viewNav links =
+--     nav [ class "flex justify-center w-full max-lg:hidden" ]
+--         [ ul [ class "grid grid-cols-4 justify-around w-full items-center text-center" ]
+--             (List.map
+--                 (\link ->
+--                     li [] [ viewLink link.href link.name Nothing ]
+--                 )
+--                 links
+--             )
+--         ]
+--
+--
 
 
 viewIconLink : String -> String -> Html Never
@@ -105,15 +105,20 @@ viewLink link name additionalClass =
         [ text name ]
 
 
-viewSubtitle : String -> Html Never
-viewSubtitle str =
-    h2 [ class "text-xl text-center" ] [ text str ]
+viewSubtitle : Html Never
+viewSubtitle =
+    h2 [ class "text-xl text-center flex flex-col " ]
+        [ span [] [ text "Bitcoin Lightning Payments @ voltage.cloud" ]
+        , span [] [ text "Bitcoin Privacy & Scalability @ payjoin.org." ]
+        , span [] [ text "Love sovereign software & history." ]
+        , span [] [ text "Learning Nix, Elm, Rust, Ancient Greek and Latin." ]
+        ]
 
 
 viewAboutMe : Html Never
 viewAboutMe =
     viewInfoSection
-        (span [ class "flex flex-col gap-4 text-lg " ]
+        (span [ class "flex flex-col gap-4" ]
             [ span [ class "text-center" ] [ text "Welcome!" ]
             , span [ class "text-center" ] [ text "I'm a software builder by trade who's interested in too many things for my own good." ]
             , span [ class "text-center" ] [ text "Here's a sample:" ]
@@ -134,7 +139,7 @@ layout title contentItems =
     header
         ++ [ h1 [ class "unifrakturmaguntia-regular text-6xl" ] [ text title ]
            , div [ class "font-bold text-4xl italic" ] [ text "Βράνδον Λύκας" ]
-           , viewSubtitle "Bitcoin Lightning Payments @ voltage.cloud | Bitcoin Privacy & Scalability @ payjoin.org. Love sovereign software & history. Learning Nix, Elm, Rust, Ancient Greek and Latin."
+           , viewSubtitle
            , node "div"
                 [ class "flex flex-col gap-4 w-full" ]
                 [ viewAboutMe
