@@ -130,7 +130,7 @@ Nix fetched the packages we specified in our `.nix` file: `pokemonsay`, `fortune
 
 You should see something like this:
 
-<img src="/images/blog/nix-programs-as-legos/img_2_pokefortune.png" alt="pokefortune result"  height="300">
+<img src="/images/blog/nix-programs-as-legos/img_2_pokefortune.png" alt="pokefortune result" width="400">
 
 To be reproducible, Nix ensures that it knows about every single dependency needed to create a package at all times. Because of that, you can do fun things like this:
 
