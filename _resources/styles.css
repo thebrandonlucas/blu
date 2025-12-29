@@ -8,6 +8,10 @@
   src: url("./_resources/fonts/EBGaramond-Regular.ttf") format("ttf"),  /* Primary format */
 }
 
+@font-face {
+  font-family: "UnifrakturMaguntia";  /* Name you assign to the font */
+  src: url("./_resources/fonts/UnifrakturMaguntia-Regular.ttf") format("ttf"),  /* Primary format */
+}
 
 .unifrakturmaguntia-regular {
   font-family: "UnifrakturMaguntia", cursive;
@@ -50,10 +54,18 @@ a {
   @apply list-outside ml-4;
 }
 
+.markdown ol {
+  @apply list-outside ml-4;
+}
+
 .markdown li {
   @apply list-disc;
 }
 
-.markdown p {
+.markdown pre {
+  @apply overflow-x-scroll;
+}
 
+.markdown img {
+  @apply mx-auto;
 }
