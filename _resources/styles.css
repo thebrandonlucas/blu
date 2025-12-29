@@ -4,17 +4,17 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "EBGaramond-Regular";  /* Name you assign to the font */
-  src: url("./_resources/fonts/EBGaramond-Regular.ttf") format("ttf"),  /* Primary format */
+  font-family: "EBGaramond-Regular";
+  src: url("./fonts/EBGaramond-Regular.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "UnifrakturMaguntia";  /* Name you assign to the font */
-  src: url("./_resources/fonts/UnifrakturMaguntia-Regular.ttf") format("ttf"),  /* Primary format */
+  font-family: "UnifrakturMaguntia-Regular";
+  src: url("./fonts/UnifrakturMaguntia-Regular.ttf") format("truetype");
 }
 
 .unifrakturmaguntia-regular {
-  font-family: "UnifrakturMaguntia", cursive;
+  font-family: UnifrakturMaguntia-Regular, cursive;
   font-weight: 400;
   font-style: normal;
 }
