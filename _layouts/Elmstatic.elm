@@ -144,7 +144,7 @@ htmlTemplate title contentNodes =
             , inlineScript "hljs.highlightAll();"
             , stylesheet "/highlight/tokyo-night-dark.min.css"
             ]
-        , node "body" [ class "bg-black text-white flex flex-col gap-8 w-[80%] items-center mx-auto my-20" ] contentNodes
+        , node "body" [ class "flex flex-col gap-8 w-[80%] items-center mx-auto my-20" ] contentNodes
         ]
 
 

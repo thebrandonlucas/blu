@@ -21,6 +21,10 @@
 
 body {
   font-family: EBGaramond-Regular;
+  /* Apply off-white and off-black text and background
+   * respectively */
+  @apply text-[#fffff8] bg-[#111] text-xl;
+
 }
 
 a {
