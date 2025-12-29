@@ -139,7 +139,7 @@ layout : String -> List (Html Never) -> List (Html Never)
 layout title contentItems =
     header
         ++ [ h1 [ class "unifrakturmaguntia-regular text-6xl" ] [ text title ]
-           , div [ class "font-bold text-4xl italic" ] [ text "Βράνδον Λύκας" ]
+           , div [ class "font-bold text-4xl italic" ] [ text "Βράνδων Λουκᾶς" ]
            , viewSubtitle
            , node "div"
                 [ class "flex flex-col gap-4 w-full" ]
