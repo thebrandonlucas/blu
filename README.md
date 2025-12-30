@@ -1,4 +1,4 @@
-# blu-elmstatic
+# blu
 
 To install dependencies:
 
@@ -9,7 +9,9 @@ bun install
 To run:
 
 ```bash
-bun run index.ts
-```
+# Build the tailwind (must be done on every style change for now)
+bun run build:tw
 
-This project was created using `bun init` in bun v1.2.20. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+# Run the server
+bun dev
+```
