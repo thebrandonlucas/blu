@@ -6,11 +6,13 @@
 @font-face {
   font-family: "EBGaramond-Regular";
   src: url("./fonts/EBGaramond-Regular.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "UnifrakturMaguntia-Regular";
   src: url("./fonts/UnifrakturMaguntia-Regular.ttf") format("truetype");
+  font-display: swap;
 }
 
 .unifrakturmaguntia-regular {
