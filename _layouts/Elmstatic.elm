@@ -150,7 +150,9 @@ htmlTemplate title contentNodes =
             , inlineScript "document.addEventListener('DOMContentLoaded', function() { hljs.highlightAll(); });"
             , stylesheet "/highlight/tokyo-night-dark.min.css"
             ]
-        , node "body" [ class "flex flex-col gap-8 w-[80%] items-center mx-auto my-20" ] contentNodes
+        , node "body"
+            []
+            [ node "main" [ class "flex flex-col gap-8 w-[80%] items-center mx-auto my-20" ] contentNodes ]
         ]
 
 
