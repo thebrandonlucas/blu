@@ -122,6 +122,11 @@ script src =
     node "citatsmle-script" [ attribute "src" src ] []
 
 
+deferredScript : String -> Html Never
+deferredScript src =
+    node "citatsmle-script" [ attribute "src" src, attribute "defer" "" ] []
+
+
 inlineScript : String -> Html Never
 inlineScript js =
     node "citatsmle-script" [] [ text js ]
@@ -141,8 +146,8 @@ htmlTemplate title contentNodes =
             [ node "title" [] [ text title ]
             , node "meta" [ attribute "charset" "utf-8" ] []
             , node "meta" [ attribute "name" "viewport", attribute "content" "width=device-width, initial-scale=1" ] []
-            , script "/highlight/highlight.min.js"
-            , inlineScript "hljs.highlightAll();"
+            , deferredScript "/highlight/highlight.min.js"
+            , inlineScript "document.addEventListener('DOMContentLoaded', function() { hljs.highlightAll(); });"
             , stylesheet "/highlight/tokyo-night-dark.min.css"
             ]
         , node "body" [ class "flex flex-col gap-8 w-[80%] items-center mx-auto my-20" ] contentNodes
