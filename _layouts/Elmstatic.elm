@@ -146,6 +146,7 @@ htmlTemplate title contentNodes =
             [ node "title" [] [ text title ]
             , node "meta" [ attribute "charset" "utf-8" ] []
             , node "meta" [ attribute "name" "viewport", attribute "content" "width=device-width, initial-scale=1" ] []
+            , node "meta" [ attribute "name" "description", attribute "content" "Personal website of Brandon Lucas. Bitcoin Lightning developer at Voltage, privacy advocate at Payjoin. Writing about software, history, and philosophy." ] []
             , deferredScript "/highlight/highlight.min.js"
             , inlineScript "document.addEventListener('DOMContentLoaded', function() { hljs.highlightAll(); });"
             , stylesheet "/highlight/tokyo-night-dark.min.css"
