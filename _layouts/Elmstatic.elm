@@ -140,6 +140,7 @@ htmlTemplate title contentNodes =
             []
             [ node "title" [] [ text title ]
             , node "meta" [ attribute "charset" "utf-8" ] []
+            , node "meta" [ attribute "name" "viewport", attribute "content" "width=device-width, initial-scale=1" ] []
             , script "/highlight/highlight.min.js"
             , inlineScript "hljs.highlightAll();"
             , stylesheet "/highlight/tokyo-night-dark.min.css"
