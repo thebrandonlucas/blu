@@ -2,14 +2,14 @@ module Page exposing (footer, layout, main, markdown)
 
 import Elmstatic exposing (..)
 import Html exposing (..)
-import Html.Attributes exposing (alt, attribute, class, href, src)
+import Html.Attributes exposing (alt, attribute, class, height, href, src, width)
 import Markdown
 import UI
 
 
 favIcon : Html Never
 favIcon =
-    a [ href "/" ] [ img [ alt "Narsil Favicon", src "/images/favicon.png", class "w-8" ] [] ]
+    a [ href "/" ] [ img [ alt "Narsil Favicon", src "/images/favicon.png", width 59, height 80 ] [] ]
 
 
 githubIcon : Html Never

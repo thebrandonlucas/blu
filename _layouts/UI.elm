@@ -15,7 +15,8 @@ viewIconLink name link =
         [ img
             [ src "/images/favicon.png"
             , alt name
-            , class "h-20"
+            , width 59
+            , height 80
             ]
             []
         ]
