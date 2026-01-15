@@ -135,7 +135,7 @@ stylesheet href =
 htmlTemplate : String -> List (Html Never) -> Html Never
 htmlTemplate title contentNodes =
     node "html"
-        []
+        [ attribute "lang" "en" ]
         [ node "head"
             []
             [ node "title" [] [ text title ]
