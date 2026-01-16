@@ -1,0 +1,6 @@
+# robots.txt for blu.cx
+User-agent: *
+Allow: /
+
+# RSS Feed
+Sitemap: https://blu.cx/rss.xml
