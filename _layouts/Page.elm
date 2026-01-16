@@ -9,7 +9,7 @@ import UI
 
 favIcon : Html Never
 favIcon =
-    a [ href "/" ] [ img [ alt "Narsil Favicon", src "/images/favicon.png", width 59, height 800 ] [] ]
+    a [ href "/" ] [ img [ alt "Narsil Favicon", src "/images/favicon.png", width 59, height 80 ] [] ]
 
 
 githubIcon : Html Never
