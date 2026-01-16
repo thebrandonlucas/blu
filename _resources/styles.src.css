@@ -74,4 +74,10 @@ a {
 
 .markdown img {
   @apply mx-auto;
+  /* Prevent CLS by setting max dimensions and reserving space */
+  max-width: 100%;
+  height: auto;
+  /* Reserve approximate space for images to reduce layout shift */
+  min-height: 100px;
+  background: #222;
 }

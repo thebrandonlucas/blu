@@ -5,15 +5,16 @@
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.18",
     "@types/bun": "latest",
+    "chokidar-cli": "^3.0.0",
     "concurrently": "^9.2.1",
     "http-server": "^14.1.1",
     "tailwindcss": "^4.1.18"
   },
   "scripts": {
     "build": "bunx elmstatic build && bunx @tailwindcss/cli -i ./_resources/styles.src.css -o ./_site/styles.css --minify",
-    "build:tw": "bunx @tailwindcss/cli -i ./_resources/styles.src.css -o ./_site/styles.css --minify",
-    "watch:tw": "bunx @tailwindcss/cli -i ./_resources/styles.src.css -o ./_site/styles.css --watch",
-    "serve": "bunx browser-sync start --server _site --no-ui --reload-delay 300 --reload-debounce 300 --files '_site/**/*'",
-    "dev": "concurrently -n elm,css,serve -c blue,magenta,green \"bunx elmstatic watch\" \"bun run watch:tw\" \"bun run serve\""
+    "build:tw": "bunx @tailwindcss/cli -i ./_resources/styles.src.css -o ./_site/styles.css",
+    "watch:elm": "bunx chokidar '_layouts/**/*.elm' '_posts/**/*.md' '_pages/**/*.md' -c 'bun run build'",
+    "serve": "bunx browser-sync start --server _site --no-ui --reload-delay 500 --reload-debounce 500 --files '_site/**/*'",
+    "dev": "bun run build && concurrently -n watch,serve -c blue,green \"bun run watch:elm\" \"bun run serve\""
   }
 }

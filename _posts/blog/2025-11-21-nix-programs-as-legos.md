@@ -130,7 +130,7 @@ Nix fetched the packages we specified in our `.nix` file: `pokemonsay`, `fortune
 
 You should see something like this:
 
-<img src="/images/blog/nix-programs-as-legos/img_2_pokefortune.webp" alt="pokefortune result" width="400">
+<img src="/images/blog/nix-programs-as-legos/img_2_pokefortune.webp" alt="pokefortune result" width="800" height="1240" loading="lazy">
 
 To be reproducible, Nix ensures that it knows about every single dependency needed to create a package at all times. Because of that, you can do fun things like this:
 
@@ -147,7 +147,7 @@ Resulting in a view of every single dependency (the "closure") that our `pokefor
 
 <!-- <div style="text-align: center;"> -->
 
-![pokefortune dependency graph](/images/blog/nix-programs-as-legos/img_3_pokefortune_dependency_graph.webp)
+<img src="/images/blog/nix-programs-as-legos/img_3_pokefortune_dependency_graph.webp" alt="pokefortune dependency graph" width="800" height="634" loading="lazy">
 
 <!--   <img src="assets/introduction/intro_img_3_pokefortune_dependency_graph.png" alt="pokefortune result"  height="600"> -->
 <!-- </div> -->

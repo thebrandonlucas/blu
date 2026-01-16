@@ -13,7 +13,7 @@ I have contributed to many projects, mostly open source. Here are some that I'm 
 
 ## [Voltage](https://www.voltage.cloud)
 
-![Voltage Dashboard](/images/contributions/voltage-dash-5.webp)
+<img src="/images/contributions/voltage-dash-5.webp" alt="Voltage Dashboard" width="800" height="487" loading="lazy">
 
 I'm on the frontend engineering team at [Voltage](https://voltage.cloud/). We've built an easy to use Bitcoin Lightning Payments API. If you've interacted with our product at all from the browser, chances are I worked on it!
 
@@ -23,7 +23,7 @@ I am grateful to this company for cultivating a culture of giving back to the co
 
 ## [Block Clock](https://github.com/voltagecloud/block-clock)
 
-![Block Clock Image](/images/contributions/blockclock.webp)
+<img src="/images/contributions/blockclock.webp" alt="Block Clock Image" width="800" height="354" loading="lazy">
 
 The frontend and design team at Voltage built this `block-clock` web component that connects to Bitcoin Core to display the distribution of block times in a standard 12-hour clock face, using the beautiful designs from the [Bitcoin Core App](https://bitcoincore.app/?ref=blucas.ghost.iohttps://bitcoincore.app) project to do it. We use it in our own [Bitcoin Core Nodes](https://www.voltage.cloud/bitcoin-core) product, but we wanted to make this something that could be shared with the community. We built it as a web component so it's easy to run it in any browser environment, whether you're using frameworks like React or Sveltekit, or just want to drop it directly into an HTML page. If you have a Bitcoin Core node, give it a try!
 
@@ -33,7 +33,7 @@ Check out the [Github Repo](https://github.com/voltagecloud/block-clock) or watc
 
 ## [Payjoin](https://payjoin.org)
 
-![Payjoin Example Image](/images/contributions/payjoin.webp)
+<img src="/images/contributions/payjoin.webp" alt="Payjoin Example Image" width="800" height="551" loading="lazy">
 
 Payjoin is a protocol designed to assist bitcoin scaling, help save fees, and preserve privacy, whose adoption by even a small minority of wallets could have dramatically positive effects for all bitcoin users.
 
@@ -49,7 +49,7 @@ I built the current version of [payjoin.org](https://payjoin.org) with help from
 
 ## [bolt12.org](https://bolt12.org)
 
-![Image of Bolt12 Homepage](/images/contributions/bolt12.org.webp)
+<img src="/images/contributions/bolt12.org.webp" alt="Image of Bolt12 Homepage" width="800" height="498" loading="lazy">
 
 BOLT 12 is a specification for implementing offers, which massively improves the lightning user experience by making QR codes:
 
@@ -65,7 +65,7 @@ I collaborated with master designer [@sbddesign](https://x.com/StephenDeLorme) t
 
 ## [Doppler](https://github.com/tee8z/doppler)
 
-![Image showing usage of Doppler](/images/contributions/doppler.webp)
+<img src="/images/contributions/doppler.webp" alt="Image showing usage of Doppler" width="800" height="472" loading="lazy">
 
 Doppler is a Domain-Specific Language (DSL) created by [@tee8z](https://x.com/Tee8z) that allows you to write reusable scripts to create local [regtest](https://developer.bitcoin.org/examples/testing.html) (and [Mutinynet](https://blog.mutinywallet.com/mutinynet)!) environments in any configuration you like. The scripts allow for easy reproducibility of any scenario you can think of and dramatically expands the possibilities for testing bitcoin and lightning applications, improving on one of the main limitations of testing software like [Polar](https://lightningpolar.com) (also a great project).
 
@@ -75,7 +75,7 @@ Alongside [@tee8z](https://x.com/Tee8z), I built the first iteration of the fron
 
 ## [Satogram](https://satogram.xyz)
 
-![Image Showing Satogram Logo](/images/contributions/satogram.webp)
+<img src="/images/contributions/satogram.webp" alt="Image Showing Satogram Logo" width="800" height="407" loading="lazy">
 
 Wouldn't it be nice to get paid to see ads, instead of today, where your data is harvested for profit and you get barraged with internet-polluting ads?
 
@@ -87,7 +87,7 @@ Satogram came out of a hackathon project at Tabconf 2023 led by [@BitcoinCoderBo
 
 ## [Alby](https://getalby.com)
 
-![Image showing Alby homepage](/images/contributions/alby.webp)
+<img src="/images/contributions/alby.webp" alt="Image showing Alby homepage" width="800" height="453" loading="lazy">
 
 Alby is a popular lighting wallet browser extension that comes with a wide variety of innovative features. In my first real contributions to open source, I helped build the internationalization flow to allow the app to be translated to a variety of different languages. I also added the ability to [connect and make payments via signets such as Mutinynet](https://github.com/getAlby/lightning-browser-extension/pull/3128), to allow for easier testing of web applications with [WebLN](https://webln.guide). Thanks to the Alby team for taking the time to help me contribute to open source bitcoin in the first place, kicking off this crazy exciting adventure.
 
@@ -95,12 +95,12 @@ Alby is a popular lighting wallet browser extension that comes with a wide varie
 
 ## [QRty](https://qr-ai.netlify.app)
 
-![Image showing QRty homepage](/images/contributions/qrty.webp)
+<img src="/images/contributions/qrty.webp" alt="Image showing QRty homepage" width="800" height="354" loading="lazy">
 
 This project used [stable diffusion](https://en.wikipedia.org/wiki/Stable_Diffusion) to generate artistic QR codes based on a prompt. Since the only options to generate these QR codes at the time were through subscription services, we thought it would be nice if people could make small payments per query with bitcoin (an idea [obviously befitting to AI services](https://hivemind.vc/ai) in general, but for whatever reason this idea hasn't broken through past us in the bitcoin bubble to mainstream consciousness yet).
 
 It's no longer active due to relatively low use, but we were really proud of the result and you can still see some examples of scan-able codes we created on the site and in these Twitter posts. Built on Voltage with my friend [@LightningK0ala](https://x.com/LightningK0ala).
 
-![Image of Walter White as a QR Code](/images/contributions/qr-walt.webp)
+<img src="/images/contributions/qr-walt.webp" alt="Image of Walter White as a QR Code" width="800" height="972" loading="lazy">
 
 _I wish I'd saved the prompt that generated this._

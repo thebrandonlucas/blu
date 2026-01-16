@@ -6,7 +6,7 @@ tags: bitcoin
 ---
 
 <span class="flex justify-center w-[100px]">
-<img src="/images/blog/bitcoin-qr/qr.webp" alt="Bitcoin QR Example" width="400px" />
+<img src="/images/blog/bitcoin-qr/qr.webp" alt="Bitcoin QR Example" width="594" height="596" loading="lazy">
 </span>
 
 When developing a Bitcoin payment flow, there are multiple ways a user can expect to be able to pay. They might want to pay an on-chain address or Lightning invoice, they may be scanning a QR Code from their phone, copy/pasting from a wallet, or using a [WebLN](https://www.webln.guide/) browser extension. Creating an intuitive interface that also captures all the possible ways a user can pay is one of the fundamental UX challenges of developing an application that can receive payments in Bitcoin.
