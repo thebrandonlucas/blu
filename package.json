@@ -8,9 +8,9 @@
     "http-server": "^14.1.1"
   },
   "scripts": {
-    "build": "bunx elmstatic build && bunx @tailwindcss/cli -i ./_resources/styles.css -o ./_site/styles.css",
-    "build:tw": "bunx @tailwindcss/cli -i ./_resources/styles.css -o ./_site/styles.css",
-    "watch:tw": "bunx @tailwindcss/cli -i ./_resources/styles.css -o ./_site/styles.css --watch",
+    "build": "bunx elmstatic build && bunx @tailwindcss/cli -i ./_resources/styles.src.css -o ./_site/styles.css",
+    "build:tw": "bunx @tailwindcss/cli -i ./_resources/styles.src.css -o ./_site/styles.css",
+    "watch:tw": "bunx @tailwindcss/cli -i ./_resources/styles.src.css -o ./_site/styles.css --watch",
     "serve": "bunx browser-sync start --server _site --no-ui --reload-delay 300 --reload-debounce 300 --files '_site/**/*'",
     "dev": "concurrently -n elm,css,serve -c blue,magenta,green \"bunx elmstatic watch\" \"bun run watch:tw\" \"bun run serve\""
   }
