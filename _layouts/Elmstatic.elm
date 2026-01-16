@@ -132,6 +132,16 @@ inlineScript js =
     node "citatsmle-script" [] [ text js ]
 
 
+jsonLdScript : String -> Html Never
+jsonLdScript jsonLd =
+    node "citatsmle-script" [ attribute "type" "application/ld+json" ] [ text jsonLd ]
+
+
+structuredData : String
+structuredData =
+    """{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://blu.cx/#website","url":"https://blu.cx","name":"Brandon Lucas","description":"Personal website of Brandon Lucas. Bitcoin Lightning developer at Voltage, privacy advocate at Payjoin.","publisher":{"@id":"https://blu.cx/#person"}},{"@type":"Person","@id":"https://blu.cx/#person","name":"Brandon Lucas","url":"https://blu.cx","sameAs":["https://github.com/thebrandonlucas","https://x.com/brandonstlucas"],"jobTitle":"Software Engineer","worksFor":[{"@type":"Organization","name":"Voltage","url":"https://voltage.cloud"},{"@type":"Organization","name":"Payjoin","url":"https://payjoin.org"}]}]}"""
+
+
 stylesheet : String -> Html Never
 stylesheet href =
     node "link" [ attribute "href" href, attribute "rel" "stylesheet", attribute "type" "text/css" ] []
@@ -159,6 +169,7 @@ htmlTemplate title contentNodes =
             , node "meta" [ attribute "name" "twitter:description", attribute "content" "Personal website of Brandon Lucas. Bitcoin Lightning developer at Voltage, privacy advocate at Payjoin. Writing about software, history, and philosophy." ] []
             , node "meta" [ attribute "name" "twitter:image", attribute "content" "https://blu.cx/images/favicon.png" ] []
             , node "link" [ attribute "rel" "canonical", attribute "href" "https://blu.cx" ] []
+            , jsonLdScript structuredData
             , deferredScript "/highlight/highlight.min.js"
             , inlineScript "document.addEventListener('DOMContentLoaded', function() { hljs.highlightAll(); });"
             , stylesheet "/highlight/tokyo-night-dark.min.css"
