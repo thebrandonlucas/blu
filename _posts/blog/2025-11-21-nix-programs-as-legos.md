@@ -147,7 +147,7 @@ Resulting in a view of every single dependency (the "closure") that our `pokefor
 
 <!-- <div style="text-align: center;"> -->
 
-![pokefortune result]()
+![pokefortune dependency graph](/images/blog/nix-programs-as-legos/img_3_pokefortune_dependency_graph.png)
 
 <!--   <img src="assets/introduction/intro_img_3_pokefortune_dependency_graph.png" alt="pokefortune result"  height="600"> -->
 <!-- </div> -->
