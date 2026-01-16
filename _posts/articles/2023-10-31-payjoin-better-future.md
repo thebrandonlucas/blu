@@ -85,17 +85,17 @@ How would you pay it? Let's say you have the following bills available (these ar
 
 To construct this transaction, you could use one $20 bill and two $5 bills, one being for the waiter:
 
-![Restaurant payment](/images/articles/payjoin-better-future/25-5-tx.png)
+![Restaurant payment](/images/articles/payjoin-better-future/25-5-tx.webp)
 
 Note one important way in which our cash analogy breaks down: the $20 and the $5 _merge_ into one "bill". This would be more analagous to melting individual pieces of gold into one bigger piece in order to be able to pay the exact amount required, instead of handing over multiple pieces. Bitcoin allows us to split and merge inputs however we'd like to create the appropriate output.
 
 You might also use two $10 bills and two $5 bills like so:
 
-![Restaurant payment](/images/articles/payjoin-better-future/10-5-tx.png)
+![Restaurant payment](/images/articles/payjoin-better-future/10-5-tx.webp)
 
 You could even use your six $5 bills:
 
-![Restaurant payment](/images/articles/payjoin-better-future/5-5-tx.png)
+![Restaurant payment](/images/articles/payjoin-better-future/5-5-tx.webp)
 
 Before they're spent on something, the individual bitcoin "bills" you have are called _unspent transaction outputs_, or UTXOs. This name is confusing at first, but makes perfect sense if you think about it. They are the "results" (_outputs_) of transactions that haven't yet been used up by _other_ transactions. A transaction output that is _unspent_ is a transaction output that you _can spend_. Therefore, in effect, UTXOs become like the bills of cash in your wallet. After they're spent, they become inputs to another transaction's outputs (the cash in someone else's wallet), and are no longer spendable by you, but the _record_ of the fact that you spent that bill to them remains on the blockchain.
 
@@ -103,7 +103,7 @@ Unlike cash, for a Bitcoin transaction to be valid, we need the approval of the 
 
 Here is an example of a real transaction that had 1 confirmation while writing this:
 
-![Example of a real transaction with 1 input and three outputs, one being a fee](/images/articles/payjoin-better-future/real-transaction-1.png)
+![Example of a real transaction with 1 input and three outputs, one being a fee](/images/articles/payjoin-better-future/real-transaction-1.webp)
 
 [(Link)](https://mempool.space/tx/6a1f3e9b12a3e4f947b471a290c8c90681e1fe6e9869245dbc253b4015dc3bf6)
 
@@ -162,7 +162,7 @@ And finally, Coinjoin is a protocol such that, if enough people use it, everyone
 
 To provide a concrete example, say we find three people who want to do a coinjoin. Beforehand, they agree to mix 0.1 bitcoin, gaining privacy by having three equal-sized outputs to make it unclear which address owns which coins. The change addresses will be clear to an analyst, but the 0.1 values will not.
 
-![Coinjoin Example](/images/articles/payjoin-better-future/coinjoin-tx.png)
+![Coinjoin Example](/images/articles/payjoin-better-future/coinjoin-tx.webp)
 
 The privacy gains aren't necessarily very strong with only three participants, especially if the other participants de-anonymize in later transactions by tying them to their identity, but this can be mitigated with multiple rounds of coinjoin on those coins or by using larger anonymity sets.
 
@@ -189,11 +189,11 @@ An important user experience (UX) improvement in early Bitcoin was BIP-21. [BIP]
 
 BIP-21 is a standard that defines a scheme using URIs to simplify user interaction with Bitcoin, allowing them to pay by clicking links or scanning QR codes. A few query parameters, such as `amount`, `label`, and `message` are also defined so that client software can easily access and parse them for better UX. [Here is an example](https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki) BIP-21 URI with those parameters:
 
-![BIP-21 Simple](/images/articles/payjoin-better-future/bip21-message.png)
+![BIP-21 Simple](/images/articles/payjoin-better-future/bip21-message.webp)
 
 Importantly, the standard is extensible, as custom query parameters can be created and new standards can be built on top of it. For example, in the Lightning Network, the custom parameter `lightning` can be added [in addition](https://bitcoinqr.dev/) to the Bitcoin address so that the user can pay with either method:
 
-![BIP-21 with Lightning](/images/articles/payjoin-better-future/bip21-lightning.png)
+![BIP-21 with Lightning](/images/articles/payjoin-better-future/bip21-lightning.webp)
 
 This powerful and flexible BIP would prove useful in combination with concepts from Coinjoin.
 
@@ -201,7 +201,7 @@ This powerful and flexible BIP would prove useful in combination with concepts f
 
 The [earliest mention](https://blog.blockstream.com/en-improving-privacy-using-pay-to-endpoint/) of the Payjoin concept I could find was by Blockstream, published in August 2018, where the article [references a workshop](https://nopara73.medium.com/pay-to-endpoint-56eb05d3cac6) from which the concept emerged. It referred to the resulting idea as Pay-to-Endpoint (P2EP), because it combined the concepts of Coinjoin and BIP-21 to allow a sender and a receiver to collaboratively contribute inputs to a transaction via a BIP-21 compliant endpoint provided by the receiver. Here is an example given in the article of what an endpoint provided by the receiver may look like:
 
-![P2EP Example](/images/articles/payjoin-better-future/p2ep.png)
+![P2EP Example](/images/articles/payjoin-better-future/p2ep.webp)
 
 Of note in particular is the `p2ep` parameter, whose value is an endpoint (in this case a `.onion` address, but it could just as easily be an `http://` address or any other compatible endpoint), which signals to receiving wallets that the sender would like to try a P2EP payment. If that fails, wallets should fall back to the sender paying the address normally, just using the sender's inputs.
 
@@ -233,11 +233,11 @@ This proposal laid out, in much more rigorous detail than prior methods, how to 
 
 Let's say Alice wants to pay Bob 1.1 BTC, and a chain surveillance company sees a transaction like this:
 
-![Example assuming common-input ownership heuristic](/images/articles/payjoin-better-future/regular-tx.png)
+![Example assuming common-input ownership heuristic](/images/articles/payjoin-better-future/regular-tx.webp)
 
 They might assume that Alice paid Bob the 0.5 BTC output and gave the rest to herself as change, like this:
 
-![Example that assumes the common-input ownership heuristic was used](/images/articles/payjoin-better-future/regular-tx-named.png)
+![Example that assumes the common-input ownership heuristic was used](/images/articles/payjoin-better-future/regular-tx-named.webp)
 
 And the vast majority of the time, they'd be right! After all, normally the change is the larger amount, and 0.5 is more "round" and thus likely to be used for payment, than 1.1.
 
@@ -245,7 +245,7 @@ They might also wonder why she used an unnecessary input (the 0.8 and 0.3 BTC in
 
 Alice, however, is smart and wants to preserve her privacy, and she knows about payjoin, so she asks Bob to contribute one of his own inputs to the transaction. Bob agrees, so he creates a transaction that spends one (or more) of his UTXOs as an input, and proposes it to Alice. If the transaction looks good to Alice, she broadcasts the payjoin transaction to the network. In this case, the transaction actually looks like this:
 
-![Example payjoin transaction](/images/articles/payjoin-better-future/payjoin-tx-named.png)
+![Example payjoin transaction](/images/articles/payjoin-better-future/payjoin-tx-named.webp)
 
 If chain surveillance made the assumption that both inputs were owned by Alice (as they did in the first example, and currently do in practice), their assumptions about what both Alice and Bob own would be wrong!
 
@@ -257,7 +257,7 @@ In BIP-78, the process is more formally defined as follows:
 
 1. A receiver shows the sender a BIP-21 URI with a query parameter `pj=` that refers to an endpoint/server people can send [partially signed bitcoin transactions](https://bitcoinops.org/en/topics/psbt/) (PSBTs) to. The endpoint can be HTTPs, .onion, or any other authenticated encryption protocol. For example:
 
-![Example PJ](/images/articles/payjoin-better-future/pj.png)
+![Example PJ](/images/articles/payjoin-better-future/pj.webp)
 
 2. The sender creates a finalized, broadcastable PSBT using only their own inputs that is fully capable of making the required payment, to the receiver's endpoint. This is called the "Original PSBT".
 
@@ -321,7 +321,7 @@ Most of the complexity in managing a lightning node comes from opening these cha
 
 At a minimum, Alice has to pay two fees and wait ~10 minutes per transaction, which can be tedious.
 
-![Lightning Channel Open Process](/images/articles/payjoin-better-future/lightning-open-channel.png)
+![Lightning Channel Open Process](/images/articles/payjoin-better-future/lightning-open-channel.webp)
 
 Payjoin can simplify this process and help Alice save money by doing both the funding and the opening transaction at once.
 
@@ -329,7 +329,7 @@ In this scenario, Alice preconfigures her payjoin receiving endpoint with the de
 
 In other words, the sender (probably Alice in this case) will send a payjoin proposal to Alice's receiving payjoin endpoint to create a transaction that pays directly to the 2-of-2 multisignature output between Bob's node and Alice's node to construct a lightning channel between them. Which turns the process into a one-step transaction:
 
-![Lightning Channel with Payjoin](/images/articles/payjoin-better-future/lightning-open-payjoin.png)
+![Lightning Channel with Payjoin](/images/articles/payjoin-better-future/lightning-open-payjoin.webp)
 
 One interesting thing to note is that both LN and payjoin currently have a _liveness_ requirement (though, in the case of payjoin at least, perhaps [not for long](https://gist.github.com/DanGould/243e418752fff760c9f6b23bba8a32f9)), meaning that participants must be online when transactions take place. This is fairly limiting in comparison to on-chain Bitcoin, which only requires the sender to be online _at the time of payment_. However, this also allows for the two protocols to pair together quite nicely.
 

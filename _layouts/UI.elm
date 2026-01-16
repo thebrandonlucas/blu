@@ -13,7 +13,7 @@ viewIconLink : String -> String -> Html Never
 viewIconLink name link =
     a [ href link ]
         [ img
-            [ src "/images/favicon.png"
+            [ src "/images/favicon.webp"
             , alt name
             , width 59
             , height 80
