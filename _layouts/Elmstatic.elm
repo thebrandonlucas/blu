@@ -147,6 +147,17 @@ stylesheet href =
     node "link" [ attribute "href" href, attribute "rel" "stylesheet", attribute "type" "text/css" ] []
 
 
+asyncStylesheet : String -> Html Never
+asyncStylesheet href =
+    node "link"
+        [ attribute "href" href
+        , attribute "rel" "stylesheet"
+        , attribute "media" "print"
+        , attribute "onload" "this.media='all'"
+        ]
+        []
+
+
 htmlTemplate : String -> List (Html Never) -> Html Never
 htmlTemplate title contentNodes =
     node "html"
@@ -171,8 +182,7 @@ htmlTemplate title contentNodes =
             , node "link" [ attribute "rel" "canonical", attribute "href" "https://blu.cx" ] []
             , jsonLdScript structuredData
             , deferredScript "/highlight/highlight.min.js"
-            , inlineScript "document.addEventListener('DOMContentLoaded', function() { hljs.highlightAll(); });"
-            , stylesheet "/highlight/tokyo-night-dark.min.css"
+            , inlineScript "document.addEventListener('DOMContentLoaded', function() { hljs.highlightAll(); var link = document.createElement('link'); link.rel = 'stylesheet'; link.href = '/highlight/tokyo-night-dark.min.css'; document.head.appendChild(link); });"
             ]
         , node "body"
             []
