@@ -172,13 +172,13 @@ htmlTemplate title contentNodes =
             , node "meta" [ attribute "property" "og:description", attribute "content" "Personal website of Brandon Lucas. Bitcoin Lightning developer at Voltage, privacy advocate at Payjoin. Writing about software, history, and philosophy." ] []
             , node "meta" [ attribute "property" "og:type", attribute "content" "website" ] []
             , node "meta" [ attribute "property" "og:url", attribute "content" "https://blu.cx" ] []
-            , node "meta" [ attribute "property" "og:image", attribute "content" "https://blu.cx/images/favicon.webp" ] []
+            , node "meta" [ attribute "property" "og:image", attribute "content" "https://blu.cx/images/social-card.png" ] []
             , node "meta" [ attribute "property" "og:site_name", attribute "content" "Brandon Lucas" ] []
-            , node "meta" [ attribute "name" "twitter:card", attribute "content" "summary" ] []
+            , node "meta" [ attribute "name" "twitter:card", attribute "content" "summary_large_image" ] []
             , node "meta" [ attribute "name" "twitter:site", attribute "content" "@brandonstlucas" ] []
             , node "meta" [ attribute "name" "twitter:title", attribute "content" title ] []
             , node "meta" [ attribute "name" "twitter:description", attribute "content" "Personal website of Brandon Lucas. Bitcoin Lightning developer at Voltage, privacy advocate at Payjoin. Writing about software, history, and philosophy." ] []
-            , node "meta" [ attribute "name" "twitter:image", attribute "content" "https://blu.cx/images/favicon.webp" ] []
+            , node "meta" [ attribute "name" "twitter:image", attribute "content" "https://blu.cx/images/social-card.png" ] []
             , node "link" [ attribute "rel" "canonical", attribute "href" "https://blu.cx" ] []
             , jsonLdScript structuredData
             , deferredScript "/highlight/highlight.min.js"
