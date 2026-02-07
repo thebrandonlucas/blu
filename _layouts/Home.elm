@@ -115,9 +115,9 @@ viewAboutMe =
 
 
 layout : String -> List (Html Never) -> List (Html Never)
-layout title contentItems =
+layout _ contentItems =
     [ UI.header
-    , h1 [ class "unifrakturmaguntia-regular text-6xl text-center w-full" ] [ text title ]
+    , h1 [ class "unifrakturmaguntia-regular text-6xl text-center w-full" ] [ text "Brandon Lucas" ]
     , div [ class "font-bold text-4xl italic text-center w-full" ] [ text "Βράνδων Λουκᾶς" ]
     , viewSubtitle
     , node "div"

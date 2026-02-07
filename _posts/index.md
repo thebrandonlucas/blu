@@ -1,4 +1,4 @@
 ---
-title: "Brandon Lucas"
+title: "Bitcoin Lightning Developer & Privacy Advocate"
 layout: "Home"
 ---
