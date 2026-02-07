@@ -125,7 +125,6 @@ layout title contentItems =
         [ viewAboutMe
         , viewInfoSectionGrid contentItems
         ]
-    , Elmstatic.stylesheet "/styles.css"
     ]
 
 

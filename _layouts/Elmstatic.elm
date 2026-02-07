@@ -180,9 +180,11 @@ htmlTemplate title contentNodes =
             , node "meta" [ attribute "name" "twitter:description", attribute "content" "Personal website of Brandon Lucas. Bitcoin Lightning developer at Voltage, privacy advocate at Payjoin. Writing about software, history, and philosophy." ] []
             , node "meta" [ attribute "name" "twitter:image", attribute "content" "https://blu.cx/images/social-card.png" ] []
             , node "link" [ attribute "rel" "canonical", attribute "href" "https://blu.cx" ] []
+            , stylesheet "/styles.css"
+            , stylesheet "/highlight/tokyo-night-dark.min.css"
             , jsonLdScript structuredData
             , deferredScript "/highlight/highlight.min.js"
-            , inlineScript "document.addEventListener('DOMContentLoaded', function() { hljs.highlightAll(); var link = document.createElement('link'); link.rel = 'stylesheet'; link.href = '/highlight/tokyo-night-dark.min.css'; document.head.appendChild(link); });"
+            , inlineScript "document.addEventListener('DOMContentLoaded', function() { hljs.highlightAll(); document.querySelectorAll('.markdown img').forEach(function(img) { img.loading = 'lazy'; img.decoding = 'async'; }); });"
             ]
         , node "body"
             []

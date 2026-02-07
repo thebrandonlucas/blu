@@ -92,7 +92,6 @@ layout title contentItems =
     , div [ class "page w-[80%] flex flex-col gap-8" ]
         ([ h1 [ class "text-4xl text-center font-bold w-full" ] [ text title ] ] ++ contentItems)
     , footer
-    , Elmstatic.stylesheet "/styles.css"
     ]
 
 
