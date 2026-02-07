@@ -158,6 +158,18 @@ asyncStylesheet href =
         []
 
 
+preloadFont : String -> Html Never
+preloadFont href =
+    node "link"
+        [ attribute "rel" "preload"
+        , attribute "href" href
+        , attribute "as" "font"
+        , attribute "type" "font/woff2"
+        , attribute "crossorigin" ""
+        ]
+        []
+
+
 htmlTemplate : String -> List (Html Never) -> Html Never
 htmlTemplate title contentNodes =
     node "html"
@@ -180,6 +192,8 @@ htmlTemplate title contentNodes =
             , node "meta" [ attribute "name" "twitter:description", attribute "content" "Personal website of Brandon Lucas. Bitcoin Lightning developer at Voltage, privacy advocate at Payjoin. Writing about software, history, and philosophy." ] []
             , node "meta" [ attribute "name" "twitter:image", attribute "content" "https://blu.cx/images/social-card.png" ] []
             , node "link" [ attribute "rel" "canonical", attribute "href" "https://blu.cx" ] []
+            , preloadFont "/fonts/EBGaramond-Regular.woff2"
+            , preloadFont "/fonts/UnifrakturMaguntia-Regular.woff2"
             , stylesheet "/styles.css"
             , stylesheet "/highlight/tokyo-night-dark.min.css"
             , jsonLdScript structuredData
