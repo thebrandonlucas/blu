@@ -82,7 +82,7 @@ echo "$COMMITS_JSON" >> "$OUTPUT_FILE"
 cat >> "$OUTPUT_FILE" << 'HTMLTAIL'
 ;
     const container = document.getElementById('commits');
-    const repoUrl = 'https://github.com/thebrandonlucas/blu-elmstatic';
+    const repoUrl = 'https://github.com/thebrandonlucas/blu';
 
     commits.forEach(commit => {
         const div = document.createElement('div');
