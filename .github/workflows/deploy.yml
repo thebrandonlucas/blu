@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for changelog generation
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
@@ -29,6 +31,9 @@ jobs:
 
       - name: Build site
         run: bun run build
+
+      - name: Generate changelog
+        run: ./scripts/generate-changelog.sh
 
       - name: Deploy to VPS via rsync
         uses: burnett01/rsync-deployments@7.0.1
