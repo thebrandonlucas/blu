@@ -20,7 +20,10 @@ _More very fun things are on the way, stay tuned..._
 
 ## [Bitcoin QR Web Component: `bitcoin-qr`](https://bitcoin-qr-demo.netlify.app)
 
-<img src="/images/contributions/bitcoin-qr.webp" alt="Image of bitcoin-qr samples" width="800" height="443" loading="lazy">
+<picture>
+  <source srcset="/images/contributions/bitcoin-qr.avif" type="image/avif">
+  <img src="/images/contributions/bitcoin-qr.webp" alt="Image of bitcoin-qr samples" width="800" height="443" loading="lazy">
+</picture>
 
 _Add your company's image and style the QR to match!_
 
