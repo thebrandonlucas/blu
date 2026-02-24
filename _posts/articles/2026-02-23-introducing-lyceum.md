@@ -46,7 +46,7 @@ I now had enough intuition about what I felt was lacking to build the tool I wan
 
 I asked myself if I could build a website with a rich interface for reading and engaging with the original texts that is better than what currently exists. So I started building, with the following goals in mind:
 
-1. The reading experience should start by at least achieving parity with current resources (Scaife, Loeb). This meant in practice that we needed English translations (multiple preferred, if available). This alone would let us achieve parity with the other viewers.
+1. The reading experience should start by at least achieving parity with current resources (Scaife, Loeb). This meant in practice that I needed English translations (multiple preferred, if available). This alone would let us achieve parity with the other viewers.
 
 2. There are databases which exist to serve different purposes, but they have not been combined into a single intuitive interface. Combine freely-available, scholarly data in one place so that it can be maximally beneficial.
 
@@ -70,7 +70,7 @@ Clicking "Browse All Texts" will take you to the `/browse` page, where you can s
 ![Browse page](/images/articles/introducing-lyceum/browse.png)
 
 
-The corpus spans 373 authors and 1,837 works across all sources. Many of these will only contain the original Greek text with no translation for the time being, although we would love to fix that over time. The five texts at the top (Aesop's Fables, Gospel of John, Odyssey, Iliad, and Meditations) have been given special attention. These texts have interlinear translations and transliterations, and were what was primarily used for building and testing the site. If we click on one, we can see the reader view:
+The corpus spans 373 authors and 1,837 works across all sources. Many of these will only contain the original Greek text with no translation for the time being, although I would love to fix that over time. The five texts at the top (Aesop's Fables, Gospel of John, Odyssey, Iliad, and Meditations) have been given special attention. These texts have interlinear translations and transliterations, and were what was primarily used for building and testing the site. If we click on one, we can see the reader view:
 
 ![Reader view](/images/articles/introducing-lyceum/reader.png)
 
@@ -97,7 +97,7 @@ Because these are LLM-generated and not scholarly-reviewed translations, you sho
 
 ![Popup comparison with interlinear](/images/articles/introducing-lyceum/popup-comparison.png)
 
-We are working on ways to better ensure/enhance the accuracy of these AI-generated interlinears, but in the meantime, this built-in cross-validation with the official scholarly sources should suffice.
+I am working on ways to better ensure/enhance the accuracy of these AI-generated interlinears, but in the meantime, this built-in cross-validation with the official scholarly sources should suffice.
 
 These interlinear translations, combined with official translations and scholarly-source cross checking, make for a very powerful interface for reading.
 
