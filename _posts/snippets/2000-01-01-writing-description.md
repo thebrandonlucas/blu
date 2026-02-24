@@ -9,6 +9,8 @@ tags: software
 
 ## **Articles**
 
+- ### [Introducing Lyceum: A Modern Interface for Reading Ancient Greek Texts](/posts/articles/2026-02-23-introducing-lyceum)
+
 - ### [Fear to Attempt](/posts/articles/2025-06-20-fear-to-attempt)
 
 - ### [Payjoin for a Better Bitcoin Future](/posts/articles/2023-10-31-payjoin-better-future)
