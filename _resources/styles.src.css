@@ -48,7 +48,11 @@ a {
 }
 
 .markdown h3 {
-  @apply text-xl;
+  @apply text-xl font-bold;
+}
+
+.markdown h4 {
+  @apply text-lg font-bold;
 }
 
 .markdown blockquote {
