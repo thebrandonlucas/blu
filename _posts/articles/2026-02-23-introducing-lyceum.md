@@ -63,7 +63,7 @@ Clicking "Browse All Texts" will take you to the `/browse` page, where you can s
 ![Browse page](/images/articles/introducing-lyceum/browse.png)
 
 
-Many of these will only contain the original Greek text with no translation for the time being, although we would love to fix that over time. The five texts at the top (Aesop's Fables, Gospel of John, Odyssey, Iliad, and Meditations) have been given special attention. These texts have interlinear translations and transliterations, and were what was primarily used for building and testing the site. If we click on one, we can see the reader view:
+The corpus spans 373 authors and 1,837 works across all sources. Many of these will only contain the original Greek text with no translation for the time being, although we would love to fix that over time. The five texts at the top (Aesop's Fables, Gospel of John, Odyssey, Iliad, and Meditations) have been given special attention. These texts have interlinear translations and transliterations, and were what was primarily used for building and testing the site. If we click on one, we can see the reader view:
 
 ![Reader view](/images/articles/introducing-lyceum/reader.png)
 
