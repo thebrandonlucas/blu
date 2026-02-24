@@ -5,18 +5,22 @@ date: 2026-02-23
 tags: greek language-learning software
 ---
 
-> I learned ancient Greek as I would have learned a living language.
+> _I learned ancient Greek as I would have learned a living language._
 >
-> Heinrich Schliemann, quoted from _The Story of Civilization Vol. II: The Life of Greece_
+>
+> Heinrich Schliemann, the man who rediscovered the lost city of Troy, quoted from _The Story of Civilization Vol. II: The Life of Greece_
 
 Months ago, after having visited Rome and delving deeper and deeper into ancient history, I decided I couldn't tolerate translations for the Ancient authors. I felt compelled to read them in their own words. And this meant that I had to learn to read Greek and Latin. I started on that journey with Ancient Greek. I am still a beginner, but I felt strongly that a tool which met my learning needs was missing. So I used Claude to build a website to bridge the gap: [https://lyceum.quest](https://lyceum.quest)
 
 I began with a top recommendation online: _Athenaze_. It has given me a great foundation, particularly for grammar, but I quickly became frustrated by a few things:
 
-1) I was learning Greek through a made-up story about an Athenian farmer. It was engaging, but it wasn't "real" Ancient Greek and it wasn't a story they wrote, which quickly became demotivating when things got difficult. This isn't to fault the book, which is great, but I wanted something that put me in direct contact with the texts to make me feel like I was "unlocking" some ancient secret by learning the language.
-2) So much of language learning is memorization, and we have a scientifically proven solution to the long-term memorization problem: [spaced-repetition](https://gwern.net/spaced-repetition), which I wasn't using, and which is very difficult to implement without the help of software. The strategy I was using of just haphazardly writing down words over and over was inefficient and exhausting.
-3) Flipping through glossaries/dictionaries is difficult, and every language-learning book will force you to do this by the nature of that format. Each lesson introduced new words, but if I forgot a previous word somewhere I'd have to find which chapter it was in or flip to the dictionary. Since I didn't know _most_ words at the start of each chapter because my memorization technique was bad, I found myself spending a lot of time flipping pages. This was further complicated by the fact that each word is _inflected_, which meant the glossary definitions just had to pick one specific form of that word in the definition. This is confusing to a new student as the dictionary definition often just looks like a completely different word. Eventually, I ended up just typing the words I forgot into an LLM to have it tell me what it was, which was far faster. Double-checking with the glossary I found that the LLM was almost always correct.
-4) The answer key to the book wasn't built in, which seems common practice for Latin/Greek books, likely because they are geared for universities. But for a self-learner, I had the constant sense that I was veering off course with no way to self-correct except to validate my answers via an LLM and online dictionaries. This was also incredibly frustrating.
+1. I was learning Greek through a made-up story about an Athenian farmer. It was engaging, but it wasn't "real" Ancient Greek and it wasn't a story they wrote, which quickly became demotivating when things got difficult. This isn't to fault the book, which is great, but I wanted something that put me in direct contact with the texts to make me feel like I was "unlocking" some ancient secret by learning the language.
+
+2. So much of language learning is memorization, and we have a scientifically proven solution to the long-term memorization problem: [spaced-repetition](https://gwern.net/spaced-repetition), which I wasn't using, and which is very difficult to implement without the help of software. The strategy I was using of just haphazardly writing down words over and over was inefficient and exhausting.
+
+3. Flipping through glossaries/dictionaries is difficult, and every language-learning book will force you to do this by the nature of that format. Each lesson introduced new words, but if I forgot a previous word somewhere I'd have to find which chapter it was in or flip to the dictionary. Since I didn't know _most_ words at the start of each chapter because my memorization technique was bad, I found myself spending a lot of time flipping pages. This was further complicated by the fact that each word is _inflected_, which meant the glossary definitions just had to pick one specific form of that word in the definition. This is confusing to a new student as the dictionary definition often just looks like a completely different word. Eventually, I ended up just typing the words I forgot into an LLM to have it tell me what it was, which was far faster. Double-checking with the glossary I found that the LLM was almost always correct.
+
+4. The answer key to the book wasn't built in, which seems common practice for Latin/Greek books, likely because they are geared for universities. But for a self-learner, I had the constant sense that I was veering off course with no way to self-correct except to validate my answers via an LLM and online dictionaries. This was also incredibly frustrating.
 
 There are some books that tried to address concern 1, such as _Complete Ancient Greek_ by Gavin Betts and Alan Henry, but they still have to simplify the original for learning purposes and usually do not seem to address 2-4.
 
@@ -42,10 +46,13 @@ I now had enough intuition about what I felt was lacking to build the tool I wan
 
 I asked myself if I could build a website with a rich interface for reading and engaging with the original texts that is better than what currently exists. So I started building, with the following goals in mind:
 
-1) The reading experience should start by at least achieving parity with current resources (Scaife, Loeb). This meant in practice that we needed English translations (multiple preferred, if available). This alone would let us achieve parity with the other viewers.
-2) There are databases which exist to serve different purposes, but they have not been combined into a single intuitive interface. Combine freely-available, scholarly data in one place so that it can be maximally beneficial.
-3) The site should tightly integrate spaced-repetition features into texts of the reader's choice as a proven effective method for memorization.
-4) Use AI to do useful upfront work that it would take humans a long time to do (e.g. interlinear text generation). Like in Bitcoin, my primary field, proof-of-work is far easier to _validate_ than to _generate_. As long as we're up front about the limitations, there's no reason we can't use AI to generate initial interlinear texts which are then refined. I will go into more detail about my thoughts on using LLMs to generate interlinear translations and how I did it here in a subsequent post, but suffice it to say, they can achieve better results than you may expect.
+1. The reading experience should start by at least achieving parity with current resources (Scaife, Loeb). This meant in practice that we needed English translations (multiple preferred, if available). This alone would let us achieve parity with the other viewers.
+
+2. There are databases which exist to serve different purposes, but they have not been combined into a single intuitive interface. Combine freely-available, scholarly data in one place so that it can be maximally beneficial.
+
+3. The site should tightly integrate spaced-repetition features into texts of the reader's choice as a proven effective method for memorization.
+
+4. Use AI to do useful upfront work that it would take humans a long time to do (e.g. interlinear text generation). Like in Bitcoin, my primary field, proof-of-work is far easier to _validate_ than to _generate_. As long as we're up front about the limitations, there's no reason we can't use AI to generate initial interlinear texts which are then refined. I will go into more detail about my thoughts on using LLMs to generate interlinear translations and how I did it here in a subsequent post, but suffice it to say, they can achieve better results than you may expect.
 
 I was aiming for something like a cross between the [Scaife Reader](https://scaife.perseus.org/) (which is difficult to use and more overtly academic) and [Legentibus](https://legentibus.com/) (which has proven very successful, but is more paywall-ed, more focused, and does Latin instead of Greek).
 

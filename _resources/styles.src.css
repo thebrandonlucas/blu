@@ -55,6 +55,10 @@ a {
   @apply py-[10px] px-[20px] border-l-[#eee] border-l-5 overflow-auto;
 }
 
+.markdown blockquote p + p {
+  margin-top: 1em;
+}
+
 
 .markdown ul {
   @apply list-outside ml-4;
@@ -64,8 +68,16 @@ a {
   @apply list-outside ml-4;
 }
 
-.markdown li {
+.markdown ul li {
   @apply list-disc;
+}
+
+.markdown ol li {
+  @apply list-decimal;
+}
+
+.markdown li + li {
+  margin-top: 0.5em;
 }
 
 .markdown pre {
