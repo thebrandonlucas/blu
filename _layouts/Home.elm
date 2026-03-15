@@ -137,7 +137,7 @@ viewInfoSection : Html Never -> Html Never
 viewInfoSection content =
     div
         [ class """flex flex-col gap-4 border border-gray-500
-                        p-8 rounded-sm max-h-150 overflow-y-auto text-wrap break-words
+                        p-4 md:p-8 rounded-sm max-h-150 overflow-y-auto text-wrap break-words
                       """
         ]
         [ content ]

@@ -202,7 +202,7 @@ htmlTemplate title contentNodes =
             ]
         , node "body"
             []
-            [ node "main" [ class "flex flex-col gap-8 w-[80%] items-center mx-auto my-20" ] contentNodes ]
+            [ node "main" [ class "flex flex-col gap-8 w-[92%] md:w-[80%] items-center mx-auto my-10 md:my-20" ] contentNodes ]
         ]
 
 
