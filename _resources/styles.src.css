@@ -39,20 +39,32 @@ a {
 }
 
 .markdown h1 {
-  @apply text-4xl font-bold;
+  @apply text-4xl font-bold mt-8;
 }
 
 
 .markdown h2 {
-  @apply text-3xl font-bold;
+  @apply text-3xl font-bold mt-10;
 }
 
 .markdown h3 {
-  @apply text-2xl font-bold;
+  @apply text-2xl font-bold mt-6;
 }
 
 .markdown h4 {
-  @apply text-xl font-bold;
+  @apply text-xl font-bold mt-4;
+}
+
+/* Hash-linkable header anchors */
+.header-anchor {
+  @apply text-[#555] no-underline ml-2 text-[0.7em] opacity-0 transition-opacity;
+}
+
+.markdown h1:hover .header-anchor,
+.markdown h2:hover .header-anchor,
+.markdown h3:hover .header-anchor,
+.markdown h4:hover .header-anchor {
+  @apply opacity-100;
 }
 
 .markdown blockquote {
@@ -74,11 +86,11 @@ a {
 
 
 .markdown ul {
-  @apply list-outside ml-4;
+  @apply list-outside ml-8 my-2;
 }
 
 .markdown ol {
-  @apply list-outside ml-4;
+  @apply list-outside ml-8 my-2;
 }
 
 .markdown ul li {
@@ -98,7 +110,8 @@ a {
 }
 
 .markdown pre code {
-  @apply bg-transparent text-inherit p-0 rounded-none text-[0.85rem];
+  @apply bg-transparent p-0 rounded-none text-[0.85rem];
+  color: unset;
 }
 
 .markdown pre {
@@ -135,8 +148,14 @@ a {
   color: #fff;
 }
 
+.table-wrapper {
+  @apply overflow-x-auto w-full;
+  -webkit-overflow-scrolling: touch;
+}
+
 .markdown table {
   @apply w-full border-collapse text-sm border border-[#333] rounded;
+  min-width: 600px;
 }
 
 .markdown th {

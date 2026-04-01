@@ -70,6 +70,8 @@ As Dr. Gregory Crane, founder and head of the [Perseus Digital Library](https://
 > [...]
 >
 > LLMs are slow and frontier models are expensive but, given the money, there is no reason we could not generate literal translations for all Classical Greek and Latin literature.
+>
+> — Dr. Gregory Crane, [_Towards corpus-based learning: exercises with Ancient Greek_](https://sites.tufts.edu/perseusupdates/2026/03/10/towards-corpus-based-learning-exercises-with-ancient-greek/), 2026.
 
 ## Goal
 
@@ -225,53 +227,20 @@ As subsequent texts are added via `text-orchestrator`, the skill is instructed t
 
 `text-orchestrator` spawns subagents to orchestrate a 10 stage process from a kickoff prompt:
 
-**Stage 0 — Intake** (`text_pipeline_intake.go`)
-Resolve the requested work, choose add/apply mode, and create or refresh the workspace.
-*Artifacts:* `manifest.json`, `state.json`, `provenance.md`, `replay/stage-history.json`
-
-**Stage 1 — Source Discovery** (`text_pipeline_source_hunt.go`)
-Find, rank, and record Greek/English/auxiliary source candidates with provenance and license notes.
-*Artifacts:* `sources/greek_candidates.json`, `sources/english_candidates.json`, `sources/auxiliary_resources.json`, `sources/source-recommendations.md`
-
-**Stage 2 — Extraction** (`text_pipeline_source_extract.go`)
-Acquire approved sources, extract parseable text, preserve raw downloads alongside extracted output.
-*Artifacts:* `raw/*`, `extracted/greek.txt`, `extracted/english.txt`, `qa/extraction-report.md`
-
-**Stage 3 — Cleaning** (`text_pipeline_text_cleaning.go`)
-Remove contamination, normalize Unicode, produce trustworthy clean text with an auditable report.
-*Artifacts:* `clean/greek.txt`, `clean/english.txt`, `clean/cleaning_results.json`, `qa/cleaning-report.md`
-
-**Stage 4 — Segmentation** (`text_pipeline_segmentation.go`)
-Choose the canonical reference system and segment Greek into stable structural units.
-*Artifacts:* `structured/greek.json`, `structured/greek.txt`, `structured/reference-inventory.json`, `qa/segmentation-report.md`
-
-**Stage 5 — Witness Collection** (`text_pipeline_translation_witness.go`)
-Gather, normalize, and catalog PD English translations as reference material.
-*Artifacts:* `witnesses/catalog.json`, `witnesses/<name>.txt`, `witnesses/README.md`, `qa/witness-report.md`
-
-**Stage 6a — Translation Synthesis** ★ (`generate_translation.py`)
-Generate verse-aligned English from Greek, adversarially reviewed against PD witnesses.
-*Artifacts:* `versification/chapter_*.json`
-
-**Stage 6b — Versification** (`text_pipeline_versify.go`)
-Validate 1:1 alignment of generated translation with Greek; prepare verse-aligned edition for import.
-*Artifacts:* `versification/english_versified.json`, `versification/english_edition.json`, `versification/alignment.json`, `versification/metadata.json`, `qa/versification-report.md`
-
-**Stage 7 — Transliteration** (`text_pipeline_transliteration.go`)
-Generate deterministic romanized transliteration for every Greek token.
-*Artifacts:* `interlinear/transliteration.json`, `qa/transliteration-report.md`
-
-**Stage 8 — Interlinear/Treebank** ★ (`text_pipeline_treebank.go`, `text_pipeline_alignment.go`)
-Import/generate treebank data and build candidate word-level interlinear glosses.
-*Artifacts:* `interlinear/candidate-alignment.json`, `interlinear/chapter_*_llm.json`, `interlinear/morphology-constraints.json`, `interlinear/treebank-constraints.json`, `qa/treebank-report.md`, `qa/alignment-report.md`
-
-**Stage 9 — Reader QA** (`text_pipeline_reader_reliability.go`)
-Audit whether the text works in the reader — verify display modes, detect silent blanks.
-*Artifacts:* `qa/reader-reliability-report.md`, `qa/reliability-report.md`
-
-**Stage 10 — Ship** (`text_pipeline_new_text_ship.go`)
-Promote approved artifacts into the shipped DB, run import/build, assemble final review pack.
-*Artifacts:* `qa/final-review-pack.md`, editions/segments in `texts.db`
+| Stage | Skill | Description | Key Artifacts |
+|-------|-------|-------------|---------------|
+| **0 — Intake** | `text_pipeline_intake.go` | Resolve the requested work, choose add/apply mode, and create or refresh the workspace. | `manifest.json`, `state.json`, `provenance.md`, `replay/stage-history.json` |
+| **1 — Source Discovery** | `text_pipeline_source_hunt.go` | Find, rank, and record Greek/English/auxiliary source candidates with provenance and license notes. | `sources/greek_candidates.json`, `sources/english_candidates.json`, `sources/auxiliary_resources.json` |
+| **2 — Extraction** | `text_pipeline_source_extract.go` | Acquire approved sources, extract parseable text, preserve raw downloads alongside extracted output. | `raw/*`, `extracted/greek.txt`, `extracted/english.txt`, `qa/extraction-report.md` |
+| **3 — Cleaning** | `text_pipeline_text_cleaning.go` | Remove contamination, normalize Unicode, produce trustworthy clean text with an auditable report. | `clean/greek.txt`, `clean/english.txt`, `qa/cleaning-report.md` |
+| **4 — Segmentation** | `text_pipeline_segmentation.go` | Choose the canonical reference system and segment Greek into stable structural units. | `structured/greek.json`, `structured/greek.txt`, `qa/segmentation-report.md` |
+| **5 — Witness Collection** | `text_pipeline_translation_witness.go` | Gather, normalize, and catalog PD English translations as reference material. | `witnesses/catalog.json`, `witnesses/*.txt`, `qa/witness-report.md` |
+| **6a — Translation Synthesis** ★ | `generate_translation.py` | Generate verse-aligned English from Greek, adversarially reviewed against PD witnesses. | `versification/chapter_*.json` |
+| **6b — Versification** | `text_pipeline_versify.go` | Validate 1:1 alignment of generated translation with Greek; prepare verse-aligned edition for import. | `versification/english_versified.json`, `versification/alignment.json`, `qa/versification-report.md` |
+| **7 — Transliteration** | `text_pipeline_transliteration.go` | Generate deterministic romanized transliteration for every Greek token. | `interlinear/transliteration.json`, `qa/transliteration-report.md` |
+| **8 — Interlinear/Treebank** ★ | `text_pipeline_treebank.go`, `text_pipeline_alignment.go` | Import/generate treebank data and build candidate word-level interlinear glosses. | `interlinear/candidate-alignment.json`, `interlinear/chapter_*_llm.json`, `qa/treebank-report.md` |
+| **9 — Reader QA** | `text_pipeline_reader_reliability.go` | Audit whether the text works in the reader — verify display modes, detect silent blanks. | `qa/reader-reliability-report.md` |
+| **10 — Ship** | `text_pipeline_new_text_ship.go` | Promote approved artifacts into the shipped DB, run import/build, assemble final review pack. | `qa/final-review-pack.md`, editions/segments in `texts.db` |
 
 ★ = Requires LLM access (Anthropic API or pi agent)
 

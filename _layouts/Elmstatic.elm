@@ -198,46 +198,7 @@ htmlTemplate title contentNodes =
             , stylesheet "/highlight/tokyo-night-dark.min.css"
             , jsonLdScript structuredData
             , deferredScript "/highlight/highlight.min.js"
-            , inlineScript """document.addEventListener('DOMContentLoaded', function() {
-  hljs.highlightAll();
-  document.querySelectorAll('.markdown img').forEach(function(img) {
-    img.loading = 'lazy';
-    img.decoding = 'async';
-  });
-  // Copy button for code blocks
-  document.querySelectorAll('.markdown pre').forEach(function(pre) {
-    var wrapper = document.createElement('div');
-    wrapper.className = 'code-block-wrapper';
-    pre.parentNode.insertBefore(wrapper, pre);
-    wrapper.appendChild(pre);
-    var btn = document.createElement('button');
-    btn.textContent = 'Copy';
-    btn.className = 'copy-btn';
-    btn.addEventListener('click', function() {
-      var code = pre.querySelector('code');
-      var text = code ? code.textContent : pre.textContent;
-      navigator.clipboard.writeText(text).then(function() {
-        btn.textContent = 'Copied!';
-        setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
-      });
-    });
-    wrapper.appendChild(btn);
-  });
-  // Style blockquote attributions (paragraphs starting with em dash)
-  document.querySelectorAll('.markdown blockquote p').forEach(function(p) {
-    var text = p.textContent.trim();
-    if (text.charAt(0) === '—') {
-      p.classList.add('blockquote-attribution');
-    }
-  });
-  // Style stage pipeline items
-  document.querySelectorAll('.markdown p').forEach(function(p) {
-    var strong = p.querySelector('strong');
-    if (strong && /^Stage [0-9]/.test(strong.textContent)) {
-      p.classList.add('stage-item');
-    }
-  });
-});"""
+            , deferredScript "/site.js"
             ]
         , node "body"
             []
