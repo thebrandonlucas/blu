@@ -9,6 +9,8 @@ tags: software
 
 ## **Articles**
 
+- ### [Lyceum: A New Ancient Greek Digital Library For A Post-LLM World](/posts/articles/2026-03-31-lyceum-pipeline)
+
 - ### [Introducing Lyceum: A Modern Interface for Reading Ancient Greek Texts](/posts/articles/2026-02-23-introducing-lyceum)
 
 - ### [Fear to Attempt](/posts/articles/2025-06-20-fear-to-attempt)
