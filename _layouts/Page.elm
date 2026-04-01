@@ -48,7 +48,7 @@ markdown s =
         mdOptions : Markdown.Options
         mdOptions =
             { defaultHighlighting = Just "elm"
-            , githubFlavored = Just { tables = False, breaks = False }
+            , githubFlavored = Just { tables = True, breaks = False }
             , sanitize = False
             , smartypants = True
             }

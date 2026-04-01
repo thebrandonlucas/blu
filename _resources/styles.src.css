@@ -88,6 +88,22 @@ a {
   @apply overflow-x-scroll;
 }
 
+.markdown table {
+  @apply w-full border-collapse text-base;
+}
+
+.markdown th {
+  @apply text-left font-bold border-b border-[#555] px-3 py-2;
+}
+
+.markdown td {
+  @apply border-b border-[#333] px-3 py-2;
+}
+
+.markdown tr:hover {
+  @apply bg-[#1a1a1a];
+}
+
 .markdown img {
   @apply mx-auto;
   max-width: 100%;
