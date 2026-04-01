@@ -25,7 +25,7 @@ body {
   font-family: EBGaramond-Regular;
   /* Apply off-white and off-black text and background
    * respectively */
-  @apply text-[#fffff8] bg-[#111] text-xl;
+  @apply text-[#fffff8] bg-[#111] text-[1.375rem] leading-relaxed;
 
 }
 
@@ -39,28 +39,37 @@ a {
 }
 
 .markdown h1 {
-  @apply text-4xl;
+  @apply text-4xl font-bold;
 }
 
 
 .markdown h2 {
-  @apply text-2xl;
+  @apply text-3xl font-bold;
 }
 
 .markdown h3 {
-  @apply text-xl font-bold;
+  @apply text-2xl font-bold;
 }
 
 .markdown h4 {
-  @apply text-lg font-bold;
+  @apply text-xl font-bold;
 }
 
 .markdown blockquote {
-  @apply py-[10px] px-[20px] border-l-[#eee] border-l-5 overflow-auto;
+  @apply py-4 px-6 border-l-[#eee] border-l-4 overflow-auto italic text-[#ddd];
 }
 
 .markdown blockquote p + p {
   margin-top: 1em;
+}
+
+.blockquote-attribution {
+  @apply text-right text-[0.9em] not-italic text-[#aaa] mt-4;
+}
+
+/* Stage pipeline items */
+.stage-item {
+  @apply border-l-2 border-[#444] pl-4 py-2;
 }
 
 
@@ -84,24 +93,66 @@ a {
   margin-top: 0.5em;
 }
 
+.markdown code {
+  @apply bg-[#1e1e2e] text-[#e8c872] px-1.5 py-0.5 rounded text-[0.82em] font-mono;
+}
+
+.markdown pre code {
+  @apply bg-transparent text-inherit p-0 rounded-none text-[0.85rem];
+}
+
 .markdown pre {
   @apply overflow-x-scroll;
 }
 
+/* Copy button for code blocks */
+.code-block-wrapper {
+  position: relative;
+}
+
+.code-block-wrapper .copy-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: #444;
+  color: #ccc;
+  border: none;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.code-block-wrapper:hover .copy-btn {
+  opacity: 1;
+}
+
+.code-block-wrapper .copy-btn:hover {
+  background: #555;
+  color: #fff;
+}
+
 .markdown table {
-  @apply w-full border-collapse text-sm;
+  @apply w-full border-collapse text-sm border border-[#333] rounded;
 }
 
 .markdown th {
-  @apply text-left font-bold border-b border-[#555] px-3 py-2;
+  @apply text-left font-bold border-b-2 border-[#555] bg-[#1a1a1a] px-3 py-2;
 }
 
 .markdown td {
   @apply border-b border-[#333] px-3 py-2;
 }
 
+.markdown tr:nth-child(even) {
+  @apply bg-[#151515];
+}
+
 .markdown tr:hover {
-  @apply bg-[#1a1a1a];
+  @apply bg-[#1e1e1e];
 }
 
 .markdown img {

@@ -6,14 +6,16 @@ tags: greek language-learning software
 ---
 
 > ...to read the Latin & Greek authors in their original is a sublime luxury … I enjoy Homer in his own language infinitely beyond Pope's translation of him [...] I thank on my knees him who directed my early education for having put into my possession this rich source of delight: and I would not exchange it for any thing which I could then have acquired & have not since acquired.
-> Thomas Jefferson, [_Thomas Jefferson to Joseph Priestley, Philadelphia, 27 Jan. 1800_](https://tjlibraries.monticello.org/tjandreading/quotes.html)
+>
+> — Thomas Jefferson, [_Thomas Jefferson to Joseph Priestley, Philadelphia, 27 Jan. 1800_](https://tjlibraries.monticello.org/tjandreading/quotes.html)
 
 ---
 
 > But of the mere facts of history, as commonly accepted, what educated youth of any mental activity does not learn as much as is necessary, if he is simply turned loose into an historical library? What he needs on this, and on most other matters of common information, is not that he should be taught it in boyhood, but that abundance of books should be accessible to him.
 >
 > The only languages, then, and the only literature, to which I would allow a place in the ordinary curriculum, are those of the Greeks and Romans; and to these I would preserve the position in it which they at present occupy. That position is justified, by the great value, in education, of knowing well some other cultivated language and literature than one's own, and by the peculiar value of those particular languages and literatures.
-> John Stuart Mill, [_Inaugural Address_](https://monadnock.net/mill/inaugural.html), 1867.
+>
+> — John Stuart Mill, [_Inaugural Address_](https://monadnock.net/mill/inaugural.html), 1867.
 
 ---
 
@@ -63,13 +65,11 @@ With LLMs, this is now possible.
 
 As Dr. Gregory Crane, founder and head of the [Perseus Digital Library](https://www.perseus.tufts.edu/), notes:
 
-```
-Now we have multiple Large Language Models (LLMs) that can not only translate but also provide reasonable word-by-word grammatical explanations of any source text. My first goal is to provide my students with enough knowledge so that they can begin to exploit this rich and increasingly complex scaffolding.
-
-[...]
-
-LLMs are slow and frontier models are expensive but, given the money, there is no reason we could not generate literal translations for all Classical Greek and Latin literature.
-```
+> Now we have multiple Large Language Models (LLMs) that can not only translate but also provide reasonable word-by-word grammatical explanations of any source text. My first goal is to provide my students with enough knowledge so that they can begin to exploit this rich and increasingly complex scaffolding.
+>
+> [...]
+>
+> LLMs are slow and frontier models are expensive but, given the money, there is no reason we could not generate literal translations for all Classical Greek and Latin literature.
 
 ## Goal
 
@@ -95,10 +95,10 @@ A major goal is to do this for as many texts as possible, starting with the most
 
 Two things quickly became clear:
 
-1) There was much more we could do than merely interlinear translations.
-2) My current approach of merely prompting AI per-translation was expensive and unscalable.
+1. There was much more we could do than merely interlinear translations.
+2. My current approach of merely prompting AI per-translation was expensive and unscalable.
 
-For 1), I realized I wanted more than interlinears. In one reader view, I wanted:
+For (1), I realized I wanted more than interlinears. In one reader view, I wanted:
 
 - Full prose translations (as many public domain as I could find)
 - Interlinear beneath each word
@@ -128,13 +128,13 @@ For now, we will focus on what can be done up-front with AI. The tradeoff we are
 
 Some, like [ancientgreek.jean.land](https://ancientgreek.jean.land/), have taken the approach of using AI to quickly generate translations on the fly, which is a great novel feature. But this won't scale and should be long-term unnecessary. We need not spend tokens on any of the work required here any more than is necessary to produce a correct result. Therefore, what's really needed is a large token budget to:
 
-1) Refine a process for generating the translations
-2) Utilize the refined process in generating translations
+1. Refine a process for generating the translations
+2. Utilize the refined process in generating translations
 
 And then a budget for human Greek experts to:
 
-1) Manually audit and correct the data produced by the process itself
-2) Optimize ground-truth "holdout" data used by the agents to evaluate the quality of their work by (and automate improvements)
+1. Manually audit and correct the data produced by the process itself
+2. Optimize ground-truth "holdout" data used by the agents to evaluate the quality of their work by (and automate improvements)
 
 ## Agent Optimizations and Workflow
 
@@ -367,10 +367,10 @@ There are several directions we can go from here:
 
 Some bottlenecks to the project are:
 
-1) **Expertly hand-crafted ground truth and holdout data**. These holdouts should exist across _genres_ (epic, philosophy, history, etc.) and across _dialects_ (Ionic, Attic, Koine, etc.).
-2) **API token funding**. Generating these tokens, especially in multi-stage adversarial loops as exist in text-orchestrator, is token-intensive. The tradeoff we're aiming to make here is high upfront cost for long-term payoff. Rather than suboptimal on-the-fly generation, it is better to find methods which generate a great translation once, with some degree of human-review acceptable.
-3) **Skill development and model optimization**. Methods like spawning subagents for each stage, or even adversarial subagents within each stage (i.e. Stage 8), can help improve results. Karpathy's Autoresearch for automating skill improvement against holdout data will be extremely useful here.
-4) **The models themselves**. I've only tested this on Claude models (Sonnet/Opus). Benchmarking will likely reveal models optimally suited to different tasks. It should also be noted that the staggering rate of model improvement may render any processes developed to optimize translations irrelevant, and therefore time invested in optimizing the methods should be weighed against acceptable output quality and the knowledge that any methods we develop are likely to have ephemeral use and diminishing returns.
+1. **Expertly hand-crafted ground truth and holdout data**. These holdouts should exist across _genres_ (epic, philosophy, history, etc.) and across _dialects_ (Ionic, Attic, Koine, etc.).
+2. **API token funding**. Generating these tokens, especially in multi-stage adversarial loops as exist in text-orchestrator, is token-intensive. The tradeoff we're aiming to make here is high upfront cost for long-term payoff. Rather than suboptimal on-the-fly generation, it is better to find methods which generate a great translation once, with some degree of human-review acceptable.
+3. **Skill development and model optimization**. Methods like spawning subagents for each stage, or even adversarial subagents within each stage (i.e. Stage 8), can help improve results. Karpathy's Autoresearch for automating skill improvement against holdout data will be extremely useful here.
+4. **The models themselves**. I've only tested this on Claude models (Sonnet/Opus). Benchmarking will likely reveal models optimally suited to different tasks. It should also be noted that the staggering rate of model improvement may render any processes developed to optimize translations irrelevant, and therefore time invested in optimizing the methods should be weighed against acceptable output quality and the knowledge that any methods we develop are likely to have ephemeral use and diminishing returns.
 
 ## Conclusion
 
