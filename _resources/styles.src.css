@@ -89,7 +89,7 @@ a {
 }
 
 .markdown table {
-  @apply w-full border-collapse text-base;
+  @apply w-full border-collapse text-sm;
 }
 
 .markdown th {
