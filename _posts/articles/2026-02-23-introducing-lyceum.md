@@ -65,7 +65,7 @@ The homepage gives you an overview of the primary features.
 ![Lyceum homepage](/images/articles/introducing-lyceum/homepage.png)
 
 
-Clicking "Browse All Texts" will take you to the `/browse` page, where you can search for texts by author or title, similar to Scaife Viewer:
+Clicking "Browse All Texts" will take you to the `/texts` page, where you can search for texts by author or title, similar to Scaife Viewer:
 
 ![Browse page](/images/articles/introducing-lyceum/browse.png)
 
