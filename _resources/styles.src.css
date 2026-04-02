@@ -57,7 +57,7 @@ a {
 
 /* Hash-linkable header anchors */
 .header-anchor {
-  @apply text-[#555] no-underline ml-2 text-[0.7em] opacity-0 transition-opacity;
+  @apply text-[#555] no-underline mr-2 text-[0.7em] opacity-0 transition-opacity;
 }
 
 .markdown h1:hover .header-anchor,

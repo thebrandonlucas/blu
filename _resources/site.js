@@ -59,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
     link.className = 'header-anchor';
     link.setAttribute('aria-hidden', 'true');
     link.textContent = '#';
-    h.style.position = 'relative';
-    h.appendChild(link);
+    h.insertBefore(link, h.firstChild);
   });
 });
