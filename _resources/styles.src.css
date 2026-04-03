@@ -38,6 +38,10 @@ a {
   @apply flex flex-col gap-4;
 }
 
+.markdown h1, .markdown h2, .markdown h3, .markdown h4 {
+  position: relative;
+}
+
 .markdown h1 {
   @apply text-4xl font-bold mt-8;
 }
@@ -57,7 +61,8 @@ a {
 
 /* Hash-linkable header anchors */
 .header-anchor {
-  @apply text-[#555] no-underline mr-2 text-[0.7em] opacity-0 transition-opacity;
+  @apply text-[#555] no-underline text-[0.7em] opacity-0 transition-opacity absolute;
+  left: -1.5em;
 }
 
 .markdown h1:hover .header-anchor,
