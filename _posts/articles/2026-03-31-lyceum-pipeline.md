@@ -27,9 +27,9 @@ The tools which pioneered the work of bringing Ancient Greek to the internet can
 
 Thus, there is a unique opportunity to initiate a revival of interest in the works of Antiquity in their original language; to let us hear the authors speak again with their own voices.
 
-To this end I created a set of individual skills, coordinated as a pipeline by a meta-skill `text-orchestrator`, for creating this database automatically. Given a single prompt like "Add Plutarch's Lives", it will search the web, find the original Greek edition, find public domain English translations, download them, process and clean them, segment them into verses (or create a custom versifiable translation if no extant translation aligns well), create interlinear translations, create Latin transliterations for pronunciation, create [treebank](https://en.wikipedia.org/wiki/Treebank) data for each word.
+To this end I created a set of individual skills, coordinated as a pipeline by a meta-skill `text-orchestrator`, for creating this database automatically. The goal is: given a single prompt like "Add Plutarch's Lives", it will search the web, find the original Greek edition, find public domain English translations, download them, process and clean them, segment them into verses (or create a custom versifiable translation if no extant translation aligns well), create interlinear translations, create Latin transliterations for pronunciation, and create [treebank](https://en.wikipedia.org/wiki/Treebank) data for each word.
 
-Therefore `text-orchestrator` is an extremely powerful tool for automating database _generation_ from a single prompt. The data it collects is optimized for learning purposes, and the pipeline ends by generating a database artifact, `texts.db`, which can be directly imported into the [lyceum.quest](https://lyceum.quest) ancient Greek reader, which is a companion project to this one. It acts as the interface for the data and is my attempt to bring together all the best aspects of Perseus, Scaife, and other readers online, and improve them where possible.
+This is still only in the "proof-of-concept" stage, and there are many improvements to make, but it has successfully run through the full pipeline on a few smaller sample texts. Therefore `text-orchestrator` could be an extremely powerful tool for automating database _generation_ from a single prompt. The data it collects is optimized for learning purposes, and the pipeline ends by generating a database artifact, `texts.db`, which can be directly imported into the [lyceum.quest](https://lyceum.quest) Ancient Greek reader, which is a companion project to this one. It acts as the interface for the data and is my attempt to bring together all the best aspects of Perseus, Scaife, and other readers online, and improve them where possible.
 
 I also show how I ran [Karpathy's Autoresearch](https://github.com/karpathy/autoresearch) to fine-tune an `alignment` skill which generates English interlinears for every word of the Greek text. We should be able to use this method to fine-tune any skill in the pipeline, but that is reserved for future work.
 
@@ -59,9 +59,9 @@ This deadly trifecta of difficult and fragmented learning resources, with a cent
 
 I take John Stuart Mill's view that [history is fundamentally interesting](https://monadnock.net/mill/inaugural.html) in and of itself, and if these three barriers are overcome, students would come flocking back to learn.
 
-Therefore, reviving interest in learning ancient languages mandates lowering those barriers to entry and making the learning process as engaging as possible, and as easy to dive into what the student is there to learn, as possible.
+Therefore, reviving interest in learning ancient languages mandates lowering those barriers to entry and making the learning process as engaging and as easy to dive into what the student is there to learn as possible.
 
-With LLMs, this is now possible.
+With LLMs, we can do this.
 
 As Dr. Gregory Crane, founder and head of the [Perseus Digital Library](https://www.perseus.tufts.edu/), notes:
 
@@ -98,7 +98,7 @@ A major goal is to do this for as many texts as possible, starting with the most
 Two things quickly became clear:
 
 1. There was much more we could do than merely interlinear translations.
-2. My current approach of merely prompting AI per-translation was expensive and unscalable.
+2. My current approach of prompting AI per-translation was expensive and unscalable.
 
 For (1), I realized I wanted more than interlinears. In one reader view, I wanted:
 
@@ -120,7 +120,7 @@ To this:
 
 ![Shows interlinear/translit and inflection/grammar etc](/images/articles/lyceum-pipeline/after-enriched.png)
 
-These are just a sample of the things we can do with _static_, one-time LLM use. We could also add interactive AI chat elements like highlighting and asking about a passage, like [ancientgreek.jean.land](https://ancientgreek.jean.land) does, for example. Or a chat just to talk about a specific work or just ask general questions.
+These are just a sample of the things we can do with _static_, one-time LLM use. We could also add interactive AI chat elements like highlighting and asking about a passage, like [ancientgreek.jean.land](https://ancientgreek.jean.land) does, for example. Or a chat just to talk about a specific work or ask general questions.
 
 Eventually, we could even use AI speech-to-text (STT) and text-to-speech (TTS) features to help students learn and grade their pronunciation, or read passages to them.
 
@@ -131,7 +131,7 @@ For now, we will focus on what can be done up-front with AI. The tradeoff we are
 Some, like [ancientgreek.jean.land](https://ancientgreek.jean.land/), have taken the approach of using AI to quickly generate translations on the fly, which is a great novel feature. But this won't scale and should be long-term unnecessary. We need not spend tokens on any of the work required here any more than is necessary to produce a correct result. Therefore, what's really needed is a large token budget to:
 
 1. Refine a process for generating the translations
-2. Utilize the refined process in generating translations
+2. Create translations using it
 
 And then a budget for human Greek experts to:
 
@@ -192,33 +192,6 @@ The current recommended path is probably something like:
 
 Personally, I don't see a problem with having the AI generate a skill initially: it's often trivial for AI to lookup SKILL.md best practices and implement them better and faster than a human can. But since the temptation to "let the AI handle it" is strong due to the experience of waiting around for it to complete its tasks, the human-in-the-loop should take extra caution to ensure it's behaving as expected, truly matching against the holdout as it claims to be, and passing against large and diverse sets of holdout data that accurately capture the breadth of the desired output.
 
-### Odyssey Autoresearch Sample Run
-
-Below are the results for the word-level gloss generation `alignment` skill run on the first five hexameters of the Odyssey (40 tokens). The pipeline uses an adversarial Creator→Skeptic→Referee loop, evaluated against expert gold-standard glosses with acceptable alternatives:
-
-| Run | Accuracy | Holdout | | Summary |
-|-----|----------|---------|---|---------|
-| 1 | 97.5% | — | ✅ | Baseline. 39/40 correct. Only error: τε → "both/and" |
-| 2 | 92.5% | — | ❌ | Reinforced no-slash rule. Fixed τε but broke 3 others |
-| 3 | 95.0% | — | ❌ | Variance check: confirms ~2.5% noise floor |
-| 4 | 97.5% | — | ✅ | Expanded GT for valid alternatives. Median stable at 97.5% |
-| 5–10 | 92.5–97.5% | — | ❌ | Various prompt tweaks, thinking levels — all neutral or regressed |
-| 11 | **100%** | — | ✅ | **Concrete style examples** in Creator (genitives, particles, compact verbs). Median: 100/97.5/100 |
-| 12 | 97.5% | — | ❌ | Confirmation rerun: 97.5/100/95. Win is real but noisy |
-| 15 | 97.5% | **100%** | ✅ | Added Iliad holdout (30 tokens): 30/30 exact match — style examples generalize perfectly |
-| 16 | **100%** | **100%** | ✅ | GT expansion + eval normalization. Median: 97.5/100/100. Iliad holdout: 100% |
-| 17 | **100%** | **100%** | ✅ | More proactive Skeptic. **All three runs perfect: 100/100/100**. Iliad holdout: 100% |
-| 18–20 | 97.5% | 100% | ❌ | Further tweaks neutral. Noise floor ≈ 1 token irreducible |
-
-**Key findings:**
-- The pipeline achieved **100% median accuracy** on 40 Odyssey tokens and **100% on a held-out 30-token Iliad sample**, demonstrating generalization.
-- **Concrete style examples** beat abstract rules every time. Showing the model "of-men" not "men", "and" not "[particle]" was far more effective than writing rules about genitive marking or particle glossing.
-- The noise floor is ~1 token (2.5%) per run — stochastic LLM variance that prompt tuning cannot eliminate.
-- Increasing reasoning depth (`--thinking medium/low`) was neutral or harmful.
-- The adversarial Skeptic→Referee loop catches real errors, but over-aggressive cleanup backfires by stripping useful morphological information.
-
-Comparing across translations, the results are very encouraging for a fully automated process.
-
 ## The Text Orchestrator Skill Pipeline
 
 The `text-orchestrator` pipeline is a "set of skills" skill. Its goal is to take a simple prompt like "Add Plutarch's Lives" and end with an `output/texts` directory containing a set of `.json` files and a query-able database `texts.db` which contains all the data listed in our desired list above. This `texts.db` is the same one that [lyceum.quest](https://lyceum.quest) uses.
@@ -227,22 +200,22 @@ As subsequent texts are added via `text-orchestrator`, the skill is instructed t
 
 `text-orchestrator` spawns subagents to orchestrate a 10 stage process from a kickoff prompt:
 
-| Stage | Skill | Description | Key Artifacts |
-|-------|-------|-------------|---------------|
-| **0 — Intake** | `text_pipeline_intake.go` | Resolve the requested work, choose add/apply mode, and create or refresh the workspace. | `manifest.json`, `state.json`, `provenance.md`, `replay/stage-history.json` |
-| **1 — Source Discovery** | `text_pipeline_source_hunt.go` | Find, rank, and record Greek/English/auxiliary source candidates with provenance and license notes. | `sources/greek_candidates.json`, `sources/english_candidates.json`, `sources/auxiliary_resources.json` |
-| **2 — Extraction** | `text_pipeline_source_extract.go` | Acquire approved sources, extract parseable text, preserve raw downloads alongside extracted output. | `raw/*`, `extracted/greek.txt`, `extracted/english.txt`, `qa/extraction-report.md` |
-| **3 — Cleaning** | `text_pipeline_text_cleaning.go` | Remove contamination, normalize Unicode, produce trustworthy clean text with an auditable report. | `clean/greek.txt`, `clean/english.txt`, `qa/cleaning-report.md` |
-| **4 — Segmentation** | `text_pipeline_segmentation.go` | Choose the canonical reference system and segment Greek into stable structural units. | `structured/greek.json`, `structured/greek.txt`, `qa/segmentation-report.md` |
-| **5 — Witness Collection** | `text_pipeline_translation_witness.go` | Gather, normalize, and catalog PD English translations as reference material. | `witnesses/catalog.json`, `witnesses/*.txt`, `qa/witness-report.md` |
-| **6a — Translation Synthesis** ★ | `generate_translation.py` | Generate verse-aligned English from Greek, adversarially reviewed against PD witnesses. | `versification/chapter_*.json` |
-| **6b — Versification** | `text_pipeline_versify.go` | Validate 1:1 alignment of generated translation with Greek; prepare verse-aligned edition for import. | `versification/english_versified.json`, `versification/alignment.json`, `qa/versification-report.md` |
-| **7 — Transliteration** | `text_pipeline_transliteration.go` | Generate deterministic romanized transliteration for every Greek token. | `interlinear/transliteration.json`, `qa/transliteration-report.md` |
-| **8 — Interlinear/Treebank** ★ | `text_pipeline_treebank.go`, `text_pipeline_alignment.go` | Import/generate treebank data and build candidate word-level interlinear glosses. | `interlinear/candidate-alignment.json`, `interlinear/chapter_*_llm.json`, `qa/treebank-report.md` |
-| **9 — Reader QA** | `text_pipeline_reader_reliability.go` | Audit whether the text works in the reader — verify display modes, detect silent blanks. | `qa/reader-reliability-report.md` |
-| **10 — Ship** | `text_pipeline_new_text_ship.go` | Promote approved artifacts into the shipped DB, run import/build, assemble final review pack. | `qa/final-review-pack.md`, editions/segments in `texts.db` |
+| Stage | Name | Script | Description | Key Artifacts |
+|-------|------|--------|-------------|---------------|
+| 0 | Intake | `text_pipeline_intake.go` | Resolve the requested work, choose add/apply mode, and create or refresh the workspace. | `manifest.json`, `state.json`, `provenance.md`, `replay/stage-history.json` |
+| 1 | Source Discovery | `text_pipeline_source_hunt.go` | Find, rank, and record Greek/English/auxiliary source candidates with provenance and license notes. | `sources/greek_candidates.json`, `sources/english_candidates.json`, `sources/auxiliary_resources.json`, `sources/source-recommendations.md` |
+| 2 | Extraction | `text_pipeline_source_extract.go` | Acquire approved sources, extract parseable text, preserve raw downloads alongside extracted output. | `raw/*`, `extracted/greek.txt`, `extracted/english.txt`, `qa/extraction-report.md` |
+| 3 | Cleaning | `text_pipeline_text_cleaning.go` | Remove contamination, normalize Unicode, produce trustworthy clean text with an auditable report. | `clean/greek.txt`, `clean/english.txt`, `clean/cleaning_results.json`, `qa/cleaning-report.md` |
+| 4 | Segmentation | `text_pipeline_segmentation.go` | Choose the canonical reference system and segment Greek into stable structural units. | `structured/greek.json`, `structured/greek.txt`, `structured/reference-inventory.json`, `qa/segmentation-report.md` |
+| 5 | Witness Collection | `text_pipeline_translation_witness.go` | Gather, normalize, and catalog PD English translations as reference material. | `witnesses/catalog.json`, `witnesses/<name>.txt`, `witnesses/README.md`, `qa/witness-report.md` |
+| 6a | Translation Synthesis ★ | `generate_translation.py` | Generate verse-aligned English from Greek, adversarially reviewed against PD witnesses. | `versification/chapter_*.json` |
+| 6b | Versification | `text_pipeline_versify.go` | Validate 1:1 alignment of generated translation with Greek; prepare verse-aligned edition for import. | `versification/english_versified.json`, `versification/english_edition.json`, `versification/alignment.json`, `versification/metadata.json`, `qa/versification-report.md` |
+| 7 | Transliteration | `text_pipeline_transliteration.go` | Generate deterministic romanized transliteration for every Greek token. | `interlinear/transliteration.json`, `qa/transliteration-report.md` |
+| 8 | Interlinear/Treebank ★ | `text_pipeline_treebank.go`, `text_pipeline_alignment.go` | Import/generate treebank data and build candidate word-level interlinear glosses. | `interlinear/candidate-alignment.json`, `interlinear/chapter_*_llm.json`, `interlinear/morphology-constraints.json`, `interlinear/treebank-constraints.json`, `qa/treebank-report.md`, `qa/alignment-report.md` |
+| 9 | Reader QA | `text_pipeline_reader_reliability.go` | Audit whether the text works in the reader — verify display modes, detect silent blanks. | `qa/reader-reliability-report.md`, `qa/reliability-report.md` |
+| 10 | Ship | `text_pipeline_new_text_ship.go` | Promote approved artifacts into the shipped DB, run import/build, assemble final review pack. | `qa/final-review-pack.md`, editions/segments in `texts.db` |
 
-★ = Requires LLM access (Anthropic API or pi agent)
+★ = Full LLM judgement required at this step, expensive
 
  Since the stages are sequential, the subagents are spawned for essential context savings. Scripts are also used to make the process deterministic, allowing the LLM to save precious context on making hard-to-script judgement calls, like whether to create a custom translation for versification or use an existing translation that is sufficiently versify-able. The use of scripts also allows us to add tests.
 
