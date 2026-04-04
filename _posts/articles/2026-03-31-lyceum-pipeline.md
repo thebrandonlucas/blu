@@ -326,6 +326,13 @@ But the results for the tools as they exist speak for themselves, and skew optim
 
 At this point, I'm bottlenecked by time, money, and Greek expertise. I've just been using standard Claude and Codex subscriptions to create and test the orchestrations, but with the right resources and team we can do so much more and at an unprecedented scale.
 
-If you like ancient languages, AI, or are simply excited about preserving and expanding our knowledge of history through digital libraries, please consider [Joining the Discord](https://discord.gg/mnvAS6WUzz), helping [audit translations](https://github.com/lyceum-greek/texts), [donating](https://github.com/sponsors/lyceum-greek), or spreading the word!
+If you like ancient languages, AI, or are simply excited about preserving and expanding our knowledge of history through digital libraries, please consider [Joining the Discord](https://discord.gg/mnvAS6WUzz), helping [audit translations](https://github.com/lyceum-quest/texts), [donating](https://github.com/sponsors/lyceum-quest), or spreading the word!
 
 What I've covered here only scratches the surface of what's now possible to improve our digital access to Greek and other ancient languages.
+
+## Links
+- [Lyceum Github](https://github.com/lyceum-quest)
+- [Lyceum Orchestrator Skill Pipeline](https://github.com/lyceum-quest/orchestrator)
+- [Lyceum Orchestrator Outputs](https://github.com/lyceum-quest/texts)
+- [Discord Community](https://discord.gg/mnvAS6WUzz)
+- [Donate](https://github.com/sponsors/lyceum-quest)
