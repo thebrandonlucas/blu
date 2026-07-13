@@ -98,12 +98,17 @@ a {
   @apply list-outside ml-8 my-2;
 }
 
-.markdown ul li {
+.markdown ul > li {
   @apply list-disc;
 }
 
-.markdown ol li {
+.markdown ol > li {
   @apply list-decimal;
+}
+
+.markdown ol ul > li,
+.markdown ol ol > li {
+  list-style-type: lower-alpha;
 }
 
 .markdown li + li {

@@ -9,7 +9,7 @@ tags: nix software open-source
 >
 > - [Alan Kay](https://www.quora.com/What-is-the-story-behind-Alan-Kay-s-adage-Simple-things-should-be-simple-complex-things-should-be-possible)
 
-[`nix`](https://docs.determinate.systems/determinate-nix), and the whole ecosystem surrounding it, is the only major attempt at a top-to-bottom solution to the problem of reproducible software. There is one other that has implemented this ([guix](https://guix.gnu.org/)), but its' mindshare is dwarfed by Nix's, which is in turn dwarfed by other package managers and Linux distros, which are in turn dwarfed by proprietary programs and operating systems like MacOS and Windows.
+[`nix`](https://docs.determinate.systems/determinate-nix), and the whole ecosystem surrounding it, is the only major attempt at a top-to-bottom solution to the problem of reproducible software. There is one other that has implemented this ([guix](https://guix.gnu.org/)), but its mindshare is dwarfed by Nix's, which is in turn dwarfed by other package managers and Linux distros, which are in turn dwarfed by proprietary programs and operating systems like macOS and Windows.
 
 Nix is, most fundamentally, a means of getting software from machine or environment A to machine or environment B in a deterministic way: that is, as long as you can use `nix` on both machines to perform the transfer and the target machine has the resources to run the program, you can guarantee that the software will be transferred completely and have all the dependencies it needs to run. No other major package manager does this.
 
@@ -17,7 +17,7 @@ Technically this is a big leap forward, but, given how few use `nix`, we can't y
 
 `nix` does not do [one thing well](https://cscie2x.dce.harvard.edu/hw/ch01s06.html) nor is there [one obvious way to do any given thing](https://ziglang.org/download/0.1.1/release-notes.html): [simple things are complex and complex things are complex](https://www.quora.com/What-is-the-story-behind-Alan-Kay-s-adage-Simple-things-should-be-simple-complex-things-should-be-possible).
 
-That said, at it's base, `nix` is a beautiful idea, and an elegant solution to the software distribution problem. It enables so many positive downstream effects. It makes your *package management and operating system declarative*, and brings the deterministic, mathematical certainty of a functional language to your computer-using experience. *That* is power.
+That said, at its base, `nix` is a beautiful idea, and an elegant solution to the software distribution problem. It enables so many positive downstream effects. It makes your *package management and operating system declarative*, and brings the deterministic, mathematical certainty of a functional language to your computer-using experience. *That* is power.
 
 Thus, we have a revolutionary tool that basically no one uses because it is very difficult and the ecosystem is fragmented. Therefore I believe that the consequences of making a determinate system like `nix` easy to use will have a profound impact on how we interact with computers for the better.
 
@@ -40,9 +40,9 @@ The goal is to:
 3. Make the tool modular such that users can:
     - Take only those parts of the determinate system which they want (some may only be interested in reproducible shells while others want build systems -- there should of course be a "default" option which has everything the average user wants).
     - Modify or create their own implementation of a given tool. For example, [tvix](https://tvl.fyi/blog/rewriting-nix) spawned out of a desire to make a *modular* `nix` implementation since the primary implementation is *monolithic*, the problem being that if you don't like the way a given piece works or believe it is inefficient, you cannot easily swap it out for a different implementation and must satisfy yourself with the monolith.
-    - Add new modules and commands as desired (for example one may want a `kai deploy` which handles deploying to the users' VPS of choice).
+    - Add new modules and commands as desired (for example one may want a `kai deploy` which handles deploying to their VPS of choice).
 
-This clearly goes beyond "make a better `nix` frontend". The motivation is that this design will allow us to experiment and play with designs for a _better_ system will being backward compatible with existing ones. And further, replace *components* of one of the existing systems (e.g. replacing one of the `nix` components with a `tvix` one, but still having the total package management solution be `nix`-compatible).
+This clearly goes beyond "make a better `nix` frontend". The motivation is that this design will allow us to experiment and play with designs for a _better_ system while being backward compatible with existing ones. And further, replace *components* of one of the existing systems (e.g. replacing one of the `nix` components with a `tvix` one, but still having the total package management solution be `nix`-compatible).
 
 It is built in the [`roc`](https://www.roc-lang.org/) programming language, a high-level functional language which allows us to create platforms (in a lower-level language, `zig`, in this case) which define behavior tailored to specific use-cases. For example, in our case we create a platform to specify an EDSL ([Embedded Domain-Specific Language](https://learn-haskell.blog/03-html/03-edsls.html)) to implement the determinate protocol.
 
