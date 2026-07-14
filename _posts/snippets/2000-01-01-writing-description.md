@@ -9,7 +9,7 @@ tags: software
 
 ## **Articles**
 
-- ### [Kai: A Friendly Frontend for Determinate Computing](/posts/articles/2026-07-13-kai-friendly-frontend)
+- ### [Kai: Prototyping a friendlier frontend for determinate computing](/posts/articles/2026-07-13-kai-friendly-frontend)
 
 - ### [Lyceum: A New Ancient Greek Digital Library For A Post-LLM World](/posts/articles/2026-03-31-lyceum-pipeline)
 

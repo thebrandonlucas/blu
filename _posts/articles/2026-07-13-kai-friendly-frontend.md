@@ -1,5 +1,5 @@
 ---
-title: "Kai: A Friendly Frontend for Determinate Computing"
+title: "Kai: Prototyping a friendlier frontend for determinate computing"
 description: Making determinate computing friendly by building a modular frontend for Nix, Guix, and future reproducible systems.
 date: 2026-07-13
 tags: nix software open-source
@@ -23,7 +23,7 @@ Thus, we have a revolutionary tool that basically no one uses because it is very
 
 As such, this problem is begging for a solution.
 
-## Kai - A Friendly Frontend for Determinate Computing
+## Kai - Prototyping a friendlier frontend for determinate computing
 
 I've begun working on one such solution which I'm calling [`kai`](https://github.com/thebrandonlucas/kai), short for the [Ancient Greek καιρός](https://en.wikipedia.org/wiki/Kairos) or "the right time". At first glance, it is just lipstick on `nix`, which alone would be great. But with the proper design we can architect it to be much more.
 
