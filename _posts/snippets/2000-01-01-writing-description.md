@@ -25,6 +25,8 @@ tags: software
 
 ## **Blog**
 
+- ### [Packaging Roc Nightlies with a Nix Flake and Overlay](/posts/blog/2026-07-16-packaging-roc-nightlies)
+
 - ### [Nix for Fun and Profit: Programs as Lego's](/posts/blog/2025-11-21-nix-programs-as-legos)
 
 - ### [`<bitcoin-qr/>` - A Zero-Dependency Web Component for Stylish BIP-21 Payments](/posts/blog/2025-02-21-bitcoin-qr)
