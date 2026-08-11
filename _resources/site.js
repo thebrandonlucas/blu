@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // Keep copyright years current
+  document.querySelectorAll('[data-current-year]').forEach(function(year) {
+    year.textContent = new Date().getFullYear();
+  });
+
   // Syntax highlighting
   hljs.highlightAll();
 

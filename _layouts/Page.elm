@@ -82,7 +82,11 @@ footer =
             [ link "https://github.com/thebrandonlucas" githubIcon Nothing
             , link "https://x.com/brandonstlucas" twitterIcon Nothing
             ]
-        , div [ class "" ] [ text "Copyright (c) 2025 Brandon Lucas. All Rights Reserved." ]
+        , div [ class "" ]
+            [ text "Copyright (c) "
+            , span [ attribute "data-current-year" "" ] [ text "2026" ]
+            , text " Brandon Lucas. All Rights Reserved."
+            ]
         ]
 
 
