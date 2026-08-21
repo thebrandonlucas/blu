@@ -25,6 +25,8 @@ tags: software
 
 ## **Blog**
 
+- ### [Kai Devlog #4: Environment, Task, Build, Workflow](/posts/blog/2026-08-17-kai-devlog-4-environment-task-build-workflow)
+
 - ### [Kai Devlog #3: Custom DSL & Plugin Modules](/posts/blog/2026-08-11-kai-devlog-3-custom-dsl-plugin-modules)
 
 - ### [Kai Devlog #2: Modularity](/posts/blog/2026-08-04-kai-devlog-2-modularity)
