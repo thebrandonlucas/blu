@@ -18,7 +18,7 @@ layout: "Post"
 
 <!-- Keep adjacent quotations as separate blockquotes. -->
 
-> Most European cathedrals show differences in plan or architectural style between parts built in different generations by different builders. The later builders were tempted to "improve" upon the designs of the earlier ones, to refleect both changes in fashion and differences in individual taste. So the peaceful Normal transept abuts and contradics the soaring Gothic nave, and the result proclaims the pridefulness of the builders as much as the glory of God.
+> Most European cathedrals show differences in plan or architectural style between parts built in different generations by different builders. The later builders were tempted to "improve" upon the designs of the earlier ones, to reflect both changes in fashion and differences in individual taste. So the peaceful Norman transept abuts and contradicts the soaring Gothic nave, and the result proclaims the pridefulness of the builders as much as the glory of God.
 > Against these, the architectural unity of Reims stands in glorious contrast. The joy that stirs the beholder comes as much from the integrity of the design as from any particular excellences. As the guidebook tells, this integrity was achieved by the self-abnegation of eight generations of builders, each of whom sacrificed some of his ideas so that the whole might be of pure design.
 > Even though they have not taken centuries to build, most programming systems reflect conceptual disunity far worse than that of cathedrals [...] I will contend that conceptual integrity is *the* most important consideration in system design. It is better to have a system omit certain anomalous features and improvements, but to reflect one set of design ideas, than to have one that contains many good but independent and uncoordinated ideas.
 > 
@@ -141,7 +141,7 @@ service cow {
 
 ### Secret
 
-A secret is basically an environment variable in either your shell, or machine, etc. This allows people to have the same machine but have behavior change based on the environment variables they set or have them set API keys or whatnot that allow them to use services. For example, I used `aion` to spin up a machine that ran [`pi`]() coding agent connected to my [ppq.ai]() API key. So in one command I could spin up a NixOS machine based on a `Kaifile` that had an agent running on it!
+A secret is basically an environment variable in either your shell, or machine, etc. This allows people to have the same machine but have behavior change based on the environment variables they set or have them set API keys or whatnot that allow them to use services. For example, I used `aion` to spin up a machine that ran [`pi`](https://pi.dev) coding agent connected to my [ppq.ai](https://ppq.ai) API key. So in one command I could spin up a NixOS machine based on a `Kaifile` that had an agent running on it!
 
 Example:
 
