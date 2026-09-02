@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     year.textContent = new Date().getFullYear();
   });
 
-  // Syntax highlighting
+  // Kaifiles are close enough to Nix for useful highlighting until they have
+  // a dedicated highlight.js grammar.
+  hljs.registerAliases(['kaifile'], { languageName: 'nix' });
   hljs.highlightAll();
 
   // Lazy load images
