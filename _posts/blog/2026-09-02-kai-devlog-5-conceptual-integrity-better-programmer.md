@@ -28,7 +28,7 @@ layout: "Post"
 
 This update might be a bit unusual, as I want to write an update but also some a little more personal about my experience of programming.
 
-Working on Kai is making me a better programmer. I can feel it. There are two things that are true of Kai that were never true of a programming project for me before:
+There are two things that are true of Kai that were never true of a programming project for me before:
 
 1. I'm building something from scratch as its progenitor, that
 2. Is completely open source, that
@@ -37,7 +37,7 @@ Working on Kai is making me a better programmer. I can feel it. There are two th
 I've taken serious aim at all but (3) before, but the longer I live the more Karl Popper's maxim of working on long-term problems speaks to me:
 
 > I think that there is only one way to science - or to philosophy, for that matter: to meet a problem, to see its beauty and fall in love with it; to get married to it and to live with it happily, till death do ye part - unless you should meet another and even more fascinating problem or unless, indeed, you should obtain a solution. But even if you do obtain a solution, you may then discover, to your delight, the existence of a whole family of enchanting, though perhaps difficult, problem children, for whose welfare you may work, with a purpose, to the end of your days.
-> 
+>
 > Karl Popper, [Realism and the Aim of Science](https://www.routledge.com/Realism-and-the-Aim-of-Science-From-the-Postscript-to-The-Logic-of-Scientific-Discovery/BartleyIII-Popper/p/book/9780415084000)
 
 By taking Kai _seriously_, by striving to make something that provides as close to a _strictly better_ experience in using computers (to the extent achievable, there's [*No Silver Bullet*](https://www.cgl.ucsf.edu/Outreach/pc204/NoSilverBullet.html)), I am forced to think harder than I ever have about _what_ I'm building and _why_, the alignment between my highest-level end-goals and day to day tasks, how to make incremental progress every day which is aligned with these goals, how to maintain motivation, etc.
@@ -175,11 +175,11 @@ service cow {
 
 ## Plugin Overhaul (again)
 
-I once more redid the Plugin system, and I'll frankly probably do it again. Getting this right is really important because it's where anyone (yes, *you!*) can add your own code to Kai to create your own plugins and features outside of `std`. I won't yet go into the details because it isn't *quite* there yet, but suffice to say that I've spent a lot of time making this much more self-documenting and a better abstraction. My goal is to get to the point where new users can "just dive in" making and experimenting with their own plugins.
+I once more redid the Plugin system, and it still isn't quite where I want it to be. Getting this right is really important because it's the gateway to others adding plugins for Kai to create their own plugins and features outside of `std`. I won't yet go into the details because it isn't *quite* there yet, but suffice to say that I've spent a lot of time making this much more self-documenting better abstracted. My goal is to get to the point where new users can "just dive in" making and experimenting with their own plugins.
 
 ## Tidy.roc
 
-[matklad](https://matklad.github.io/) has a wonderful [article](https://matklad.github.io/2025/12/06/mechanical-habits.html#Tidy-Script) on automating desired patterns of behavior for your codebase via a [tidy](https://github.com/tigerbeetle/tigerbeetle/blob/main/src/tidy.zig) script they made at [TigerBeetle](https://tigerbeetle.com/). This is a really cool concept and one I wished I'd considered sooner. Basically, imagine you just wrote your own linter, but not merely to enforce generic code style rules, but also to enforce *invariants* that you seek to ensure your code maintains, without you having to manually ensure it. This is essentially another additional layer of ensuring conceptual integrity for the project, for whatever invariants you care about.
+[matklad](https://matklad.github.io/) has a wonderful [article](https://matklad.github.io/2025/12/06/mechanical-habits.html#Tidy-Script) on automating desired patterns of behavior for your codebase via a [tidy](https://github.com/tigerbeetle/tigerbeetle/blob/main/src/tidy.zig) script they made at [TigerBeetle](https://tigerbeetle.com/). This is a really cool concept and one I wished I'd considered sooner. Basically, imagine you just wrote your own linter, not merely to enforce generic code style rules, but also to enforce *invariants* that you seek to ensure your custom rules are followed with every commit. This is essentially another additional layer of ensuring conceptual integrity for the project, for whatever invariants you care about.
 
 I started simple in Kai, just adding a `Tidy.roc` which enforces:
 
@@ -192,9 +192,9 @@ But the real value is that I now have a script that I can edit to analyze my cod
 
 ## Guix Shell
 
-[_The Mythical Man-Month_](https://en.wikipedia.org/wiki/The_Mythical_Man-Month) talks a lot about the importance of maintaining Conceptual Integrity in a program, and much of my research and thinking around Kai has evolved around this concept. Conceptual Integrity is the idea that your program should be _aligned_ conceptually around what it's supposed to be doing, and that this drifts as programs grow over time because exceptions are made
+[_The Mythical Man-Month_](https://en.wikipedia.org/wiki/The_Mythical_Man-Month) talks a lot about the importance of maintaining Conceptual Integrity in a program, and much of my research and thinking around Kai has evolved around this concept. Conceptual Integrity is the idea that your program should be _aligned_ conceptually around what it's supposed to be doing, and that this drifts as programs grow over time and abstractions get leakier.
 
-He suggests multiple implementations as a means to do ensure the design does what you want and is not too tied to your specific implementation. After all, one thing we're trying to explore with Kai is the bounds of a *generic* determinate system -- we need not and should not repeat Nix's mistakes or tie ourselves too closely to their architectural mistakes.
+One suggestion he has for maintaining conceptual integrity is having multiple implementations as a means to do ensure the design does what you want and is not too tied to your specific implementation. After all, one thing we're trying to explore with Kai is the bounds of a *generic* determinate system -- we need not and should not repeat Nix's mistakes or tie ourselves too closely to their architectural mistakes.
 
 So, just as a proof of concept for now that Kai will indeed work with two systems, I added just a single Guix shell command, which proved out that the `command`/`backend`/`implementation` architecture works for both Nix and Guix!
 
@@ -210,21 +210,19 @@ I've never fuzzed code before, and I'll admit to ignorance on a lot of the theor
 
 ## Dogfooding Kai
 
-So far I've created two in-progress greenfield projects with Kai with the robot. This has proven a lot of the use case for Kai. But I'll also be adding it to extant projects like [lyceum.quest](https://lyceum.quest/), [conllu.lyceum.quest](https://conllu.lyceum.quest/), and this personal website, to prove that Kai can be used both for hosting and deployments, as well as developer environments and builds.
+So far I've created two in-progress greenfield projects with Kai with the robot friend. This has proven a lot of the use case for Kai. But I'll also be adding it to extant projects like [lyceum.quest](https://lyceum.quest/), [conllu.lyceum.quest](https://conllu.lyceum.quest/), and this personal website, to prove that Kai can be used both for hosting and deployments, as well as developer environments and builds. Essentially, Kai should be able eventually to cover most common use cases for things that happen *around* the code, so that you can spend more time doing what you want to do -- focus on the code itself.
 
 ### Aion
 
-I built a *very* vibe coded (use at your own risk!) tool to dogfood Kai with that I actually also really wanted for myself, which allowed me to spin up NixOS servers on [DigitalOcean](https://www.digitalocean.com/) at-will which spin up machines according to their Kai configuration. With this I was able, for example, to spin up an agent that "just works" and allows me to build things on that box with environment secret variables, services, packages, and just declarative computer setups in general, via just a single `Kaifile`!
+I built a *very* vibe coded (do not use yet!) tool to dogfood Kai with that I wanted for myself, a way for me to spin up NixOS servers on [DigitalOcean](https://www.digitalocean.com/) at-will which spin up machines according to their Kai configuration. With this I was able, for example, to spin up an agent that "just works" and allows me to build things on that box with environment secret variables, services, packages, and just declarative computer setups in general, via just a single `Kaifile`!
 
-This feels like a huge milestone, because one of the goals of Kai is to be able to augment/replace the traditional interface of using NixOS. If you can spin up easy to read declarative, version-controllable operating systems easily, it's a massive game-changer for the headache of maintaining and remembering how you set up software environments. Your operating system setup becomes self-documenting, portable, shareable, trivially modifiable, trivially rollback-able, and now, because it's not written in Nix, understandable!
+This feels like a huge milestone, because one of the goals of Kai is to be able to augment/replace the traditional interface of using NixOS. If you can easily spin up simple to read declarative, version-controllable operating systems, it's a massive game-changer for the headache of maintaining and remembering how you set up software environments. Your operating system setup becomes self-documenting, portable, shareable, trivially modifiable, trivially rollback-able, and now, because it's not written in pure Nix, understandable!
 
-The greater eventual ambition with this will be to allow people to use something like a `KaiOS` as a *desktop* as well, just like you can with NixOS. Then, maybe we can steal some of the hope from Omarchy and prove to DHH that Nix-for-Desktop *can* be made easy ;)
+The greater eventual ambition with this will be to allow people to use something like a `KaiOS` as a *desktop* as well, just like you can with NixOS. Then, maybe we can steal some of the Omarchy mindshare and prove to DHH that Nix-for-Desktop *can* be made easy ;)
 
 There are a lot of knobs to think about before doing this in earnest, but we've already come a long way.
 
 It's completely open source and you can use it with your own Digital Ocean account (they're one of the few that allow you to spin up custom NixOS servers).
-
-If people are interested in something they don't have to manage themselves I'd consider spinning this up into a paid service on the Ghost model (that is, open source and you can do everything yourself, but paid/managed/hosted version for allowing you to spin up out-of-the-box products on the fly if you don't want to worry about everything yourself).
 
 ### Gump
 
@@ -232,24 +230,24 @@ With [all](https://github.blog/news-insights/company-news/addressing-githubs-rec
 
 I'm calling it [Gump](https://github.com/thebrandonlucas/gump) (short for `git dump`!). The goals are:
 
-1. Self-hostable alt to Github
-2. Allows for portable *projects*, not just portable *code*. i.e., issues, pull requests, wiki updates, etc. should all be concepts built into and portable with the VCS, like [Fossil](https://fossil-scm.org/) but for decentralized work like `git`.
-3. Treats `jj` concepts as first-class as opposed to `git`. Like Nix, most people who've spent the time to figure out `jj` seem to far prefer it as a major innovation over `git`. Plus, unlike Nix but very much like Kai, `jj` is completely backward compatible with `git` and your teammates don't even need to know you're using it.  it on the concepts behind `jj`  (which, like with Nix, most who've taken the time to actually learn and use it *love* it, but there is a curve).
-4. Easy to use CLI, usable by agents with configurable permissions
+1. Self-hostable alternative to Github.
+2. Allows for portable *projects*, not just portable *code*. i.e., issues, pull requests, wiki updates, etc. should all be concepts built into and portable and them selves version-controlled, like [Fossil](https://fossil-scm.org/) but for decentralized work like `git`.
+3. Treats `jj` concepts as first-class as opposed to `git`. Like Nix, most people who've spent the time to figure out `jj` seem to far prefer it as a major innovation over `git`. Plus, unlike Nix but very much like Kai, `jj` is completely backward compatible with `git` and your teammates don't even need to know you're using it.
+4. Easy to use CLI, usable by agents with configurable permissions.
 
-The main goal, of course, is simply to work on Kai. It's going to be extremely opinionated and bespoke to my wants, if I keep working on it at all. It's going to do weird stuff like probably only use public key encryption for auth (the fact that most still do "check your inbox for an email code" is insane and backward). Or take [matklad's](https://matklad.github.io/) advice of [queueing PR merges by default](https://matklad.github.io/2023/06/18/GitHub-merge-queue.html) instead of waiting for the merge button to be green, then reviewing, then clicking merge.
+The main goal, of course, is simply to work on Kai. It's going to be extremely opinionated and bespoke to my wants, if I keep working on it at all. It's going to do weird stuff like probably only use public key encryption for auth (the fact that most websites still do "check your inbox for an email code" is insane and backward). Or take [matklad's](https://matklad.github.io/) advice of [queueing PR merges by default](https://matklad.github.io/2023/06/18/GitHub-merge-queue.html) instead of waiting for the merge button to be green, then reviewing, then clicking merge.
 
 Who knows? Maybe this will even lead to building a `jj`-based generic `magit` style editing experience too. There's so much to improve upon.
 
-There are a lot of [problems we forgot](https://www.scattered-thoughts.net/writing/pain-we-forgot) because we were all just using `git` and Github so long that we forgot to question many basic assumptions.
+There are a lot of [problems we forgot](https://www.scattered-thoughts.net/writing/pain-we-forgot) because we were all just using `git` and Github for so long that we forgot to question many basic assumptions.
 
-There are of course a whole host of things Github does really well that would be extremely difficult to replicate, but it's also been really bad lately and the coding world is beginning to wake up to the idea that maybe it was not-so-great idea to make all of open source code in the world dependent on a single company.
+There are of course a whole host of things Github does really well that would be extremely difficult to replicate, but it's also been really bad lately and the coding world is waking up to the idea that maybe it was not-so-great idea to make all of open source code in the world dependent on a single company.
 
-I don't want to distract too much from Kai though, and if I actually start using/depending on this I'll need to throw it away because Kai development comes first and foremost and I need to stay focused on the bigger goal, but still, this is a fun idea to pursue.
+I don't want to distract too much from Kai though, and if I actually start using/depending on this I'll need to throw the slop code away and rebuild something proper from scratch, but Kai development comes first and foremost and I need to stay focused on the bigger goal, but still, this is a fun idea to pursue.
 
 ## Bootstrapping and Playing with Kai
 
-You can try Kai without installing it by running `nix run github:thebrandonlucas/kai -- version`. A project can also use a small `Kaifile.bootstrap` to build its own project-local `./kai`, then use that binary for every development, build, and deployment workflow from then on. That is how Aion and Gump keep their custom Kai plugins reproducible without requiring a global installation.
+You can try Kai without installing it by running `nix run github:thebrandonlucas/kai -- version`. That is how Aion and Gump keep their custom Kai plugins reproducible without requiring a global installation, while this package is not yet on `nixpkgs`.
 
 ## Notes and Learnings
 
@@ -263,20 +261,18 @@ Lines of code I think can generally be a helpful metric for whether code is gett
 
 ## Testing Must Be Done Up Front
 
-SQLite creator [Richard Hipp](https://www.sqlite.org/crew.html) says in his excellent [Software Should Work](https://www.youtube.com/watch?v=V_qzqY1bb7I) talk about making SQLite *probably* the most-used piece of software in the world are:
+SQLite creator [Richard Hipp](https://www.sqlite.org/crew.html) says in his excellent [Software Should Work](https://www.youtube.com/watch?v=V_qzqY1bb7I) talk that the secrets to making SQLite *probably* the most-used piece of software in the world are:
 
 1. Extreme portability. As Hipp says, "it's just a file you can email to your friends!"
 2. It just works. He primarily attributes this to an *extreme* approach to testing. In fact, there is far more test code in SQLite than code being tested!
 
 I will admit with some shame that I do not have any test yet other than a single integration test that doesn't block CI. At first, I just blindly told the bot to add tests "in the style of ['How to Test'](https://matklad.github.io/2021/05/31/how-to-test.html)" which was silly and lazy and didn't solve my essential problem: Helping to know *what* my code did (free documentation) and more importantly give me *confidence* that it worked.
 
-If I have confidence that what I have works and that I'm building on a solid foundation.
-
 The main reason I don't have much testing is that I'm heavily debating and considering my strategy. *How to Test* says that tests should be cheap, operate at the [boundaries](https://www.destroyallsoftware.com/talks/boundaries) of your interface, operate only on data (i.e. only do CPU work, no I/O), and therefore be *fast*, that they should be very easy to maintain (or else you won't want to do them), and more.
 
-That's a lot of things to think about! Roc thankfully makes much of that easy by having a `!` marker to declare effect*ful* and effect*free* (pure) code, and so if you just trivially separate the code which performs effects from the code which just operates on pure data (same input always results in same output). This means if you just test the pure functions your tests will run fast. But I was finding that my tests were adding a lot of surface area, that I didn't understand very well how they worked or what they were doing, and they therefore didn't give me much confidence and in fact hampered my understanding of the code.
+That's a lot of things to think about! Roc thankfully makes much of that easy by having a `!` marker to declare effect*ful* and effect*free* (pure) code, and so if you just trivially separate the code which performs effects from the code which just operates on pure data (same input always results in same output). This means if you just test the pure functions your tests will run fast. But I was finding that my tests were adding a lot of surface area, that I didn't understand how they worked or what they were doing, and that they therefore didn't give me much confidence and in fact hampered my understanding of the code.
 
-So, in the meantime, I wrote a `zig build kaifiles` command which just runs all the Kaifiles in the `examples` folder end-to-end. I figured that since the examples demonstrate and run through basically all syntax using the simple `cowsay` program, having those work and actually seeing their output gives me a lot of confidence that at least the happy path is consistently working. I didn't block `zig build ci` with these since they're niether pure nor fast, which may be a mistake, and that has bitten me (while writing this, I realized the command failed because I hadn't run it in awhile!), so I may change that.
+So, in the meantime, I wrote a `zig build kaifiles` command which just runs all the Kaifiles in the `examples` folder end-to-end. I figured that since the examples demonstrate and run through basically all syntax using the simple `cowsay` program, having those work and actually seeing their output gives me a lot of confidence that at least the happy path is consistently working. I didn't block `zig build ci` with these since they're neither pure nor fast, which may be a mistake, and that has bitten me (while writing this, I realized the command failed because I hadn't run it in awhile!), so I may change that despite it being effectful.
 
 But a major next step for me is figuring out and working hard on the right fast test boundary so I can start building more confidence moving forward that Kai doesn't have many bugs.
 
@@ -292,7 +288,7 @@ There are real downsides to the Tigerbeetle approach of manually maintaining _al
 
 There are two edges to this sword. If you take a short enough view, never having sought or gained a deeper understanding of how the things you use work, you'll always be spending your time learning things which don't last and are always changing.
 
-The more time I've spent in the room with the creators of great things, they tend to have a deep understanding of the foundational structures of the tools they use and are building on, and as a result are much more versatile and capable. As new technologies slowly die in favor of newer technologies, they are less and less affected, because the deeper down into the foundations you go.
+The more time I've spent in the room with the creators of great things, they tend to have a deep understanding of the foundational structures of the tools they use and are building on, and as a result are much more versatile and capable. As new technologies slowly die in favor of newer technologies, they are less and less affected, because the deeper down into the foundations you go the less the knowledge you gained becomes irrelevant.
 
 There's a line between the practical utility of leveraging new technologies and the foundational stability of learning the old ones, and I think in tech by our very nature we're drawn to the former more than we generally should be.
 
@@ -302,15 +298,15 @@ Often, if you think about the software you love the most that's lasted the longe
 
 Relatedly, one of matklad's articles linked to a [John Carmack](https://twitter.com/id_aa_carmack/status/989951283900514304) discussion about "just using the tools you already have". Since this is being built in a language for which the compiler is being rebuilt, I run into a lot of bugs. So, because:
 
-a) I'm excited to help in some small way contribute to this great new language
-b) I want to use more reliable, fast tools (who doesn't?) and Roc's model fits that well
-c) There's less mental overhead and more conceptual integrity in using one tool
-d) It's fun and I get to do a bunch of mini-projects in one in the language.
-e) Not all code is equally important. The code that checks your code is less important than the primary code, and I don't need to anguish over every tiny detail.
+a) I'm excited to help in some small way contribute to this new language.
+b) I want to use more reliable, fast tools (who doesn't?) and Roc's model fits my concerns well.
+c) There's less mental overhead and more conceptual integrity in using one tool for me.
+d) It's fun and I get to do a bunch of mini-projects in the language.
+e) Not all code is equally important. The code that checks your code is less important than the code it's checking, and I don't need to anguish over every tiny detail.
 
 ## Trunk-based Development
 
-[This article](https://web.archive.org/web/20220517144332/https://ourmachinery.com/post/step-by-step-programming-incrementally/) struck an idea in my mind that I can't get out: every commit should add value to the codebase. This is *hard* to think about how to do properly, since features rarely lend themselves to single-commit completion! But there are tricks to do so for bigger features as noted in the article, and even in reviewing agent constructed code the idea of constantly merging things to `master` has been helping tremendously in avoiding merge not only cumbersome merge conflicts but just keeping the program all in my head, which is becoming more and more important as features keep getting added. The rapid development speed increases in adding more features provided by agents means that a lot of discipline is required to monitor them, reign them in, maintain control over what the code should actually be doing, and simplifying it. Agents have a huge bias in favor of bloat, and I've actually found it pretty hard to have them keep things *simple*, *small*, and *easy to understand*. Trunk-based development helps by reducing the number of concepts I'm having to keep up with at once.
+[This article](https://web.archive.org/web/20220517144332/https://ourmachinery.com/post/step-by-step-programming-incrementally/) struck an idea in my mind that I can't get out: every commit should add value to the codebase. This is *hard* to think about how to do properly, since features rarely lend themselves to single-commit completion! But there are tricks to do so for bigger features as noted in the article, and even in reviewing agent constructed code the idea of constantly merging things to `master` has been helping tremendously in avoiding not only cumbersome merge conflicts but just keeping the full program in my head, which is becoming more important as features keep getting added. The rapid development speed increases in adding more features provided by agents means that a lot of discipline is required to monitor them, reign them in, maintain control over what the code should actually be doing, and simplifying it. Agents have a huge bias in favor of bloat, and I've actually found it pretty hard to have them keep things *simple*, *small*, and *easy to understand*. Trunk-based development helps by reducing the number of concepts I'm having to keep up with at once.
 
 ## Thoughts on Commits
 
@@ -335,20 +331,20 @@ Vibe coding has been both great and terrible for me. It's difficult to find the 
 But one strategy I've been trying that's been working as a nice middle ground (though I still need a bit more discipline) is:
 
 1. Create a `.gitignore`'d directory called `plans`.
-2. Inside `plans`, create a folder for `my-feature-plan` or `my-bug-fix`
-3. Inside `my-feature-plan`, create a `spec.md`
-4. Describe, in as much detail with as many real and specific examples you can of how you'd like the thing to work, the feature, fix, or refactor
-5. Tell the AI to create a `plan.md` which follows repository rules and splits the work into small, reviewable, independently value-adding chunks (Using [Mitchell Hashimoto's](https://mitchellh.com/writing/contributing-to-complex-projects) rule of +50/-50, no more than +500/-500 -- a human (me!) has to read all the code after all!). Tell it to give examples of what it intends to do
-6. Review and refine that plan (I always find I underspecify and the AI didn't get what I meant exactly)
+2. Inside `plans`, create a folder for `my-feature-plan` or `my-bug-fix`.
+3. Inside `my-feature-plan`, create a `spec.md`.
+4. Describe, in as much detail with as many real and specific examples you can of how you'd like the thing to work, the feature, fix, or refactor.
+5. Tell the AI to create a `plan.md` which follows repository rules and splits the work into small, reviewable, independently value-adding chunks (Using [Mitchell Hashimoto's](https://mitchellh.com/writing/contributing-to-complex-projects) rule of +50/-50, no more than +500/-500 -- a human (me!) has to read all the code after all!). Tell it to give examples of what it intends to do.
+6. Review and refine that plan (I always find I underspecify and the AI didn't get what I meant exactly).
 7. Tell it "Do first chunk", review that chunk, merge into `master`. Sometimes if I've got multiple things going I'll be lazy and just have it do all the chunks at once but even with all the invariants, CI checks on every commit, and commit rules, I find this still bites me and I have to end up having it redo things. So I'm becoming more convinced that smaller chunks, each reviewed by a human before moving on, is still the way.
 
 ## Focus, Motivation, Mistakes
 
+Some final thoughts.
+
 ### Focus Focus Focus!
 
-Focusing, for me, is *really hard*. I am constantly mentally bombarded with messages from friends and family (a good thing in and of itself, but it shreds my attention if I find myself constantly checking/waiting for replies as a kneejerk reaction to not working), emails (usually useless), Twitter (maybe 5-10% useful per unit time with careful curation), etc.
-
-I have to play all sorts of tricks on myself because the internet as it stands is adversarial by default: that is, more helpful than harmful to my overall happiness and effectiveness unless I actively take steps to make it a positive. I have to *work* to make a computer a net positive for me (which is a big part of what I want Kai to help with), despite it being a universal constant in my life.
+Focus is extremely important yet really hard. I have to play all sorts of tricks on myself because the internet as it stands is adversarial by default: that is, more helpful than harmful to my overall happiness and effectiveness unless I actively take steps to make it a positive. I shouldn't have to *work* to make a computer a net positive for me (which is a big part of what I want Kai to help with). This universal constant in my life should be a net positive by default, or at least trivial to make it one.
 
 ### Maintaining Motivation
 
@@ -358,10 +354,10 @@ Sometimes, I'll find that reading and re-reading my code with the purpose of ref
 
 I'm trying to employ several tricks to get around this, such as:
 - Work in smaller and smaller chunks
-- Walk away from the computer when tired and, if I still want to feel like I'm making progress, read a book on programming that would help (e.g. *The Mythical Man-Month* or *The Cathedral and the Bazaar*) read a blog article, or watch a talk
+- Walk away from the computer when tired and, if I still want to feel like I'm making progress, read a book on programming that would help (e.g. *The Mythical Man-Month* or *The Cathedral and the Bazaar*) read a blog article, or watch a talk.
 - Sharing! Writing blog posts takes a lot of effort, even relatively simple or sloppy, plain-English ones like this one. But even just slight positive feedback from real humans who would like to use this is uber-motivating. And, it helps me think through things at a high-level again and remind myself what I'm really trying to do and forces me to understand the system I built better.
-- Frequent releases (Mechanical Habits)
-- Working on automating *processes*. E.g. creating a release script which makes releasing as simple as `zig build release ...`
+- Frequent releases (Mechanical Habits).
+- Working on automating *processes*. E.g. creating a release script which makes releasing as simple as `zig build release ...`.
 - Releasing frequently. Doing "the whole vertical" from top to bottom for every small change or small set of changes, that is, writing code, running it, testing it, releasing it, and writing about it, all frequently, makes the whole process run smoother and be less stressful. If you deploy every small change to prod every day, prod deploys accumulate less cruft, become muscle memory, and each one has a lower surface area for problems. [Many eyes make all bugs shallow](http://www.catb.org/~esr/writings/cathedral-bazaar/cathedral-bazaar/) much faster in that case. Plus, it's more exciting for both you and people who like your project!
 - Dogfood your project into another project. I can't tell you how exciting it was to just say to an agent: "Build thing X. For anything that isn't code itself, you are only allowed to use `kai`. No bash scripts, no `python` helpers, no `nix`. Just `kai`" and have it work! It's a bit clunky, but in Aion and Gump, you really can do everything you need to do, from develop to deploy, using Kai!
 
@@ -373,6 +369,6 @@ Some other great sources I'm borrowing from are:
 
 I've already found myself making a lot of mistakes with Kai:
 
-- Overreliance on AI. It takes a lot of discipline to not just keep building and instead fixing what you already have and trying to make it great. That said, if I spend a whole year working on Kai in isolation, just to rip it apart and throw it away in favor of some new implementation when someone points out a completely better architecture, I won't feel bad about not trying to achieve *perfection* on the first go before even sharing it. 
+- Overreliance on AI. It takes a lot of discipline to not just keep building and instead fixing what you already have and trying to make it great. That said, if I spend a whole year working on Kai in isolation, just to rip it apart and throw it away in favor of some new implementation when someone points out a completely better architecture, I won't feel bad about not trying to achieve *perfection* on the first go before even sharing it.
 - Not reading code enough ([Don't write bugs!](https://www.teamten.com/lawrence/programming/dont-write-bugs.html)). And, as a result, having some of the internals of things like the parser or assembler remain a bit fuzzy in my brain.
 - Getting distracted. I think it was an overall positive to vibe code [Aion](https://github.com/thebrandonlucas/aion) and [Gump](https://github.com/thebrandonlucas/gump) (and vibing was *absolutely* the correct decision in their case -- anything more would have meant spending an unjustifiable amount of time on two projects I may might 1. throw away or 2. distract from Kai too much).
