@@ -186,7 +186,7 @@ _Examples:_
 > Bitcoin! On top of that, a new network oriented around micropayments has also
 > arisen: the Lightning Network.
 >
-> — Olaoluwa Osuntokun, [LSAT: Authentication and Payments for the Lightning-Native Web](https://lightning.engineering/posts/2020-03-30-lsat/)
+> Olaoluwa Osuntokun, [LSAT: Authentication and Payments for the Lightning-Native Web](https://lightning.engineering/posts/2020-03-30-lsat/)
 
 [Lightning Service Authentication Tokens (LSATs)](https://lsat.tech/) are a protocol created for authentication and paid APIs that leverage the forgotten HTTP error code 402 discussed earlier in conjunction with the lightning network. LSATs can be thought of like reusable tickets that need to be paid for to gain access to a particular resource. But the powerful thing here is that _rules_ can be applied to modify access to resources on a given site, and the tickets can be reused on subsequent visits to the site.
 

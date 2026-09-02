@@ -80,10 +80,6 @@ a {
   margin-top: 1em;
 }
 
-.blockquote-attribution {
-  @apply text-right text-[0.9em] not-italic text-[#aaa] mt-4;
-}
-
 /* Stage pipeline items */
 .stage-item {
   @apply border-l-2 border-[#444] pl-4 py-2;

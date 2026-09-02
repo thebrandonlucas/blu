@@ -8,13 +8,13 @@ layout: "Post"
 
 > In the beginning all you want are results, in the end all you want is control.
 >
-> — [Eskil Steenberg](https://www.youtube.com/@eskilsteenberg), [How I Program in C](https://www.youtube.com/watch?v=443UNeGrFoM)
+> [Eskil Steenberg](https://www.youtube.com/@eskilsteenberg), [How I Program in C](https://www.youtube.com/watch?v=443UNeGrFoM)
 
 <!-- Keep adjacent quotations as separate blockquotes. -->
 
 > Life is long enough, and it has been given in sufficiently generous measure to allow the accomplishment of the very greatest things if the whole of it is well invested.
 >
-> — Seneca, [_On the Shortness of Life_](https://standardebooks.org/ebooks/seneca/dialogues/aubrey-stewart)
+> Seneca, [_On the Shortness of Life_](https://standardebooks.org/ebooks/seneca/dialogues/aubrey-stewart)
 
 <!-- Keep adjacent quotations as separate blockquotes. -->
 
@@ -22,7 +22,7 @@ layout: "Post"
 > Against these, the architectural unity of Reims stands in glorious contrast. The joy that stirs the beholder comes as much from the integrity of the design as from any particular excellences. As the guidebook tells, this integrity was achieved by the self-abnegation of eight generations of builders, each of whom sacrificed some of his ideas so that the whole might be of pure design.
 > Even though they have not taken centuries to build, most programming systems reflect conceptual disunity far worse than that of cathedrals [...] I will contend that conceptual integrity is *the* most important consideration in system design. It is better to have a system omit certain anomalous features and improvements, but to reflect one set of design ideas, than to have one that contains many good but independent and uncoordinated ideas.
 > 
-> — Fred Brooks, [_The Mythical Man-Month_](https://en.wikipedia.org/wiki/The_Mythical_Man-Month)
+> Fred Brooks, [_The Mythical Man-Month_](https://en.wikipedia.org/wiki/The_Mythical_Man-Month)
 
 ![Reims Cathedral](/images/blog/kai-devlog-5/reims-cathedral.jpg)
 
@@ -38,7 +38,7 @@ I've taken serious aim at all but (3) before, but the longer I live the more Kar
 
 > I think that there is only one way to science - or to philosophy, for that matter: to meet a problem, to see its beauty and fall in love with it; to get married to it and to live with it happily, till death do ye part - unless you should meet another and even more fascinating problem or unless, indeed, you should obtain a solution. But even if you do obtain a solution, you may then discover, to your delight, the existence of a whole family of enchanting, though perhaps difficult, problem children, for whose welfare you may work, with a purpose, to the end of your days.
 > 
-> — Karl Popper, [Realism and the Aim of Science](https://www.routledge.com/Realism-and-the-Aim-of-Science-From-the-Postscript-to-The-Logic-of-Scientific-Discovery/BartleyIII-Popper/p/book/9780415084000)
+> Karl Popper, [Realism and the Aim of Science](https://www.routledge.com/Realism-and-the-Aim-of-Science-From-the-Postscript-to-The-Logic-of-Scientific-Discovery/BartleyIII-Popper/p/book/9780415084000)
 
 By taking Kai _seriously_, by striving to make something that provides as close to a _strictly better_ experience in using computers (to the extent achievable, there's [*No Silver Bullet*](https://www.cgl.ucsf.edu/Outreach/pc204/NoSilverBullet.html)), I am forced to think harder than I ever have about _what_ I'm building and _why_, the alignment between my highest-level end-goals and day to day tasks, how to make incremental progress every day which is aligned with these goals, how to maintain motivation, etc.
 

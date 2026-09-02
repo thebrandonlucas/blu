@@ -7,7 +7,7 @@ tags: greek language-learning software
 
 > ...to read the Latin & Greek authors in their original is a sublime luxury … I enjoy Homer in his own language infinitely beyond Pope's translation of him [...] I thank on my knees him who directed my early education for having put into my possession this rich source of delight: and I would not exchange it for any thing which I could then have acquired & have not since acquired.
 >
-> — Thomas Jefferson, [_Thomas Jefferson to Joseph Priestley, Philadelphia, 27 Jan. 1800_](https://tjlibraries.monticello.org/tjandreading/quotes.html)
+> Thomas Jefferson, [_Thomas Jefferson to Joseph Priestley, Philadelphia, 27 Jan. 1800_](https://tjlibraries.monticello.org/tjandreading/quotes.html)
 
 ---
 
@@ -15,7 +15,7 @@ tags: greek language-learning software
 >
 > The only languages, then, and the only literature, to which I would allow a place in the ordinary curriculum, are those of the Greeks and Romans; and to these I would preserve the position in it which they at present occupy. That position is justified, by the great value, in education, of knowing well some other cultivated language and literature than one's own, and by the peculiar value of those particular languages and literatures.
 >
-> — John Stuart Mill, [_Inaugural Address_](https://monadnock.net/mill/inaugural.html), 1867.
+> John Stuart Mill, [_Inaugural Address_](https://monadnock.net/mill/inaugural.html), 1867.
 
 ---
 
@@ -71,7 +71,7 @@ As Dr. Gregory Crane, founder and head of the [Perseus Digital Library](https://
 >
 > LLMs are slow and frontier models are expensive but, given the money, there is no reason we could not generate literal translations for all Classical Greek and Latin literature.
 >
-> — Dr. Gregory Crane, [_Towards corpus-based learning: exercises with Ancient Greek_](https://sites.tufts.edu/perseusupdates/2026/03/10/towards-corpus-based-learning-exercises-with-ancient-greek/), 2026.
+> Dr. Gregory Crane, [_Towards corpus-based learning: exercises with Ancient Greek_](https://sites.tufts.edu/perseusupdates/2026/03/10/towards-corpus-based-learning-exercises-with-ancient-greek/), 2026.
 
 ## Goal
 

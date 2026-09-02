@@ -35,14 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
     wrapper.appendChild(btn);
   });
 
-  // Style blockquote attributions (paragraphs starting with em dash)
-  document.querySelectorAll('.markdown blockquote p').forEach(function(p) {
-    var text = p.textContent.trim();
-    if (text.charAt(0) === '\u2014') {
-      p.classList.add('blockquote-attribution');
-    }
-  });
-
   // Style stage pipeline items
   document.querySelectorAll('.markdown p').forEach(function(p) {
     var strong = p.querySelector('strong');
