@@ -10,7 +10,11 @@ layout: "Post"
 >
 > — [Jonas Salk, referenced from _The 10,000-year clock_ below](https://longnow.org/clock/)
 
+<!-- Keep adjacent quotations as separate blockquotes. -->
+
 > The 10,000-year clock will mark time with astronomic and calendric displays and a chime generator designed with the help of Brian Eno that can produce over 3.5 million unique bell chime sequences — one for every day the clock is visited for the next 10,000 years.
+
+<!-- Keep adjacent quotations as separate blockquotes. -->
 
 > Ten thousand years is about the age of modern civilization, so the clock will measure out a future of civilization equal to its past. This assumes our civilization is in the middle of whatever journey we are on — an implicit statement of optimism.
 
