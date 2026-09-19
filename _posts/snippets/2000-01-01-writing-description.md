@@ -25,7 +25,7 @@ tags: software
 
 ## **Blog**
 
-- ### [Kai Devlog #6: κατακλυσμός!](/posts/blog/2026-09-19-kai-devlog-6-cataclysm)
+- ### [Kai Devlog #6: κατακλυσμός!](/posts/blog/2026-09-19-kai-devlog-6)
 
 - ### [Kai Devlog #5: Conceptual Integrity and Being a Better Programmer](/posts/blog/2026-09-02-kai-devlog-5-conceptual-integrity-better-programmer)
 
