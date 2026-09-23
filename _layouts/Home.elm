@@ -112,7 +112,7 @@ viewAboutMe =
                     , "[`bitcoin-qr`](https://github.com/thebrandonlucas/bitcoin-qr): A zero-dependency, zero-framework QR code web component for Bitcoin on-chain, Lightning, and unified BIP-21 payments."
                     , "Added [herecomesbitcoin](https://www.herecomesbitcoin.org/) animations to [bitcoin.org](https://bitcoin.org/)"
                     , "Set up [internationalization for Alby wallet](https://github.com/getAlby/lightning-browser-extension/pull/906) to allow multiple languages"
-                    , "Created [roc-overlay](https://github.com/thebrandonlucas/roc-overlay) to help members of the Roc community"
+                    , "Created [roc-overlay](https://github.com/thebrandonlucas/roc-overlay) to help members of the Roc community install and pin nightly compiler builds reproducibly with Nix."
                     ]
                 )
             ]
