@@ -2,7 +2,7 @@ module Home exposing (layout, main, markdown)
 
 import Elmstatic exposing (..)
 import Html exposing (..)
-import Html.Attributes exposing (attribute, class)
+import Html.Attributes exposing (attribute, class, href)
 import Markdown
 import Page
 import UI exposing (header)
@@ -87,11 +87,10 @@ markdown s =
 
 viewSubtitle : Html Never
 viewSubtitle =
-    h2 [ class "text-xl text-center flex flex-col " ]
-        [
-           span [] [ text "Determinate Computing @ [kai.nix.fun]()" ]
-        ,  span [] [ text "Ancient Greek Library @ [lyceum.quest]()" ]
-        ,  span [] [ text "Bitcoin Lightning Payments @ voltage.cloud" ]
+    h2 [ class "text-xl text-center flex flex-col" ]
+        [ span [] [ text "Determinate Computing @ ", a [ href "https://kai.nix.fun" ] [ text "kai.nix.fun" ] ]
+        , span [] [ text "Ancient Greek Library @ ", a [ href "https://lyceum.quest" ] [ text "lyceum.quest" ] ]
+        , span [] [ text "Bitcoin Lightning Payments @ voltage.cloud" ]
         , span [] [ text "Bitcoin Privacy & Scalability @ payjoin.org" ]
         ]
 
@@ -99,25 +98,34 @@ viewSubtitle =
 viewAboutMe : Html Never
 viewAboutMe =
     viewInfoSection
-        (span [ class "flex flex-col gap-4" ]
+        (div [ class "flex flex-col gap-4" ]
             [ span [ class "text-center" ] [ text "Welcome!" ]
             , span [ class "text-center" ] [ text "An enthusiast about everything, but mostly great software." ]
             , span [ class "text-center" ] [ text "Highlights" ]
-            , ul [ class "list-outside ml-8 " ]
-                [ li [ class "list-disc" ] [ text "Currently building [Kai](), a friendly frontend for determinate computing" ]
-                , li [ class "list-disc" ] [ text "Built one of the world's most comprehensive Ancient Greek web interfaces & open source databases for Ancient Greek" ]
-                , li [ class "list-disc" ] [ text "Built [conllu.lyceum.quest](): an open source, accountless, comprehensive PWA visualizer for [CoNLL-U]() files" ]
-                , li [ class "list-disc" ] [ text "[First Place Winner]() and later mentor & volunteer @ [MIT Bitcoin Hackathon]()" ]
-                , li [ class "list-disc" ] [ text "Payjoin contributor: Presented Async Payjoin @ [TABconf](), wrote payjoin.org, UX for `payjoin-cli`, and minor contributions to [BIP-77]()" ]
-                , li [ class "list-disc" ] [ text "`bitcoin-qr`: A zero-dependency, zero-framework QR code web component for Bitcoin on-chain, Lightning, and unified BIP-21 payments." ]
-                , li [ class "list-disc" ] [ text "Added [herecomesbitcoin]() animations to [bitcoin.org]()" ]
-                , li [ class "list-disc" ] [ text "Setup [internationalization for Alby wallet]() to allow multiple languages" ]
-                , li [ class "list-disc" ] [ text "Created [roc-overlay]() to help members of the Roc community" ]
+            , ul [ class "list-outside ml-8" ]
+                (List.map (\item -> li [ class "list-disc" ] [ markdown item ])
+                    [ "Currently building [Kai](https://github.com/thebrandonlucas/kai), a friendly frontend for determinate computing"
+                    , "Built one of the world's most comprehensive Ancient Greek web interfaces & open source databases for Ancient Greek"
+                    , "Built [conllu.lyceum.quest](https://conllu.lyceum.quest): an open source, accountless, comprehensive PWA visualizer for [CoNLL-U](https://universaldependencies.org/format.html) files"
+                    , "[First Place Winner](https://x.com/satsie/status/1909081177765364080) and later mentor & volunteer @ [MIT Bitcoin Hackathon](https://mitbitcoin.devpost.com/)"
+                    , "Payjoin contributor: Presented Async Payjoin @ [TABconf](https://www.youtube.com/watch?v=vPzvLxv0YfQ), wrote payjoin.org, UX for `payjoin-cli`, and minor contributions to [BIP-77](https://github.com/bitcoin/bips/blob/master/bip-0077.mediawiki)"
+                    , "[`bitcoin-qr`](https://github.com/thebrandonlucas/bitcoin-qr): A zero-dependency, zero-framework QR code web component for Bitcoin on-chain, Lightning, and unified BIP-21 payments."
+                    , "Added [herecomesbitcoin](https://www.herecomesbitcoin.org/) animations to [bitcoin.org](https://bitcoin.org/)"
+                    , "Set up [internationalization for Alby wallet](https://github.com/getAlby/lightning-browser-extension/pull/906) to allow multiple languages"
+                    , "Created [roc-overlay](https://github.com/thebrandonlucas/roc-overlay) to help members of the Roc community"
+                    ]
+                )
+            ]
+        )
 
 
-
-                  -- INTERESTS
-                , li [ class "list-disc" ] [ text "Free and Open Source Software (FOSS): Bitcoin, Lightning Network, Payjoin, Linux, GrapheneOS, VPNs, etc." ]
+viewInterests : Html Never
+viewInterests =
+    viewInfoSection
+        (div [ class "flex flex-col gap-4" ]
+            [ h2 [ class "text-center" ] [ text "Interests" ]
+            , ul [ class "list-outside ml-8" ]
+                [ li [ class "list-disc" ] [ text "Free and Open Source Software (FOSS): Bitcoin, Lightning Network, Payjoin, Linux, GrapheneOS, VPNs, etc." ]
                 , li [ class "list-disc" ] [ text "History: Ancient Greek, Roman, American Revolution, and more.)" ]
                 , li [ class "list-disc" ] [ text "Biographies: Adams, Hamilton, Washington, Franklin, Oppenheimer, Ramanujan and more" ]
                 , li [ class "list-disc" ] [ text "Philosophy, psychology, Christianity: Influenced by Cicero, Nietzsche, Karl Popper, Dostoevsky, Will Durant, Oliver Sacks, Jung, Seneca, and more. Attempting to read Kierkegaard, but finding it impenetrably difficult yet joyful.)" ]
@@ -137,6 +145,7 @@ layout _ contentItems =
     , node "div"
         [ class "flex flex-col gap-4 w-full" ]
         [ viewAboutMe
+        , viewInterests
         , viewInfoSectionGrid contentItems
         ]
     ]
