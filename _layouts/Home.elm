@@ -106,12 +106,11 @@ viewAboutMe =
             , ul [ class "list-outside ml-8" ]
                 (List.map (\item -> li [ class "list-disc" ] [ markdown item ])
                     [ "Currently building [Kai](https://github.com/thebrandonlucas/kai), a friendly frontend for determinate computing"
-                    , "Built one of the world's most comprehensive Ancient Greek web interfaces & open source databases for Ancient Greek"
+                    , "Built one of the world's most comprehensive web interfaces & open source databases for Ancient Greek"
                     , "Built [conllu.lyceum.quest](https://conllu.lyceum.quest): an open source, accountless, comprehensive PWA visualizer for [CoNLL-U](https://universaldependencies.org/format.html) files"
-                    , "[First Place Winner](https://x.com/satsie/status/1909081177765364080) and later mentor & volunteer @ [MIT Bitcoin Hackathon](https://mitbitcoin.devpost.com/)"
+                    , "[First Place Team](https://x.com/satsie/status/1909081177765364080) and later mentor & volunteer @ [MIT Bitcoin Hackathon](https://mitbitcoin.devpost.com/)"
                     , "Payjoin contributor: Presented Async Payjoin @ [TABconf](https://www.youtube.com/watch?v=vPzvLxv0YfQ), wrote payjoin.org, UX for `payjoin-cli`, and minor contributions to [BIP-77](https://github.com/bitcoin/bips/blob/master/bip-0077.mediawiki)"
                     , "[`bitcoin-qr`](https://github.com/thebrandonlucas/bitcoin-qr): A zero-dependency, zero-framework QR code web component for Bitcoin on-chain, Lightning, and unified BIP-21 payments."
-                    , "Added [herecomesbitcoin](https://www.herecomesbitcoin.org/) animations to [bitcoin.org](https://bitcoin.org/)"
                     , "Set up [internationalization for Alby wallet](https://github.com/getAlby/lightning-browser-extension/pull/906) to allow multiple languages"
                     , "Created [roc-overlay](https://github.com/thebrandonlucas/roc-overlay) to help members of the Roc community install and pin nightly compiler builds reproducibly with Nix."
                     ]
