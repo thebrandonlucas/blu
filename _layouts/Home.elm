@@ -88,10 +88,11 @@ markdown s =
 viewSubtitle : Html Never
 viewSubtitle =
     h2 [ class "text-xl text-center flex flex-col " ]
-        [ span [] [ text "Bitcoin Lightning Payments @ voltage.cloud" ]
-        , span [] [ text "Bitcoin Privacy & Scalability @ payjoin.org." ]
-        , span [] [ text "Love sovereign software & history." ]
-        , span [] [ text "Learning Nix, Elm, Rust, Ancient Greek and Latin." ]
+        [
+           span [] [ text "Determinate Computing @ [kai.nix.fun]()" ]
+        ,  span [] [ text "Ancient Greek Library @ [lyceum.quest]()" ]
+        ,  span [] [ text "Bitcoin Lightning Payments @ voltage.cloud" ]
+        , span [] [ text "Bitcoin Privacy & Scalability @ payjoin.org" ]
         ]
 
 
@@ -100,10 +101,23 @@ viewAboutMe =
     viewInfoSection
         (span [ class "flex flex-col gap-4" ]
             [ span [ class "text-center" ] [ text "Welcome!" ]
-            , span [ class "text-center" ] [ text "I'm a software builder by trade who's interested in too many things for my own good." ]
-            , span [ class "text-center" ] [ text "Here's a sample:" ]
+            , span [ class "text-center" ] [ text "An enthusiast about everything, but mostly great software." ]
+            , span [ class "text-center" ] [ text "Highlights" ]
             , ul [ class "list-outside ml-8 " ]
-                [ li [ class "list-disc" ] [ text "Free and Open Source Software (FOSS): Bitcoin, Lightning Network, Payjoin, Linux, GrapheneOS, VPNs, etc." ]
+                [ li [ class "list-disc" ] [ text "Currently building [Kai](), a friendly frontend for determinate computing" ]
+                , li [ class "list-disc" ] [ text "Built one of the world's most comprehensive Ancient Greek web interfaces & open source databases for Ancient Greek" ]
+                , li [ class "list-disc" ] [ text "Built [conllu.lyceum.quest](): an open source, accountless, comprehensive PWA visualizer for [CoNLL-U]() files" ]
+                , li [ class "list-disc" ] [ text "[First Place Winner]() and later mentor & volunteer @ [MIT Bitcoin Hackathon]()" ]
+                , li [ class "list-disc" ] [ text "Payjoin contributor: Presented Async Payjoin @ [TABconf](), wrote payjoin.org, UX for `payjoin-cli`, and minor contributions to [BIP-77]()" ]
+                , li [ class "list-disc" ] [ text "`bitcoin-qr`: A zero-dependency, zero-framework QR code web component for Bitcoin on-chain, Lightning, and unified BIP-21 payments." ]
+                , li [ class "list-disc" ] [ text "Added [herecomesbitcoin]() animations to [bitcoin.org]()" ]
+                , li [ class "list-disc" ] [ text "Setup [internationalization for Alby wallet]() to allow multiple languages" ]
+                , li [ class "list-disc" ] [ text "Created [roc-overlay]() to help members of the Roc community" ]
+
+
+
+                  -- INTERESTS
+                , li [ class "list-disc" ] [ text "Free and Open Source Software (FOSS): Bitcoin, Lightning Network, Payjoin, Linux, GrapheneOS, VPNs, etc." ]
                 , li [ class "list-disc" ] [ text "History: Ancient Greek, Roman, American Revolution, and more.)" ]
                 , li [ class "list-disc" ] [ text "Biographies: Adams, Hamilton, Washington, Franklin, Oppenheimer, Ramanujan and more" ]
                 , li [ class "list-disc" ] [ text "Philosophy, psychology, Christianity: Influenced by Cicero, Nietzsche, Karl Popper, Dostoevsky, Will Durant, Oliver Sacks, Jung, Seneca, and more. Attempting to read Kierkegaard, but finding it impenetrably difficult yet joyful.)" ]
