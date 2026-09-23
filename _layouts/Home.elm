@@ -92,6 +92,7 @@ viewSubtitle =
         , span [] [ text "Ancient Greek Library @ ", a [ href "https://lyceum.quest" ] [ text "lyceum.quest" ] ]
         , span [] [ text "Bitcoin Lightning Payments @ ", a [ href "https://voltage.cloud" ] [ text "voltage.cloud" ] ]
         , span [] [ text "Bitcoin Privacy & Scalability @ ", a [ href "https://payjoin.org" ] [ text "payjoin.org" ] ]
+        , span [] [ a [ href "https://github.com/thebrandonlucas" ] [ text "GitHub" ] ]
         ]
 
 
