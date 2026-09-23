@@ -10,11 +10,19 @@ tags: software
 
 _More very fun things are on the way, stay tuned..._
 
-<!-- --- -->
-<!---->
-<!-- ## [nix.fun](https://nix.fun) -->
-<!---->
-<!-- A work-in-progress website dedicated to helping people solve problems with [Nix](https://github.com/NixOS/nix). -->
+## [Kai](https://kai.nix.fun)
+
+---
+
+## [Lyceum: Ancient Greek Library](https://lyceum.quest)
+
+---
+
+## [CoNLL-U Visualizer](https://conllu.lyceum.quest)
+
+---
+
+## [roc-overlay](https://github.com/thebrandonlucas/roc-overlay)
 
 ---
 

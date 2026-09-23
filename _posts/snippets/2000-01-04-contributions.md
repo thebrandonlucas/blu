@@ -56,6 +56,10 @@ I built the current version of [payjoin.org](https://payjoin.org) with help from
 
 ---
 
+## [Bitcoin.org / Here Comes Bitcoin](https://bitcoin.org/)
+
+---
+
 ## [bolt12.org](https://bolt12.org)
 
 <picture>
