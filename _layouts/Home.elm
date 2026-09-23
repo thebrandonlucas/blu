@@ -90,8 +90,8 @@ viewSubtitle =
     h2 [ class "text-xl text-center flex flex-col" ]
         [ span [] [ text "Determinate Computing @ ", a [ href "https://kai.nix.fun" ] [ text "kai.nix.fun" ] ]
         , span [] [ text "Ancient Greek Library @ ", a [ href "https://lyceum.quest" ] [ text "lyceum.quest" ] ]
-        , span [] [ text "Bitcoin Lightning Payments @ voltage.cloud" ]
-        , span [] [ text "Bitcoin Privacy & Scalability @ payjoin.org" ]
+        , span [] [ text "Bitcoin Lightning Payments @ ", a [ href "https://voltage.cloud" ] [ text "voltage.cloud" ] ]
+        , span [] [ text "Bitcoin Privacy & Scalability @ ", a [ href "https://payjoin.org" ] [ text "payjoin.org" ] ]
         ]
 
 
