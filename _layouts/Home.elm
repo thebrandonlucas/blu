@@ -109,7 +109,7 @@ viewAboutMe =
                     , "Built one of the world's most comprehensive web interfaces & open source databases for Ancient Greek"
                     , "Built [conllu.lyceum.quest](https://conllu.lyceum.quest): an open source, accountless, comprehensive PWA visualizer for [CoNLL-U](https://universaldependencies.org/format.html) files"
                     , "[First Place Team](https://x.com/satsie/status/1909081177765364080) and later mentor & volunteer @ [MIT Bitcoin Hackathon](https://mitbitcoin.devpost.com/)"
-                    , "Payjoin contributor: Presented Async Payjoin @ [TABconf](https://www.youtube.com/watch?v=vPzvLxv0YfQ), wrote payjoin.org, UX for `payjoin-cli`, and minor contributions to [BIP-77](https://github.com/bitcoin/bips/blob/master/bip-0077.mediawiki)"
+                    , "Payjoin contributor: Presented Async Payjoin @ [TABconf](https://www.youtube.com/watch?v=vPzvLxv0YfQ), wrote payjoin.org, and UX for `payjoin-cli`"
                     , "[`bitcoin-qr`](https://github.com/thebrandonlucas/bitcoin-qr): A zero-dependency, zero-framework QR code web component for Bitcoin on-chain, Lightning, and unified BIP-21 payments."
                     , "Set up [internationalization for Alby wallet](https://github.com/getAlby/lightning-browser-extension/pull/906) to allow multiple languages"
                     , "Created [roc-overlay](https://github.com/thebrandonlucas/roc-overlay) to help members of the Roc community install and pin nightly compiler builds reproducibly with Nix."
