@@ -1,5 +1,6 @@
 ---
 title: "Kai Devlog #1: Boundaries"
+series: kai-devlog
 description: Finding the right boundary between Kai's simple configuration and Nix's power.
 date: 2026-07-28
 tags: nix software open-source

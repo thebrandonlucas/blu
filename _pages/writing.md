@@ -1,1 +1,0 @@
-_posts/snippets/2000-01-01-writing-description.md

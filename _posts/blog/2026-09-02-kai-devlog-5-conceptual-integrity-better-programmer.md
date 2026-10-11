@@ -1,5 +1,6 @@
 ---
 title: "Kai Devlog #5: Conceptual Integrity and Being a Better Programmer"
+series: kai-devlog
 description: Building Kai for the long term through conceptual integrity, better tools, deliberate practice, and dogfooding.
 date: 2026-09-02
 tags: nix software open-source

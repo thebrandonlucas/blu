@@ -1,5 +1,6 @@
 ---
 title: "Kai Devlog #4: Environment, Task, Build, Workflow"
+series: kai-devlog
 description: Expanding Kai with reusable environments, runnable tasks, composable workflows, portable builds, and overlays.
 date: 2026-08-17
 tags: nix software open-source

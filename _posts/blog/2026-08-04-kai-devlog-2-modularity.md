@@ -1,5 +1,6 @@
 ---
 title: "Kai Devlog #2: Modularity"
+series: kai-devlog
 description: Building Kai around replaceable commands, extensible plugins, and custom determinate backends.
 date: 2026-08-04
 tags: nix software open-source

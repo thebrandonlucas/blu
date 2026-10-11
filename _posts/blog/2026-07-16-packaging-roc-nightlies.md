@@ -1,5 +1,6 @@
 ---
 title: "Packaging Roc Nightlies with a Nix Flake and Overlay"
+project: roc-overlay
 description: Packaging official Roc nightly compiler binaries reproducibly with a Nix flake and overlay.
 date: 2026-07-16
 tags: nix software open-source
