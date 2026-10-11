@@ -1,5 +1,6 @@
 ---
 title: "Prototyping a friendlier frontend for determinate computing"
+featured: true
 description: Making determinate computing friendly by building a modular frontend for Nix, Guix, and future reproducible systems.
 date: 2026-07-13
 tags: nix software open-source

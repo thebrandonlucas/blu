@@ -250,6 +250,7 @@ home = |writing, projects, quotes| {
 			Err(_) => ""
 		}
 	latest = pieces.drop_first(1).take_first(7)
+	chosen = featured(writing)
 	quote =
 		match quotes.first() {
 			Ok(q) => Html.el("section", [cls("home-quote")], [quote_block(q, False)])
@@ -268,11 +269,16 @@ home = |writing, projects, quotes| {
 					nav("home"),
 				],
 			),
+			if chosen.is_empty() {
+				""
+			} else {
+				Html.el("section", [cls("home-featured")], [section_head("Featured", "/writing/", "All writing"), featured_list(chosen)])
+			},
 			Html.el(
 				"section",
 				[cls("home-writing")],
 				[
-					section_head("Writing", "/writing/", "All writing"),
+					section_head("Latest", "/writing/", "All writing"),
 					lead,
 					Html.el("ul", [cls("entries")], latest.map(entry)),
 				],
@@ -599,6 +605,7 @@ writing_index = |writing| {
 		"Writing",
 		"Articles are long and considered; the blog is shorter and quicker; the journal is fragments as they come.",
 		[
+			if featured(writing).is_empty() { "" } else { Html.el("section", [cls("featured-block")], [Html.el("h2", [], ["Featured"]), featured_list(featured(writing))]) },
 			Html.el(
 				"p",
 				[cls("sections")],
@@ -1206,4 +1213,27 @@ redirect = |to|
 			"",
 		],
 		"\n",
+	)
+
+# The pieces marked `featured: true`, oldest first.
+featured : List(Item) -> List(Item)
+featured = |writing| writing.keep_if(|i| Folio.field(i.doc, "featured") == "true").sort_by(|i| date_num(i.doc.date))
+
+featured_list : List(Item) -> Str
+featured_list = |items|
+	Html.el(
+		"ul",
+		[cls("featured")],
+		items.map(
+			|i|
+				Html.el(
+					"li",
+					[cls("featured-card")],
+					[
+						Html.el("p", [cls("kicker")], [kind_label(i), " · ", Html.el("time", [Html.a("datetime", i.doc.date)], [short_date(i.doc.date)])]),
+						Html.el("h3", [], [Html.link(i.url, i.title)]),
+						Html.el("p", [], [Html.text(clip(i.description, 220))]),
+					],
+				),
+		),
 	)

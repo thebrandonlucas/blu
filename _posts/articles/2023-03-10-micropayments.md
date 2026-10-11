@@ -1,5 +1,6 @@
 ---
 title: Micropayments and the Lightning Network
+featured: true
 description: Content monetization on the internet is broken. Credit card fees prohibit the ability to make small payments for individual pieces of content. Creators have to choose between invading user privacy by selling their data, annoying them with a barrage of ads, or putting up paywalls and forcing them to sign up for subscriptions to continue. The Lightning Network offers a new, alternative monetization strategy in the form of micropayments.
 date: 2023-03-10
 tags: bitcoin

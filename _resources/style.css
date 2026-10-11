@@ -220,3 +220,14 @@ article.fragment h3 { margin: 0.1rem 0 0.25rem; font-size: 1.5rem; }
 .code-block-wrapper .copy-btn:hover { background: #555; color: #fff; }
 
 @media (hover: none) { .code-block-wrapper .copy-btn, .markdown .anchor { opacity: 0.6; } }
+
+/* Featured writing */
+.featured { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); }
+.featured-card { border: 1px solid var(--rule); border-top: 2px solid var(--blood); background: var(--raised); padding: 1rem 1.25rem 1.1rem; }
+.featured-card h3 { margin: 0.2rem 0 0.4rem; font-size: 1.45rem; line-height: 1.2; }
+.featured-card h3 a { text-decoration: none; }
+.featured-card h3 a:hover { text-decoration: underline; }
+.featured-card p { margin: 0; color: var(--soft); font-size: 1.1rem; line-height: 1.45; }
+.featured-card .kicker { color: var(--muted); }
+.featured-block { margin: 1rem 0 2.5rem; }
+.featured-block > h2 { font-variant: small-caps; letter-spacing: 0.08em; font-weight: 400; color: var(--soft); font-size: 1.35rem; border-bottom: 1px solid var(--rule); }

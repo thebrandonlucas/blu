@@ -1,5 +1,6 @@
 ---
 title: Fear to Attempt
+featured: true
 description: Our doubts are traitors and make us lose the good we oft might win by fearing to attempt
 date: 2025-06-20
 tags: philosophy

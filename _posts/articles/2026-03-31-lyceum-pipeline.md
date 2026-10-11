@@ -1,5 +1,6 @@
 ---
 title: "Lyceum: A New Ancient Greek Digital Library For A Post-LLM World"
+featured: true
 description: Building an AI-powered pipeline to generate the largest, richest corpus of Ancient Greek texts with interlinear translations, morphology, and treebank data from a single prompt.
 date: 2026-03-31
 tags: greek language-learning software
