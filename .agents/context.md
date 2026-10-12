@@ -68,5 +68,5 @@ bun run build
 - `bun run dev` starts dev server with file watching and browser-sync
 - Elm compiler catches type errors during build, so build = typecheck
 - Snippets use fake dates (2000-01-XX) to control display order on the home page
-- Deployment: GitHub Actions builds and rsyncs `_site/` to VPS on push to master
+- Deployment: Quill builds with folio and runs scripts/deploy.sh after each publish (a new release on the VPS, switched in one step); no GitHub Actions
 - This project uses Git (not Jujutsu)

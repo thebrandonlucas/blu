@@ -47,4 +47,4 @@ Documents dated after the build day are hidden until then. Posts whose slug cont
 
 ## Deployment
 
-GitHub Actions workflow (`.github/workflows/deploy.yml`) builds and rsyncs to VPS on push to master. It still runs the old Elmstatic build; update it before merging this redesign.
+Quill builds the site with folio and runs `scripts/deploy.sh` after every publish: it copies `_site/` to a new release in `/var/www/blu-site/releases/` on the VPS and switches `/var/www/blu-site/current` (what Caddy serves) to it in one step. To deploy by hand: `folio build . && scripts/deploy.sh` from a machine the VPS accepts for `blu-deploy`. GitHub Actions no longer deploys: it can't build folio, which isn't on GitHub yet.
