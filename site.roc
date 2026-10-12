@@ -1215,9 +1215,9 @@ redirect = |to|
 		"\n",
 	)
 
-# The pieces marked `featured: true`, oldest first.
+# The pieces marked `featured: true`, newest first.
 featured : List(Item) -> List(Item)
-featured = |writing| writing.keep_if(|i| Folio.field(i.doc, "featured") == "true").sort_by(|i| date_num(i.doc.date))
+featured = |writing| newest(writing.keep_if(|i| Folio.field(i.doc, "featured") == "true"))
 
 featured_list : List(Item) -> Str
 featured_list = |items|
