@@ -1,5 +1,6 @@
 ---
 title: "Kai Devlog #3: Custom DSL & Plugin Modules"
+series: kai-devlog
 description: Replacing Kai's embedded Roc config with a custom DSL and making plugin modules simpler, reusable, and validated.
 date: 2026-08-11
 tags: nix software open-source

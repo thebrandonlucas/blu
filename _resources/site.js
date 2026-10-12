@@ -6,8 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Kaifiles are close enough to Nix for useful highlighting until they have
   // a dedicated highlight.js grammar.
-  hljs.registerAliases(['kaifile'], { languageName: 'nix' });
-  hljs.highlightAll();
+  if (window.hljs) {
+    hljs.registerAliases(['kaifile'], { languageName: 'nix' });
+    hljs.highlightAll();
+  }
 
   // Lazy load images
   document.querySelectorAll('.markdown img').forEach(function(img) {
@@ -49,15 +51,5 @@ document.addEventListener('DOMContentLoaded', function() {
     wrapper.className = 'table-wrapper';
     table.parentNode.insertBefore(wrapper, table);
     wrapper.appendChild(table);
-  });
-
-  // Make headers hash-linkable
-  document.querySelectorAll('.markdown h1[id], .markdown h2[id], .markdown h3[id], .markdown h4[id]').forEach(function(h) {
-    var link = document.createElement('a');
-    link.href = '#' + h.id;
-    link.className = 'header-anchor';
-    link.setAttribute('aria-hidden', 'true');
-    link.textContent = '#';
-    h.insertBefore(link, h.firstChild);
   });
 });

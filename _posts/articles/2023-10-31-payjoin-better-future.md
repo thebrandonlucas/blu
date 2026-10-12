@@ -1,5 +1,6 @@
 ---
 title: Payjoin for a Better Bitcoin Future
+featured: true
 description: Payjoin is a protocol that uses a simple, clever trick in the way Bitcoin creates transactions to solve many of its problems at once.
 date: 2023-10-31
 tags: payjoin bitcoin
