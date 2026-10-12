@@ -1022,11 +1022,11 @@ shell = |s| {
 			Html.void("link", [Html.a("rel", "icon"), Html.a("href", "/favicon.ico")]),
 			Html.void("link", [Html.a("rel", "preload"), Html.a("href", "/fonts/EBGaramond-Regular.woff2"), Html.a("as", "font"), Html.a("type", "font/woff2"), Html.a("crossorigin", "")]),
 			Html.void("link", [Html.a("rel", "preload"), Html.a("href", "/fonts/UnifrakturMaguntia-Regular.woff2"), Html.a("as", "font"), Html.a("type", "font/woff2"), Html.a("crossorigin", "")]),
-			Html.void("link", [Html.a("rel", "stylesheet"), Html.a("href", "/style.css")]),
+			Html.void("link", [Html.a("rel", "stylesheet"), Html.a("href", "/style.css?v=folio-1")]),
 			Html.void("link", [Html.a("rel", "stylesheet"), Html.a("href", "/highlight/tokyo-night-dark.min.css")]),
 			Html.el("script", [Html.a("type", "application/ld+json")], [structured_data(s, canonical, share_title)]),
 			Html.el("script", [Html.a("defer", ""), Html.a("src", "/highlight/highlight.min.js")], []),
-			Html.el("script", [Html.a("defer", ""), Html.a("src", "/site.js")], []),
+			Html.el("script", [Html.a("defer", ""), Html.a("src", "/site.js?v=folio-1")], []),
 		],
 		"\n",
 	)
