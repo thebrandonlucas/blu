@@ -5,6 +5,6 @@ tags:
 time: "19:53"
 ---
 
-Lyceum now supports passkeys!
+Lyceum now supports passkeys for easier, safer, more private logins!
 
 ![image](/images/journal/lyceum-passkey/pasted-20261013235340.png)
