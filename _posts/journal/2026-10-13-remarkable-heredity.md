@@ -1,5 +1,5 @@
 ---
-title: "Remarkable Heredity"
+title: "Remarkable Non-Heredity"
 date: 2026-10-13
 tags:
 time: "18:17"
