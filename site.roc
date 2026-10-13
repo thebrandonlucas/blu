@@ -161,7 +161,7 @@ item = |doc| {
 }
 
 newest : List(Item) -> List(Item)
-newest = |items| items.sort_by_reversed(|i| date_num(i.doc.date))
+newest = |items| items.sort_by_reversed(|i| stamp(i.doc))
 
 order_of : Item -> U64
 order_of = |i| U64.from_str(Folio.field(i.doc, "order")) ?? 99
@@ -354,7 +354,7 @@ post_page = |i, writing, projects| {
 		if series.is_empty() {
 			[]
 		} else {
-			writing.keep_if(|w| Folio.field(w.doc, "series") == series).sort_by(|w| date_num(w.doc.date))
+			writing.keep_if(|w| Folio.field(w.doc, "series") == series).sort_by(|w| stamp(w.doc))
 		}
 	project = projects.find_first(|p| about_project(i, p))
 	same = writing.keep_if(|w| w.section == i.section)
@@ -1171,6 +1171,12 @@ weekday = |date| {
 	n = (y + y // 4 - y // 100 + y // 400 + (t.get(p.m - 1) ?? 0) + p.d) % 7
 	["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].get(n) ?? "Sun"
 }
+
+# A document's date and `time:` (HH:MM, which Quill sets on publishing) as
+# 202610131549, so the day's pieces sort by when they went out. No time: the
+# start of the day.
+stamp : Folio.Doc -> U64
+stamp = |doc| date_num(doc.date) * 10000 + (U64.from_str(Folio.field(doc, "time").replace_each(":", "")) ?? 0)
 
 # 2026-10-08 → 20261008, for comparing and sorting.
 date_num : Str -> U64
