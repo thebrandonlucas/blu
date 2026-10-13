@@ -1,5 +1,5 @@
 ---
-title: "Tuesday, October 13, 2026"
+title: "Lyceum Data Open"
 date: 2026-10-13
 tags:
 time: "10:49"
