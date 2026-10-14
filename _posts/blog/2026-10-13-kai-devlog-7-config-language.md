@@ -1,5 +1,5 @@
 ---
-title: "Kai Devlog #7: Triumph of Config Language Roc"
+title: "Kai Devlog #7: Triumph of Roc"
 description: ""
 date: 2026-10-13
 tags:
