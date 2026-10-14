@@ -65,7 +65,10 @@ site = |input| {
 	List.join(
 		[
 			[{ path: "index.html", body: home(writing, projects, quotes) }],
-			writing.map(|i| { path: "${strip_slashes(i.url)}/index.html", body: post_page(i, writing, projects) }),
+			writing.keep_if(|i| i.section != "journal").map(|i| { path: "${strip_slashes(i.url)}/index.html", body: post_page(i, writing, projects) }),
+			# A journal entry lives on its day's page; its own old address points there.
+			writing.keep_if(|i| i.section == "journal").map(|i| { path: "posts/journal/${i.doc.stem}/index.html", body: redirect(i.url) }),
+			days(writing).map(|d| { path: "${strip_slashes(day_url(d))}/index.html", body: day_page(d, writing) }),
 			quotes.map(|q| { path: "${strip_slashes(q.url)}/index.html", body: quote_page(q) }),
 			projects.map(|p| { path: "${strip_slashes(p.url)}/index.html", body: project_page(p, writing) }),
 			pages.map(|p| { path: "${strip_slashes(p.url)}/index.html", body: plain_page(p) }),
@@ -81,7 +84,7 @@ site = |input| {
 				{ path: "changelog/index.html", body: changelog(input.commits) },
 				{ path: "404.html", body: not_found },
 				{ path: "rss.xml", body: feed("", writing) },
-				{ path: "sitemap.xml", body: sitemap(List.join([writing, quotes, projects, pages])) },
+				{ path: "sitemap.xml", body: sitemap(List.join([writing.keep_if(|i| i.section != "journal"), quotes, projects, pages])) },
 			],
 			writing_sections.map(|s| { path: "posts/${s}/rss.xml", body: feed(s, writing.keep_if(|i| i.section == s)) }),
 			tags_of(writing).map(|t| { path: "tags/${t}/index.html", body: tag_page(t, writing) }),
@@ -135,9 +138,11 @@ item = |doc| {
 		match section {
 			"page" => "/${doc.slug}/"
 			"project" => "/projects/${doc.slug}/"
+			"journal" => "${day_url(doc.date)}#${entry_id(doc)}"
 			_ => "/posts/${section}/${doc.stem}/"
 		}
-	written = Folio.field(doc, "title")
+	# Journal entries are plain: no titles, only their day and time.
+	written = if section == "journal" { "" } else { Folio.field(doc, "title") }
 	title =
 		if !written.is_empty() {
 			written
@@ -219,6 +224,41 @@ months = |items|
 		.keep_if(|i| i.section == "journal")
 		.map(|i| month_of(i.doc.date))
 		.fold([], |seen, m| if seen.contains(m) { seen } else { seen.append(m) })
+
+# "2026-10-13", for each day a journal entry was written on, newest first.
+days : List(Item) -> List(Str)
+days = |items|
+	items
+		.keep_if(|i| i.section == "journal")
+		.map(|i| i.doc.date)
+		.fold([], |seen, d| if seen.contains(d) { seen } else { seen.append(d) })
+
+# A journal day's page: /posts/journal/2026/10/13/.
+day_url : Str -> Str
+day_url = |date| "/posts/journal/${date.replace_each("-", "/")}/"
+
+# A journal entry's anchor on its day's page: its file name past the date.
+# Quill names entries by when they went out (2026-10-13-10-49 is 10-49).
+entry_id : Folio.Doc -> Str
+entry_id = |doc| doc.stem.drop_prefix("${doc.date}-")
+
+# Journal entries under a heading for each day, newest first.
+day_groups : List(Item) -> Str
+day_groups = |entries|
+	Str.join_with(
+		days(entries).map(
+			|d|
+				Html.el(
+					"section",
+					[cls("day")],
+					[
+						Html.el("h3", [], [Html.link(day_url(d), long_date(d))]),
+						Str.join_with(entries.keep_if(|i| i.doc.date == d).map(fragment_full), ""),
+					],
+				),
+		),
+		"",
+	)
 
 month_of : Str -> Str
 month_of = |date| {
@@ -655,7 +695,7 @@ journal_index = |writing| {
 				[cls("month")],
 				[
 					Html.el("h2", [], [Html.link("/posts/journal/${m.replace_each("-", "/")}/", month_name(m))]),
-					Str.join_with(writing.keep_if(|i| i.section == "journal" and month_of(i.doc.date) == m).map(fragment_full), ""),
+					day_groups(writing.keep_if(|i| i.section == "journal" and month_of(i.doc.date) == m)),
 				],
 			),
 	)
@@ -669,8 +709,28 @@ month_page = |m, writing| {
 		"journal",
 		month_name(m),
 		"The journal for ${month_name(m)}.",
-		[Str.join_with(fragments.map(fragment_full), ""), Html.el("p", [cls("more")], [Html.link("/posts/journal/", "The whole journal")])],
+		[day_groups(fragments), Html.el("p", [cls("more")], [Html.link("/posts/journal/", "The whole journal")])],
 		"/posts/journal/${m.replace_each("-", "/")}/",
+	)
+}
+
+day_page : Str, List(Item) -> Str
+day_page = |d, writing| {
+	entries = writing.keep_if(|i| i.section == "journal" and i.doc.date == d)
+	m = month_of(d)
+	index_page(
+		"journal",
+		long_date(d),
+		"The journal for ${long_date(d)}, newest first.",
+		[
+			Str.join_with(entries.map(fragment_full), ""),
+			Html.el(
+				"p",
+				[cls("more")],
+				[Html.link("/posts/journal/${m.replace_each("-", "/")}/", month_name(m)), " · ", Html.link("/posts/journal/", "The whole journal")],
+			),
+		],
+		day_url(d),
 	)
 }
 
@@ -799,28 +859,32 @@ fragment_teaser = |i|
 		[],
 		[
 			Html.el("a", [cls("date"), Html.a("href", i.url)], [long_date(i.doc.date)]),
-			if i.titled { Html.el("span", [cls("title")], [" · ", Html.text(i.title)]) } else { "" },
 			Html.el("p", [], [Html.text(clip(i.doc.excerpt, 240))]),
 		],
 	)
 
+# One journal entry: when it went out (its link), the project it's about, and
+# what it says. The day is the heading around it.
 fragment_full : Item -> Str
-fragment_full = |i|
+fragment_full = |i| {
+	time = Folio.field(i.doc, "time")
+	project = Folio.field(i.doc, "project")
 	Html.el(
 		"article",
-		[cls("fragment"), Html.a("id", i.doc.stem)],
+		[cls("fragment"), Html.a("id", entry_id(i.doc))],
 		[
 			Html.el(
 				"header",
 				[],
 				[
-					Html.el("a", [cls("date"), Html.a("href", i.url)], [long_date(i.doc.date)]),
-					if i.titled { Html.el("h3", [], [Html.text(i.title)]) } else { "" },
+					Html.el("a", [cls("date"), Html.a("href", i.url), Html.a("title", "Link to this entry")], [if time.is_empty() { "¶" } else { time }]),
+					if project.is_empty() { "" } else { Html.el("a", [cls("entry-project"), Html.a("href", "/projects/${project}/")], [project]) },
 				],
 			),
 			Html.el("div", [cls("markdown")], [i.doc.html]),
 		],
 	)
+}
 
 project_card : Item, List(Item) -> Str
 project_card = |p, writing| {

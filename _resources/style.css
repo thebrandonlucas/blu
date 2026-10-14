@@ -163,6 +163,11 @@ body > main.index, body > article { margin-top: 2.5rem; margin-bottom: 3rem; }
 article.fragment { margin: 1.75rem 0 2.5rem; }
 article.fragment > header .date { font-variant: small-caps; letter-spacing: 0.05em; color: var(--muted); text-decoration: none; }
 article.fragment > header .date::before { content: "† "; color: var(--blood); }
+article.fragment > header { display: flex; align-items: baseline; gap: 0.75rem; }
+article.fragment > header .entry-project { font-variant: small-caps; letter-spacing: 0.05em; font-size: 0.95rem; color: var(--soft); text-decoration: none; border: 1px solid var(--rule); border-radius: 999px; padding: 0 0.55rem; }
+article.fragment > header .entry-project:hover { color: var(--gold); border-color: var(--gold); }
+section.day > h3 { margin: 2rem 0 0.25rem; }
+section.day > h3 a { text-decoration: none; }
 article.fragment h3 { margin: 0.1rem 0 0.25rem; font-size: 1.5rem; }
 
 .tag-cloud { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
