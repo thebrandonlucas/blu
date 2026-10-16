@@ -1,7 +1,7 @@
 ---
 title: "Kai"
 tagline: "A friendly frontend for determinate computing."
-url: "https://kai.nix.fun"
+url: "https://kai.blu.cx"
 repo: "https://github.com/thebrandonlucas/kai"
 status: "active"
 order: 1

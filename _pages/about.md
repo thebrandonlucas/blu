@@ -5,7 +5,7 @@ description: "Brandon Lucas: software engineer in Bitcoin, builder of Kai and Ly
 
 An enthusiast about everything, but mostly great software.
 
-- Determinate computing @ [kai.nix.fun](https://kai.nix.fun)
+- Determinate computing @ [kai.blu.cx](https://kai.blu.cx)
 - Ancient Greek library @ [lyceum.quest](https://lyceum.quest)
 - Bitcoin Lightning payments @ [voltage.cloud](https://voltage.cloud)
 - Bitcoin privacy & scalability @ [payjoin.org](https://payjoin.org)
