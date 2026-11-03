@@ -13,7 +13,7 @@ Therefore! Seeing as there's a whole world of both untranslated and, if translat
 
 So, I built a CLI tool to make the whole process reproducible (as much as any LLM-involved process can be, anyway).
 
-For now I'm calling it *`apo`* (Automatic Prose Orchestrator, from the Greek *ἀπό* - meaning *from*). Everything here is free and open source. The code is MIT license, the data CC-by-SA 4.0 (due to using the OGA as a base).
+For now I'm calling it *`apo`* (Agent Prose Orchestrator, from the Greek *ἀπό* - meaning *from*). Everything here is free and open source. The code is MIT license, the data CC-by-SA 4.0 (due to using the OGA as a base).
 
 You can download it from Github [here](https://github.com/lyceum-quest/apo/releases/tag/v0.1.0).
 
