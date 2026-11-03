@@ -4,6 +4,7 @@ description: "Introducing apo, a free and open-source CLI that uses LLMs to gene
 date: 2026-11-03
 tags: greek language-learning software open-source
 project: "lyceum"
+time: "07:58"
 ---
 
 One of the original goals of [lyceum.quest](https://lyceum.quest) was to use LLMs to generate any data I felt was missing to help me learn Ancient Greek. This usually meant accurate word-by-word glosses and custom prose translations, because A) things like grammar/morphology have much more comprehensive publicly available datasets and tools (like the  [Opera Graeca Adnotata (OGA)](https://github.com/OperaGraecaAdnotata/OGA) and [Morpheus](https://github.com/perseids-tools/morpheus), respectively) due to their more rule-based nature  and B) because learning by  _reading_ lots of Ancient Greek, once I've learned the basic grammar rules, has given me the fastest improvement results in my own learning journey. Having full-verse and word-by-word translations has been most helpful to me in reconciling the discrepancy between the Greek words I'm reading and the meaning it's conveying to me. Having one or the other alone seems like missing a piece of the answer key and having to guess whether I got it correct (a method Ancient Greek books often seem to employ).
