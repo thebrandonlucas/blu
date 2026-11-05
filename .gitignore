@@ -2,3 +2,5 @@ _site
 .folio
 elm-stuff
 node_modules
+/.kai/*
+!/.kai/lock.json

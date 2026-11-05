@@ -8,13 +8,17 @@ This is **blu.cx** - Brandon Lucas's personal website and blog. It's a static si
 
 ## Build Commands
 
+[Kai](https://github.com/thebrandonlucas/kai) 0.0.11 or later provides the tools (`Kaifile.roc`), with a folio checkout beside this one (`../folio`):
+
 ```bash
-# In a folio checkout beside this one (../folio), whose dev shell has roc:
-nix develop ../folio -c ../folio/driver/target/release/folio build .   # → _site/
-nix develop ../folio -c roc test site.roc                                # site.roc's tests
+kai run folio        # build ../folio's driver and platform host, once
+kai run build        # → _site/
+kai run test         # site.roc's tests
+kai workflow ci      # check, test and build
+kai shell            # roc, zig, cargo and the deploy tools
 ```
 
-`site.roc` imports the platform from `../folio/platform/main.roc`.
+`site.roc` imports the platform from `../folio/platform/main.roc`. folio lives outside this repository, so the site is built by a task, not a sandboxed `kai build`.
 
 ## Architecture
 
@@ -47,4 +51,4 @@ Documents dated after the build day are hidden until then. Posts whose slug cont
 
 ## Deployment
 
-Quill builds the site with folio and runs `scripts/deploy.sh` after every publish: it copies `_site/` to a new release in `/var/www/blu-site/releases/` on the VPS and switches `/var/www/blu-site/current` (what Caddy serves) to it in one step. To deploy by hand: `folio build . && scripts/deploy.sh` from a machine the VPS accepts for `blu-deploy`. GitHub Actions no longer deploys: it can't build folio, which isn't on GitHub yet.
+Quill builds the site with folio and runs `scripts/deploy.sh` after every publish: it copies `_site/` to a new release in `/var/www/blu-site/releases/` on the VPS and switches `/var/www/blu-site/current` (what Caddy serves) to it in one step. To deploy by hand: `kai run build && kai run deploy` from a machine the VPS accepts for `blu-deploy`. GitHub Actions no longer deploys: it can't build folio, which isn't on GitHub yet.
