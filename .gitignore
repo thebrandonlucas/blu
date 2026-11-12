@@ -4,3 +4,4 @@ elm-stuff
 node_modules
 /.kai/*
 !/.kai/lock.json
+.signals

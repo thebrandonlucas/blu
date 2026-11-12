@@ -47,9 +47,13 @@ a:hover, a:focus-visible { color: var(--gold); }
 
 .blackletter { font-family: "UnifrakturMaguntia", serif; font-weight: 400; letter-spacing: 0.01em; }
 
-body > * { width: min(92%, var(--measure)); margin-left: auto; margin-right: auto; }
-body.wide > * { width: min(92%, var(--wide)); }
-body > main.index, body > article { margin-top: 2.5rem; margin-bottom: 3rem; }
+/* A page: site.roc's in #static, or the app's in #app, which replaces it. */
+.page > * { width: min(92%, var(--measure)); margin-left: auto; margin-right: auto; }
+.page.wide > * { width: min(92%, var(--wide)); }
+.page > main.index, .page > article { margin-top: 2.5rem; margin-bottom: 3rem; }
+blu-markup { display: block; }
+/* What the app focuses after a move, to start the new page at its top. */
+.top { position: absolute; top: 0; left: 0; width: 1px; height: 1px; overflow: hidden; outline: none; }
 
 /* The bar atop inner pages */
 .top-bar {

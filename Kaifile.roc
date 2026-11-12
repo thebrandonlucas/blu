@@ -1,13 +1,14 @@
 # blu.cx's development environment and tasks. `kai shell` has what folio
-# and site.roc need; `kai run --help` lists the tasks.
+# and site.roc need, `kai shell signals` what the roc-signals app in
+# signals/ needs; `kai run --help` lists the tasks.
 #
 # folio is a checkout beside this one (../folio), as site.roc's platform
 # path expects. It is published on no forge a Nix build can fetch, and a
 # source may not lie outside the project, so the site is built by a task
 # rather than a sandboxed build.
 app [kaifile] {
-	pf: platform "https://github.com/thebrandonlucas/kai/releases/download/v0.0.11/65bk6qdahqxn1mm6LR6Hkyw8dSdoeRZGwjNSuiPfvguP.tar.zst",
-	std: "https://github.com/thebrandonlucas/kai/releases/download/v0.0.11/std-6Jw5GxNCFkpnvBbnFmQg4KAVEn5bAfEveSZfDSzTDs42.tar.zst",
+	pf: platform "https://github.com/thebrandonlucas/kai/releases/download/v0.0.12/G3CQ6Ed3h7vyvV4eDvwH1J8UqBv2wEtkb9jLJhFkU5ny.tar.zst",
+	std: "https://github.com/thebrandonlucas/kai/releases/download/v0.0.12/std-6VuNBrdv6tT7ZAVD4bWGBYYwk1KJoXP7gCnFip5VSK11.tar.zst",
 }
 
 import std.Std
@@ -40,7 +41,18 @@ kaifile = Std.kaifile([
 			),
 		],
 	),
+	# The compiler roc-signals 0.5.0 was built and tested with, for the app.
+	Overlay("roc-signals", "github:roc-lang/roc-overlay/d36f07ca9bb332d48386da38fe0d45da5009d5bc"),
+	Follows("roc-signals", "nixpkgs", "default"),
+	Environment(
+		"signals",
+		[
+			Overlays(["roc-signals"]),
+			Tools(["rocpkgs.nightly-2026-11-11-7679cc5", "coreutils"]),
+		],
+	),
 	Shell("default", [Use("dev")]),
+	Shell("signals", [Use("signals")]),
 	Task(
 		"folio",
 		[
@@ -67,8 +79,16 @@ kaifile = Std.kaifile([
 			Run(["sh", "-c", "test -x ${folio} || { echo 'No folio driver: kai run folio' >&2; exit 1; }; exec ${folio} build ."]),
 		],
 	),
-	Task("test", [Use("dev"), Description("Run site.roc's tests"), Run(["roc", "test", "site.roc"])]),
+	Task("test", [Use("dev"), Description("Run the site's tests (packages/blu/) on folio's compiler"), Run(["roc", "test", "packages/blu/main.roc"])]),
 	Task("check", [Use("dev"), Description("Type-check site.roc"), Run(["roc", "check", "site.roc"])]),
+	# The app (signals/) on roc-signals 0.5.0, built with the nightly that
+	# release was tested with. It shares packages/blu/ with site.roc, so that
+	# package builds on both compilers.
+	Task("check-signals", [Use("signals"), Description("Type-check the app and its build script"), Run(["sh", "-c", "roc check signals/main.roc && roc check scripts/signals.roc"])]),
+	Task("test-signals", [Use("signals"), Description("Run the app's tests and packages/blu/'s on the app's compiler"), Run(["sh", "-c", "roc test packages/blu/main.roc && roc test signals/main.roc"])]),
+	Task("specs", [Use("signals"), Description("Run the app's specs (signals/specs/) natively"), Run(["roc", "scripts/signals.roc", "specs"])]),
+	Task("build-signals", [Use("signals"), Description("Build the app into _resources/app/ (commit it)"), Run(["roc", "scripts/signals.roc", "build"])]),
+	Task("verify-signals", [Use("signals"), Description("Check _resources/app/app.wasm is what signals/ builds"), Run(["roc", "scripts/signals.roc", "verify"])]),
 	Task(
 		"changelog",
 		[
@@ -87,5 +107,16 @@ kaifile = Std.kaifile([
 			OptionalEnvironmentVariables(["BLU_SSH", "BLU_DEPLOY_HOST", "QUILL_SITE_COMMIT", "SSH_AUTH_SOCK"]),
 		],
 	),
-	Workflow("ci", [RunTask("check", []), RunTask("test", []), RunTask("build", [])]),
+	Workflow(
+		"ci",
+		[
+			RunTask("check", []),
+			RunTask("test", []),
+			RunTask("build", []),
+			RunTask("check-signals", []),
+			RunTask("test-signals", []),
+			RunTask("specs", []),
+			RunTask("verify-signals", []),
+		],
+	),
 ])
